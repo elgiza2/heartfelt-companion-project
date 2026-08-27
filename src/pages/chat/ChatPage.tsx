@@ -10,6 +10,7 @@ import { useNavigate, useLocation, type NavigateOptions, type To } from "react-r
 import { supabase } from "@/integrations/supabase/client";
 import { MAX_CHAT_MESSAGE_CHARS } from "@/lib/validation/schemas";
 import { Button } from "@/components/ui/button";
+import { authenticatedFetch } from "@/lib/authenticatedFetch";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -2090,7 +2091,7 @@ const ChatPage = () => {
 
     if (readableLinks.length > 0) {
       try {
-        const response = await fetch("/api/read-url", {
+        const response = await authenticatedFetch("/api/read-url", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ urls: readableLinks, maxChars: 7000 }),
