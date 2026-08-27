@@ -75,7 +75,7 @@ export function StarterChips({ onPick, className = "" }: StarterCardsProps) {
           key={c.id}
           type="button"
           onClick={() => handleCardClick(c, onPick)}
-          className="flex items-center gap-2 rounded-lg border border-border/40 bg-background hover:bg-accent/60 active:scale-[0.98] transition-all px-3.5 h-9 shadow-sm"
+          className="ng-lift flex items-center gap-2 rounded-lg border border-border/40 bg-background hover:bg-accent/60 transition-all px-3.5 h-9 shadow-sm"
         >
           <c.Icon className="w-[15px] h-[15px] text-foreground/70 shrink-0" strokeWidth={1.9} />
           <span className="text-[13px] font-medium text-foreground whitespace-nowrap">
