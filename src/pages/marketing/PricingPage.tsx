@@ -18,6 +18,8 @@ import MobilePushShell from "@/components/layout/MobilePushShell";
 import AppSidebar from "@/components/layout/AppSidebar";
 import { useSidebarCollapsed } from "@/hooks/useSidebarCollapsed";
 import type { Gateway } from "@/components/billing/PaymentGatewaySheet";
+import PlanCard from "@/pages/billing/referrals/PlanCard";
+
 
 import {
   PLANS as RAW_PLANS,
@@ -768,6 +770,21 @@ const PricingPage = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-10"
         >
+          <div className="relative mx-auto mb-8 flex h-[150px] w-full max-w-[520px] items-center justify-center sm:h-[190px]">
+            <PlanCard
+              plan="starter"
+              className="absolute h-[100px] w-[146px] -translate-x-[92px] -rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:-translate-x-[124px]"
+            />
+            <PlanCard
+              plan="elite"
+              className="absolute h-[100px] w-[146px] translate-x-[92px] rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:translate-x-[124px]"
+            />
+            <PlanCard
+              plan="pro"
+              className="relative z-10 h-[112px] w-[162px] sm:h-[138px] sm:w-[200px]"
+            />
+          </div>
+
           <h2
             className="font-garamond text-foreground"
             style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", lineHeight: 1.1 }}
