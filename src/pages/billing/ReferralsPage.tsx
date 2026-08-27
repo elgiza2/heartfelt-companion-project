@@ -1,4 +1,4 @@
-/** @doc Referral program — clean, minimal layout: invite, points, rewards, withdrawals. */
+/** @doc Referral program — clean, minimal layout: invite, points, rewards. */
 import {
   useState,
   useEffect,
@@ -11,7 +11,7 @@ import {
 } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { QrCode, X, Download, Share2, Check, Copy, Gift } from "lucide-react";
+import { QrCode, X, Download, Share2, Check, Copy, Gift, ArrowLeft } from "lucide-react";
 
 const QRCodeSVG = lazy(() => import("qrcode.react").then((m) => ({ default: m.QRCodeSVG })));
 
@@ -40,7 +40,6 @@ export const PROMOTER_MESSAGE =
   "Hello, I want to join the Megsy AI promotion / referral system. Please send me the details.";
 export const CREDITS_PER_SIGNUP = 15;
 export const POINTS_PER_SIGNUP = 10;
-export const COMMISSION_PCT = 20;
 export const MIN_PAYOUT = 10;
 
 /* Neutral, quiet palette — no gradients, no neon. */
@@ -466,6 +465,15 @@ const ReferralsPage = () => {
 
   const content = (
     <div className="mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 pb-[190px] pt-4 md:pt-6">
+      <button
+        type="button"
+        onClick={() => navigate("/chat")}
+        aria-label="Back to chat"
+        className="mb-3 inline-flex h-10 w-fit items-center gap-1.5 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 text-[13px] font-medium text-foreground"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back
+      </button>
       <div className="flex-1">
         <Outlet />
       </div>
