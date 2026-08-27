@@ -129,18 +129,20 @@ export default function MobilePricingScreen({
 
       <div className="flex flex-1 flex-col justify-center gap-6 px-5 pb-2 pt-2">
         {/* Plan card fan */}
-        <div className="mps-rise relative mx-auto h-[132px] w-full max-w-[360px]" style={{ animationDelay: "20ms" }}>
+        <div className="mps-rise mx-auto flex h-[124px] w-full max-w-[360px] items-center justify-center" style={{ animationDelay: "20ms" }}>
           <PlanCard
             plan="starter"
-            className="absolute left-1/2 top-1/2 h-[92px] w-[134px] -translate-x-[calc(50%+74px)] -translate-y-[calc(50%+4px)] -rotate-[13deg]"
-          />
-          <PlanCard
-            plan="elite"
-            className="absolute left-1/2 top-1/2 h-[92px] w-[134px] translate-x-[calc(-50%+74px)] -translate-y-[calc(50%+4px)] rotate-[13deg]"
+            className="h-[88px] w-[128px] shrink-0 -mr-9"
+            style={{ transform: "rotate(-12deg) translateY(4px)" }}
           />
           <PlanCard
             plan="pro"
-            className="absolute left-1/2 top-1/2 z-10 h-[104px] w-[152px] -translate-x-1/2 -translate-y-[calc(50%-8px)]"
+            className="z-10 h-[102px] w-[148px] shrink-0"
+          />
+          <PlanCard
+            plan="elite"
+            className="h-[88px] w-[128px] shrink-0 -ml-9"
+            style={{ transform: "rotate(12deg) translateY(4px)" }}
           />
         </div>
 
