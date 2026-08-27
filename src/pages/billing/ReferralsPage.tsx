@@ -177,16 +177,19 @@ export const GhostButton = ({
   onClick,
   disabled,
   className = "",
+  "aria-label": ariaLabel,
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
+  "aria-label"?: string;
 }) => (
   <button
     type="button"
     onClick={onClick}
     disabled={disabled}
+    aria-label={ariaLabel}
     className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-foreground/15 bg-foreground/[0.04] px-5 text-[14px] font-medium text-foreground transition hover:bg-foreground/[0.08] disabled:cursor-not-allowed disabled:opacity-40 ${className}`}
   >
     {children}
