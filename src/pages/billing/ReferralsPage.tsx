@@ -496,7 +496,7 @@ const ReferralsPage = () => {
           <SidebarToggleIcon />
         </button>
       )}
-      <div className="flex-1">
+      <div className="flex flex-1 flex-col justify-center">
         <Outlet />
       </div>
     </div>
