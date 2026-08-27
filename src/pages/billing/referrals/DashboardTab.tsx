@@ -26,35 +26,26 @@ export default function DashboardTab() {
 
   return (
     <div className="flex h-full flex-col justify-center gap-4" data-stagger>
-      {/* Hero — image band with the headline set over it */}
-      <section className="relative overflow-hidden rounded-[28px] border border-foreground/[0.08]">
-        <img
-          src={heroImg}
-          alt="Golden ticket floating on a dark backdrop"
-          width={1104}
-          height={608}
-          className="h-[190px] w-full object-cover sm:h-[230px]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top, hsl(var(--background) / 0.94) 8%, hsl(var(--background) / 0.55) 45%, transparent 78%)",
-          }}
-        />
-        <div className="absolute inset-x-0 bottom-0 p-5">
-          <h1 className="text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[30px]">
-            Invite friends,
-            <br />
-            earn points.
-          </h1>
-          <p className="mt-1.5 max-w-[330px] text-[13px] leading-relaxed text-foreground/65">
-            Each friend who joins gives you {POINTS_PER_SIGNUP} points — trade them for a free
-            subscription.
-          </p>
+      {/* Hero */}
+      <section>
+        <div className="overflow-hidden rounded-[28px] border border-foreground/[0.08]">
+          <img
+            src={heroImg}
+            alt="Golden ticket floating on a dark backdrop"
+            width={1104}
+            height={608}
+            className="h-[150px] w-full object-cover sm:h-[185px]"
+          />
         </div>
+        <h1 className="mt-4 text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[30px]">
+          Invite friends, earn points.
+        </h1>
+        <p className="mt-1.5 max-w-[360px] text-[13px] leading-relaxed text-foreground/60">
+          Each friend who joins gives you {POINTS_PER_SIGNUP} points — trade them for a free
+          subscription.
+        </p>
       </section>
+
 
       {/* Points balance */}
       <section className="rounded-[24px] border border-foreground/[0.08] bg-foreground/[0.02] p-5">
