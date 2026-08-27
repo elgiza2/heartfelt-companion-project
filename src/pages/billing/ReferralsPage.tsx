@@ -11,7 +11,7 @@ import {
 } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "sonner";
-import { QrCode, X, Download, Share2, Check, Copy, Gift } from "lucide-react";
+import { QrCode, X, Download, Share2, Check, Copy } from "lucide-react";
 
 const QRCodeSVG = lazy(() => import("qrcode.react").then((m) => ({ default: m.QRCodeSVG })));
 
@@ -485,7 +485,7 @@ const ReferralsPage = () => {
   };
 
   const content = (
-    <div className={`mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 ${onRewards ? "pb-10" : "pb-[190px]"} pt-4 md:pt-6`}>
+    <div className={`mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 min-h-[100dvh] ${onRewards ? "pb-10" : "pb-[120px]"} pt-4 md:pt-6`}>
       {onRewards || isDesktop ? null : (
         <button
           type="button"
@@ -496,7 +496,7 @@ const ReferralsPage = () => {
           <SidebarToggleIcon />
         </button>
       )}
-      <div className="flex-1">
+      <div className="flex flex-1 flex-col justify-center">
         <Outlet />
       </div>
     </div>
@@ -510,51 +510,37 @@ const ReferralsPage = () => {
       style={{ paddingBottom: "max(env(safe-area-inset-bottom), 12px)" }}
     >
       <div className="pointer-events-auto mx-auto w-full max-w-[640px] px-5">
-        <div className="rounded-[26px] border border-foreground/10 bg-background/85 p-2.5 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.55)] backdrop-blur-xl">
-          <div className="grid grid-cols-[1fr_auto] gap-2">
-            <button
-              type="button"
-              onClick={copyLink}
-              disabled={!link}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-foreground px-5 text-[14px] font-semibold uppercase tracking-[0.08em] text-background transition active:scale-[0.99] disabled:opacity-40"
-            >
-              {justCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-              {justCopied ? "Copied" : "Copy invite link"}
-            </button>
-            <div className="flex gap-2">
-              <GhostButton
-                onClick={shareLink}
-                disabled={!link}
-                className="h-12 w-12 rounded-2xl !px-0"
-                aria-label="Share invite link"
-              >
-                <Share2 className="h-4 w-4" />
-              </GhostButton>
-              <GhostButton
-                onClick={() => setQrOpen(true)}
-                disabled={!link}
-                className="h-12 w-12 rounded-2xl !px-0"
-                aria-label="Show QR code"
-              >
-                <QrCode className="h-4 w-4" />
-              </GhostButton>
-            </div>
-          </div>
+        <div className="flex gap-2 rounded-[24px] border border-foreground/10 bg-background/85 p-2 shadow-[0_18px_40px_-22px_rgba(0,0,0,0.55)] backdrop-blur-xl">
           <button
             type="button"
-            onClick={() => navigate("/settings/referrals/rewards")}
-            className="mt-2 inline-flex h-11 w-full items-center justify-center gap-2 rounded-2xl border border-foreground/15 text-[13.5px] font-semibold uppercase tracking-[0.08em] text-foreground transition active:scale-[0.99]"
+            onClick={copyLink}
+            disabled={!link}
+            className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-[18px] bg-foreground px-5 text-[14px] font-semibold text-background transition active:scale-[0.99] disabled:opacity-40"
           >
-            <Gift className="h-4 w-4" />
-            Redeem rewards
-            <span className="rounded-full bg-foreground/[0.08] px-2 py-0.5 text-[11.5px] font-medium normal-case tracking-normal text-foreground/75">
-              {points} pts
-            </span>
+            {justCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+            {justCopied ? "Copied" : "Copy invite link"}
           </button>
+          <GhostButton
+            onClick={shareLink}
+            disabled={!link}
+            className="h-12 w-12 rounded-[18px] !px-0"
+            aria-label="Share invite link"
+          >
+            <Share2 className="h-4 w-4" />
+          </GhostButton>
+          <GhostButton
+            onClick={() => setQrOpen(true)}
+            disabled={!link}
+            className="h-12 w-12 rounded-[18px] !px-0"
+            aria-label="Show QR code"
+          >
+            <QrCode className="h-4 w-4" />
+          </GhostButton>
         </div>
       </div>
     </div>
   );
+
 
 
 
