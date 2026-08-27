@@ -126,7 +126,23 @@ export default function MobilePricingScreen({
         />
       </header>
 
-      <div className="flex flex-1 flex-col justify-center gap-7 px-5 pb-2 pt-6">
+      <div className="flex flex-1 flex-col justify-center gap-6 px-5 pb-2 pt-2">
+        {/* Plan card fan */}
+        <div className="mps-rise relative mx-auto h-[132px] w-full max-w-[360px]" style={{ animationDelay: "20ms" }}>
+          <PlanCard
+            plan="starter"
+            className="absolute left-1/2 top-1/2 h-[92px] w-[134px] -translate-x-[calc(50%+74px)] -translate-y-[calc(50%+4px)] -rotate-[13deg]"
+          />
+          <PlanCard
+            plan="elite"
+            className="absolute left-1/2 top-1/2 h-[92px] w-[134px] translate-x-[calc(-50%+74px)] -translate-y-[calc(50%+4px)] rotate-[13deg]"
+          />
+          <PlanCard
+            plan="pro"
+            className="absolute left-1/2 top-1/2 z-10 h-[104px] w-[152px] -translate-x-1/2 -translate-y-[calc(50%-8px)]"
+          />
+        </div>
+
         {/* Title + plan switch */}
         <div className="mps-rise" style={{ animationDelay: "40ms" }}>
           <h1
