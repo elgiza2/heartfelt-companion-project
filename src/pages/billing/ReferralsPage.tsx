@@ -469,81 +469,114 @@ const ReferralsPage = () => {
   };
 
   const content = (
-    <div className="mx-auto w-full max-w-2xl px-5 pb-28 pt-8 md:px-6 md:pt-12">
-      <header className="mb-8">
-        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-foreground/65">
-          Referrals
-        </p>
-        <h1 className="mt-2 text-[30px] font-semibold leading-tight tracking-tight text-foreground md:text-[36px]">
-          Invite friends,
-          <br />
-          collect points.
-        </h1>
-        <p className="mt-3 max-w-[440px] text-[14.5px] leading-relaxed text-foreground/50">
-          Every friend who joins gives you {POINTS_PER_SIGNUP} points and {COMMISSION_PCT}%
-          commission. Trade points for a free plan — 100 subscriptions available.
-        </p>
-      </header>
+    <div className="mx-auto w-full max-w-6xl px-5 pb-28 pt-8 md:px-8 md:pt-12">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:gap-12">
+        {/* ── Left rail: pitch + invite ─────────────────────────── */}
+        <div className="lg:sticky lg:top-12 lg:self-start">
+          <header className="relative overflow-hidden rounded-[28px] border border-foreground/[0.08] p-6 md:p-7">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 opacity-[0.9]"
+              style={{
+                background:
+                  "radial-gradient(120% 100% at 0% 0%, hsl(var(--primary) / 0.18), transparent 62%)",
+              }}
+            />
+            <div className="relative">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground/10 bg-foreground/[0.05] px-2.5 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/70">
+                Referrals
+              </span>
+              <h1 className="mt-4 text-[34px] font-semibold leading-[1.04] tracking-tight text-foreground md:text-[40px]">
+                Invite friends,
+                <br />
+                collect points.
+              </h1>
+              <p className="mt-3 text-[14.5px] leading-relaxed text-foreground/65">
+                Every friend who joins gives you {POINTS_PER_SIGNUP} points and {COMMISSION_PCT}%
+                commission. Trade points for a free plan — 100 subscriptions available.
+              </p>
 
-      {/* Invite link */}
-      <section className="rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.025] p-4 md:p-5">
-        <div className="flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
-          <Link2 className="h-3.5 w-3.5" strokeWidth={2} />
-          Your invite link
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  `${POINTS_PER_SIGNUP} pts / friend`,
+                  `${COMMISSION_PCT}% commission`,
+                  `$${MIN_PAYOUT} min payout`,
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-lg border border-foreground/10 bg-background/40 px-2.5 py-1.5 text-[12px] font-medium text-foreground/75"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </header>
+
+          {/* Invite link */}
+          <section className="ng-lift mt-4 rounded-[24px] border border-foreground/[0.08] bg-foreground/[0.03] p-4 md:p-5">
+            <div className="flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
+              <Link2 className="h-3.5 w-3.5" strokeWidth={2} />
+              Your invite link
+            </div>
+            <button
+              type="button"
+              onClick={copyLink}
+              disabled={!link}
+              className="mt-3 w-full truncate rounded-2xl border border-foreground/[0.08] bg-foreground/[0.05] px-4 py-3.5 text-left font-mono text-[12.5px] text-foreground/80 transition active:scale-[0.995] disabled:opacity-50"
+            >
+              {link || "—"}
+            </button>
+            <div className="mt-3 grid grid-cols-[1fr_1fr_auto] gap-2">
+              <PrimaryButton onClick={copyLink} disabled={!link}>
+                {justCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                {justCopied ? "Copied" : "Copy"}
+              </PrimaryButton>
+              <GhostButton onClick={shareLink} disabled={!link}>
+                <Share2 className="h-4 w-4" />
+                Share
+              </GhostButton>
+              <GhostButton
+                onClick={() => setQrOpen(true)}
+                disabled={!link}
+                className="w-11 !px-0"
+                aria-label="Show QR code"
+              >
+                <QrCode className="h-4 w-4" />
+              </GhostButton>
+            </div>
+          </section>
         </div>
-        <button
-          type="button"
-          onClick={copyLink}
-          disabled={!link}
-          className="mt-3 w-full truncate rounded-2xl border border-foreground/[0.08] bg-foreground/[0.04] px-4 py-3.5 text-left font-mono text-[12.5px] text-foreground/80 transition active:scale-[0.995] disabled:opacity-50"
-        >
-          {link || "—"}
-        </button>
-        <div className="mt-3 grid grid-cols-[1fr_1fr_auto] gap-2">
-          <PrimaryButton onClick={copyLink} disabled={!link}>
-            {justCopied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-            {justCopied ? "Copied" : "Copy"}
-          </PrimaryButton>
-          <GhostButton onClick={shareLink} disabled={!link}>
-            <Share2 className="h-4 w-4" />
-            Share
-          </GhostButton>
-          <GhostButton
-            onClick={() => setQrOpen(true)}
-            disabled={!link}
-            className="w-11 !px-0"
-          >
-            <QrCode className="h-4 w-4" />
-          </GhostButton>
+
+        {/* ── Right column: tabs + panels ───────────────────────── */}
+        <div className="min-w-0">
+          <nav className="scrollbar-none flex gap-1 overflow-x-auto rounded-full border border-foreground/[0.08] bg-foreground/[0.03] p-1">
+            {TABS.map((t) => (
+              <NavLink
+                key={t.to}
+                to={t.to}
+                end={t.end}
+                className={({ isActive }) =>
+                  `flex-1 whitespace-nowrap rounded-full px-3.5 py-2 text-center text-[13px] font-medium transition-colors ${
+                    isActive
+                      ? "bg-foreground text-background"
+                      : "text-foreground/60 hover:text-foreground"
+                  }`
+                }
+              >
+                {t.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="mt-5">
+            <Outlet />
+          </div>
         </div>
-      </section>
-
-      {/* Tabs */}
-      <nav className="scrollbar-none mt-8 flex gap-1 overflow-x-auto rounded-full border border-foreground/[0.08] bg-foreground/[0.03] p-1">
-        {TABS.map((t) => (
-          <NavLink
-            key={t.to}
-            to={t.to}
-            end={t.end}
-            className={({ isActive }) =>
-              `flex-1 whitespace-nowrap rounded-full px-3.5 py-2 text-center text-[13px] font-medium transition-colors ${
-                isActive
-                  ? "bg-foreground text-background"
-                  : "text-foreground/50 hover:text-foreground/80"
-              }`
-            }
-          >
-            {t.label}
-          </NavLink>
-        ))}
-      </nav>
-
-
-      <div className="mt-6">
-        <Outlet />
       </div>
     </div>
   );
+
 
   return (
     <ReferralsCtx.Provider value={ctx}>
