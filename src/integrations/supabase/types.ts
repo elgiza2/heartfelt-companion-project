@@ -9885,6 +9885,33 @@ export type Database = {
         }
         Relationships: []
       }
+      referral_points: {
+        Row: {
+          created_at: string
+          id: string
+          points: number
+          reference_id: string | null
+          source: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          points?: number
+          reference_id?: string | null
+          source?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          points?: number
+          reference_id?: string | null
+          source?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       referral_reward_catalog: {
         Row: {
           active: boolean
@@ -10373,6 +10400,92 @@ export type Database = {
           user_id?: string | null
         }
         Relationships: []
+      }
+      reward_catalog: {
+        Row: {
+          active: boolean
+          billing_period: string
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          image_key: string | null
+          plan: string | null
+          points_cost: number
+          slug: string
+          sort_order: number
+          stock_claimed: number
+          stock_total: number
+          title: string
+        }
+        Insert: {
+          active?: boolean
+          billing_period?: string
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_key?: string | null
+          plan?: string | null
+          points_cost: number
+          slug: string
+          sort_order?: number
+          stock_claimed?: number
+          stock_total?: number
+          title: string
+        }
+        Update: {
+          active?: boolean
+          billing_period?: string
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_key?: string | null
+          plan?: string | null
+          points_cost?: number
+          slug?: string
+          sort_order?: number
+          stock_claimed?: number
+          stock_total?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      reward_redemptions: {
+        Row: {
+          created_at: string
+          id: string
+          points_spent: number
+          reward_id: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          points_spent: number
+          reward_id: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          points_spent?: number
+          reward_id?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reward_redemptions_reward_id_fkey"
+            columns: ["reward_id"]
+            isOneToOne: false
+            referencedRelation: "reward_catalog"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       reward_tasks: {
         Row: {
@@ -15650,6 +15763,7 @@ export type Database = {
         Returns: string
       }
       redeem_referral_reward: { Args: { p_reward_id: string }; Returns: Json }
+      redeem_reward: { Args: { p_reward_slug: string }; Returns: Json }
       report_provider_key_failure: {
         Args: { p_error: string; p_key_id: string }
         Returns: undefined
