@@ -1,19 +1,17 @@
 /** @doc Serverless endpoint that returns the readable text of web pages for the Deep Research agent. */
 import { readUrls } from "../src/lib/search/readUrlCore";
+import { apiHeaders, authenticateRequest } from "../src/lib/api/authenticateRequest";
 
 export const config = { runtime: "nodejs" };
 
 export default async function handler(req: Request): Promise<Response> {
-  const headers = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "authorization, content-type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Content-Type": "application/json",
-    "Cache-Control": "no-store",
-  };
+  const headers = apiHeaders(req);
   if (req.method === "OPTIONS") return new Response("ok", { headers });
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers });
+  }
+  if (!(await authenticateRequest(req))) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers });
   }
 
   const body = (await req.json().catch(() => null)) as

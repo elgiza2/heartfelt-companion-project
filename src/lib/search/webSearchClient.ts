@@ -1,4 +1,5 @@
 /** @doc Browser helper that asks our own search endpoint for live web results. */
+import { authenticatedFetch } from "@/lib/authenticatedFetch";
 export interface WebSource {
   title: string;
   url: string;
@@ -11,7 +12,7 @@ export async function fetchWebSources(
   offset = 0,
 ): Promise<WebSource[]> {
   try {
-    const resp = await fetch("/api/web-search", {
+    const resp = await authenticatedFetch("/api/web-search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query, count, offset }),

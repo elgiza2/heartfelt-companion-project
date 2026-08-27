@@ -59,9 +59,9 @@ export default function DocsArtifactCard({ artifactId, title, docType, html: inl
     setExportingPdf(true);
     toast.loading("Rendering PDF…", { id: "pdf-export" });
     try {
-      const { renderDocPdf } = await import("@/lib/agent/docs/renderPdf.functions");
+      const { renderDocPdf } = await import("@/lib/agent/docs/renderPdf");
       const patched = patchDocHtml(html);
-      const data = await renderDocPdf({ data: { html: patched, title: filenameBase } });
+      const data = await renderDocPdf({ html: patched, title: filenameBase });
       if (!data?.url) throw new Error("render failed");
 
       const resp = await fetch(data.url);

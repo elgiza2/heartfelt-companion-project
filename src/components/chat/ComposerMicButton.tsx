@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Loader2, Mic } from "lucide-react";
 import { toast } from "sonner";
+import { authenticatedFetch } from "@/lib/authenticatedFetch";
 
 interface Props {
   /** Appends recognized speech to the composer value. */
@@ -59,7 +60,7 @@ export function ComposerMicButton({ onTranscript, onListeningChange, lang = "ar"
         const form = new FormData();
         form.append("file", blob, `speech.${ext}`);
         form.append("language", (lang || "ar").slice(0, 2));
-        const resp = await fetch("/api/transcribe", { method: "POST", body: form });
+        const resp = await authenticatedFetch("/api/transcribe", { method: "POST", body: form });
         const data = (await resp.json().catch(() => null)) as
           | { text?: string; error?: string }
           | null;

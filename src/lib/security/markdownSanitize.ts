@@ -20,7 +20,6 @@ const attributes: Attrs = {
   "*": [
     ...(baseAttrs["*"] ?? []),
     "className",
-    "style",
     ["dir", "auto", "ltr", "rtl"],
     "ariaHidden",
     "ariaLabel",
@@ -48,7 +47,7 @@ const attributes: Attrs = {
   munder: [],
   mover: [],
   munderover: [],
-  span: [...(baseAttrs.span ?? []), "className", "style", "dir"],
+  span: [...(baseAttrs.span ?? []), "className", "dir"],
   code: [...(baseAttrs.code ?? []), "className", "dir"],
   pre: [...(baseAttrs.pre ?? []), "className", "dir"],
   input: [["type", "checkbox"], ["disabled", true], "checked"],
@@ -89,7 +88,7 @@ export const chatMarkdownSchema = {
   protocols: {
     ...(defaultSchema.protocols ?? {}),
     href: ["http", "https", "mailto", "tel"],
-    src: ["http", "https", "data"],
+    src: ["http", "https"],
     cite: ["http", "https"],
   },
   strip: ["script", "style", "iframe", "object", "embed", "form", "meta", "link"],

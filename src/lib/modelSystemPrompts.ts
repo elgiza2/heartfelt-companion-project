@@ -568,7 +568,7 @@ Unless the user explicitly asked for another stack, ALWAYS use:
   • Vite + React 18 + TypeScript (strict)
   • Tailwind CSS v3 + shadcn/ui primitives (semantic tokens only)
   • react-router-dom v6
-  • @tanstack/react-query for server state
+  • native fetch with explicit loading, error, cancellation, and cache handling for server state
   • Supabase for auth + DB + storage (only if backend is needed)
   • Stripe (or the platform the user asked for) for payments
   • Zod for validation, sonner for toasts, lucide-react for icons

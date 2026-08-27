@@ -55,8 +55,8 @@ const DocumentPreviewPage = () => {
     setExporting(true);
     toast.loading("Rendering PDF…", { id: "pdf-export" });
     try {
-      const { renderDocPdf } = await import("@/lib/agent/docs/renderPdf.functions");
-      const data = await renderDocPdf({ data: { html: patched, title: filenameBase } });
+      const { renderDocPdf } = await import("@/lib/agent/docs/renderPdf");
+      const data = await renderDocPdf({ html: patched, title: filenameBase });
       if (!data?.url) throw new Error("render failed");
       const resp = await fetch(data.url);
       if (!resp.ok) throw new Error(`download failed (${resp.status})`);

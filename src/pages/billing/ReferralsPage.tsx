@@ -354,26 +354,6 @@ const ReferralsPage = () => {
     loadData();
   }, [loadData]);
 
-  const grantCredits = async (amount: number, description: string) => {
-    if (!userId || !amount) return null;
-    const { data, error } = await supabase.rpc("add_credits", {
-      p_user_id: userId,
-      p_amount: amount,
-      p_description: description,
-    });
-    if (error) {
-      toast.error(`Couldn't credit your account: ${error.message}`);
-      return false;
-    }
-    const payload = data as { success?: boolean; error?: string } | null;
-    if (payload && payload.success === false) {
-      toast.error(`Couldn't credit your account: ${payload.error ?? "Unknown error"}`);
-      return false;
-    }
-    window.dispatchEvent(new Event("credits-changed"));
-    return true;
-  };
-
   const claimTask = async (task: RewardTask) => {
     if (!userId) return;
     const existing = userTasks.find((u) => u.task_id === task.id);
@@ -389,20 +369,9 @@ const ReferralsPage = () => {
       window.open(task.action_url, "_blank", "noopener,noreferrer");
     }
 
-    const { error } = await supabase.from("user_reward_tasks").upsert(
-      {
-        user_id: userId,
-        task_id: task.id,
-        progress: task.action_type === "invite_friends" ? refs.length : 1,
-        completed_at: new Date().toISOString(),
-        awarded_credits: task.reward_credits,
-      },
-      { onConflict: "user_id,task_id" },
-    );
-    if (error) return toast.error(error.message);
-    const granted = await grantCredits(task.reward_credits, `Reward: ${task.title}`);
-    if (granted !== false) toast.success(`+${task.reward_credits} credits added`);
-    loadData();
+    // Credit grants must be verified and awarded atomically by a privileged
+    // backend flow; never trust a browser-written completion row or amount.
+    toast.info("This reward is awaiting secure verification");
   };
 
   const redeemReward = async (slug: string) => {

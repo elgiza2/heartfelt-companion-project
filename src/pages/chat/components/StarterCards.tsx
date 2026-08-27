@@ -75,7 +75,7 @@ export function StarterChips({ onPick, className = "" }: StarterCardsProps) {
           key={c.id}
           type="button"
           onClick={() => handleCardClick(c, onPick)}
-          className="flex items-center gap-2 rounded-full border border-border/40 bg-background hover:bg-accent/60 active:scale-[0.98] transition-all px-3.5 h-9 shadow-sm"
+          className="flex items-center gap-2 rounded-lg border border-border/40 bg-background hover:bg-accent/60 active:scale-[0.98] transition-all px-3.5 h-9 shadow-sm"
         >
           <c.Icon className="w-[15px] h-[15px] text-foreground/70 shrink-0" strokeWidth={1.9} />
           <span className="text-[13px] font-medium text-foreground whitespace-nowrap">
@@ -96,7 +96,7 @@ export function StarterCards({ onPick, className = "" }: StarterCardsProps) {
             key={c.id}
             type="button"
             onClick={() => handleCardClick(c, onPick)}
-            className="snap-start shrink-0 inline-flex items-center gap-2 rounded-full border border-border/40 bg-background hover:bg-accent/60 active:scale-[0.98] transition-all px-3.5 h-10 shadow-sm"
+            className="snap-start shrink-0 inline-flex items-center gap-2 rounded-lg border border-border/40 bg-background hover:bg-accent/60 active:scale-[0.98] transition-all px-3.5 h-10 shadow-sm"
           >
             <c.Icon className="w-4 h-4 text-foreground/70 shrink-0" strokeWidth={1.9} />
             <span className="text-[13px] font-medium text-foreground whitespace-nowrap">
