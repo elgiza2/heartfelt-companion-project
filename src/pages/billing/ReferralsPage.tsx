@@ -485,7 +485,7 @@ const ReferralsPage = () => {
   };
 
   const content = (
-    <div className={`mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 ${onRewards ? "pb-10" : "pb-[120px]"} pt-4 md:pt-6`}>
+    <div className={`mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 min-h-[100dvh] ${onRewards ? "pb-10" : "pb-[120px]"} pt-4 md:pt-6`}>
       {onRewards || isDesktop ? null : (
         <button
           type="button"
