@@ -324,13 +324,9 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
           out(fs.files.map((f) => "  " + f.path).join("\n") || "(no files)");
           break;
         case "node": {
-          try {
-            // eslint-disable-next-line no-new-func
-            const r = new Function(`return (${argStr})`)();
-            out(String(r));
-          } catch (e: any) {
-            err(String(e?.message || e));
-          }
+          // Never evaluate arbitrary JavaScript in the application origin: it
+          // would give generated code access to the signed-in user's session.
+          err("node: JavaScript execution is disabled in the browser sandbox");
           break;
         }
         case "python":
