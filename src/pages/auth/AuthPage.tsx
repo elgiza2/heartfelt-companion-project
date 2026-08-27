@@ -71,9 +71,11 @@ const AuthPage = () => {
   const mobileIntroSteps: Step[] = ["intro1", "email", "password"];
   const isMobileIntroStep = (s: Step) => isMobile && mobileIntroSteps.includes(s);
 
+  // Auth errors are shown inline (next to the form) on every viewport — a
+  // toast alone disappears before the user can react to it.
   const notifyMobileIntroError = (msg: string) => {
-    if (isMobileIntroStep(step)) setMobileError(msg);
-    else toast.error(msg);
+    setMobileError(msg);
+    if (!isMobileIntroStep(step)) toast.error(msg);
   };
 
   const clearMobileError = () => setMobileError(null);
@@ -81,7 +83,8 @@ const AuthPage = () => {
   const setPasswordClear = (v: string) => { setPassword(v); clearMobileError(); };
 
   useEffect(() => {
-    if (!isMobileIntroStep(step)) clearMobileError();
+    clearMobileError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
   const [countdown, setCountdown] = useState(0);
   const [userExists, setUserExists] = useState(false);
@@ -879,6 +882,17 @@ const AuthPage = () => {
                   </motion.div>
                 </AnimatePresence>
 
+                {/* Inline error — persistent, screen-reader announced */}
+                {mobileError ? (
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="mb-4 rounded-xl border border-destructive/40 bg-destructive/10 px-3.5 py-2.5 text-[13px] leading-relaxed text-destructive"
+                  >
+                    {mobileError}
+                  </div>
+                ) : null}
+
                 {/* Forms */}
                 <AnimatePresence mode="wait">
                   {step === "email" && (
@@ -894,7 +908,7 @@ const AuthPage = () => {
                           type="email"
                           placeholder={authT("emailPlaceholder")}
                           value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          onChange={(e) => setEmailClear(e.target.value)}
                           onPaste={(e) => handleTextPaste(e, setEmail)}
                           {...clipboardProps({ name: "email" })}
                           onKeyDown={(e) => e.key === "Enter" && handleCheckEmail()}
