@@ -472,32 +472,13 @@ const ReferralsPage = () => {
   };
 
   const content = (
-    <div className="mx-auto w-full max-w-[640px] px-5 pb-40 pt-6 md:pt-10">
-      {/* Tabs */}
-      <nav className="scrollbar-none flex gap-1 overflow-x-auto rounded-full border border-foreground/[0.08] bg-foreground/[0.03] p-1">
-        {TABS.map((t) => (
-          <NavLink
-            key={t.to}
-            to={t.to}
-            end={t.end}
-            className={({ isActive }) =>
-              `flex-1 whitespace-nowrap rounded-full px-3.5 py-2 text-center text-[13px] font-medium transition-colors ${
-                isActive
-                  ? "bg-foreground text-background"
-                  : "text-foreground/60 hover:text-foreground"
-              }`
-            }
-          >
-            {t.label}
-          </NavLink>
-        ))}
-      </nav>
-
-      <div className="mt-6">
+    <div className="mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 pb-[190px] pt-4 md:pt-6">
+      <div className="flex-1">
         <Outlet />
       </div>
     </div>
   );
+
 
   /** Sticky action bar — copy the invite link, open the redemption page. */
   const actionBar = (
