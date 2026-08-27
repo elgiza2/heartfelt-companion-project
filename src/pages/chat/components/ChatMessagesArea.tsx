@@ -43,6 +43,7 @@ interface ChatMessagesAreaProps {
   userName: string | null;
   isFirstVisit: boolean;
   returningGreetingIdx: number;
+  emptyGreeting?: ReactNode;
   // Mobile landing props (passthrough)
   mobileLandingProps: Record<string, any>;
   // Plus menu overlay
@@ -74,6 +75,7 @@ export const ChatMessagesArea = forwardRef<HTMLDivElement, ChatMessagesAreaProps
       userName,
       isFirstVisit,
       returningGreetingIdx,
+      emptyGreeting,
       mobileLandingProps,
       plusMenuOpen,
       renderPlusMenu,
@@ -127,6 +129,11 @@ export const ChatMessagesArea = forwardRef<HTMLDivElement, ChatMessagesAreaProps
         ) : messages.length === 0 ? (
           <div className="absolute inset-0 z-[1] md:flex md:items-start md:justify-center md:px-6 md:pt-[14vh] md:pb-[190px]">
             <MobileChatLandingMount {...(mobileLandingProps as any)} />
+            {emptyGreeting ? (
+              <div className="md:hidden absolute inset-x-6 top-[44%] -translate-y-1/2 text-center pointer-events-none">
+                {emptyGreeting}
+              </div>
+            ) : null}
             {/* Desktop greeting moved into the composer dock (above input) so it
                 sits flush against the prompt box per product direction. */}
           </div>

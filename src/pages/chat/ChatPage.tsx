@@ -3172,6 +3172,15 @@ const ChatPage = () => {
             userName={userName}
             isFirstVisit={isFirstVisit}
             returningGreetingIdx={returningGreetingIdx}
+            emptyGreeting={
+              <Suspense fallback={null}>
+                <DesktopGreeting
+                  userName={userName}
+                  isFirstVisit={isFirstVisit}
+                  returningGreetingIdx={returningGreetingIdx}
+                />
+              </Suspense>
+            }
             plusMenuOpen={plusMenuOpen}
             renderPlusMenu={renderPlusMenu}
             mobileLandingProps={{
