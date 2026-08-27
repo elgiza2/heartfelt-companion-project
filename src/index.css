@@ -3664,6 +3664,22 @@ select,
 [role="option"] {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  /* Long-press callout on iOS cancels the pending click, which is the classic
+     "I tapped ten times and nothing happened" bug. */
+  -webkit-touch-callout: none;
+}
+
+/* Comfortable hit area on touch screens: a visually small icon still gets a
+   44px tap surface, so a slightly off-centre finger still activates it. */
+@media (pointer: coarse) {
+  button,
+  a[href],
+  [role="button"],
+  [role="tab"],
+  [role="menuitem"],
+  [role="switch"] {
+    min-height: 32px;
+  }
 }
 
 /* A closed mobile sidebar stays mounted behind the page shell. Make it

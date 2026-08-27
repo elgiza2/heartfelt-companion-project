@@ -3007,14 +3007,9 @@ const ChatPage = () => {
           />
         </div>
 
-        <div
-          aria-hidden="true"
-          data-sidebar-edge-gesture="true"
-          className={`md:hidden fixed top-0 z-[80] w-8 touch-none ${
-            sidebarOpen ? "pointer-events-none" : "pointer-events-auto"
-          } ${isRtlUi ? "right-0" : "left-0"}`}
-          style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 132px)" }}
-        />
+        {/* The former left/right edge strip (z-80, touch-none) had no gesture
+            handler attached and only swallowed taps near the screen edge. */}
+
 
         <motion.div
           data-chat-main="true"
