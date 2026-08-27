@@ -9,7 +9,7 @@ import {
   Suspense,
   lazy,
 } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { QrCode, X, Download, Share2, Check, Copy, Gift } from "lucide-react";
 
@@ -252,13 +252,6 @@ const REFERRALS_FALLBACK: ReferralsContextValue = {
 
 const ReferralsCtx = createContext<ReferralsContextValue | null>(null);
 export const useReferrals = () => useContext(ReferralsCtx) ?? REFERRALS_FALLBACK;
-
-const TABS = [
-  { to: "/settings/referrals", label: "Overview", end: true },
-  { to: "/settings/referrals/rewards", label: "Rewards", end: false },
-  { to: "/settings/referrals/program", label: "How it works", end: false },
-  { to: "/settings/referrals/withdrawals", label: "Withdraw", end: false },
-] as const;
 
 const ReferralsPage = () => {
   const navigate = useNavigate();

@@ -124,8 +124,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
       >
         <Route index element={<ReferralsDashboardTab />} />
         <Route path="rewards" element={<ReferralsRewardsTab />} />
-        <Route path="program" element={<ReferralsProgramTab />} />
-        <Route path="withdrawals" element={<ReferralsWithdrawalsTab />} />
       </Route>
       <Route
         path="/settings/referrals/resources"
