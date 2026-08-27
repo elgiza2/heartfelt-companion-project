@@ -7,6 +7,7 @@ import { Check } from "lucide-react";
 import { MobileSidebarButton } from "@/components/shared/MobileSidebarButton";
 import { useUserLang } from "@/lib/authI18n";
 import { type PlanTier } from "@/data/pricingData";
+import PlanCard from "@/pages/billing/referrals/PlanCard";
 
 function useIsLightTheme() {
   const [light, setLight] = useState(
