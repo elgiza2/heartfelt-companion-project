@@ -39,7 +39,7 @@ export default function DashboardTab() {
           />
           <PlanCard
             plan="starter"
-            className="-mr-10 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            className="-mr-5 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
             style={{ transform: "rotate(-12deg) translateY(4px)" }}
           />
           <PlanCard
@@ -48,7 +48,7 @@ export default function DashboardTab() {
           />
           <PlanCard
             plan="elite"
-            className="-ml-10 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            className="-ml-5 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
             style={{ transform: "rotate(12deg) translateY(4px)" }}
           />
         </div>

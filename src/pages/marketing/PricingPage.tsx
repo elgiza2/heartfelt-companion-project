@@ -773,7 +773,7 @@ const PricingPage = () => {
           <div className="mx-auto mb-8 flex h-[170px] w-full max-w-[520px] items-center justify-center sm:h-[200px]">
             <PlanCard
               plan="starter"
-              className="-mr-10 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
+              className="-mr-6 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
               style={{ transform: "rotate(-12deg) translateY(4px)" }}
             />
             <PlanCard
@@ -782,7 +782,7 @@ const PricingPage = () => {
             />
             <PlanCard
               plan="elite"
-              className="-ml-10 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
+              className="-ml-6 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
               style={{ transform: "rotate(12deg) translateY(4px)" }}
             />
           </div>
