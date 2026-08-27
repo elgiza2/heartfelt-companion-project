@@ -635,7 +635,7 @@ html[data-theme="dark"] [data-skin="claude"] [data-plus-trigger]:hover {
  * and pure-dark chat surface — desktop + mobile.
  * ───────────────────────────────────────────────────────────── */
 :root,
-[data-shell="manus"][data-skin="claude"] {
+[data-shell="megsy"][data-skin="claude"] {
   --chat-claude-bg: hsl(var(--background));
   --chat-claude-composer: hsl(var(--card));
   --chat-claude-control: hsl(var(--background));
@@ -664,10 +664,10 @@ html[data-theme="dark"] [data-skin="claude"] [data-plus-trigger]:hover {
   [data-skin="claude"] .chat-composer-frame {
     border: 0 !important;
   }
-  [data-shell="manus"][data-skin="claude"],
-  [data-shell="manus"][data-skin="claude"] .chat-surface-dark,
-  [data-shell="manus"][data-skin="claude"] [data-chat-main="true"],
-  [data-shell="manus"][data-skin="claude"] {
+  [data-shell="megsy"][data-skin="claude"],
+  [data-shell="megsy"][data-skin="claude"] .chat-surface-dark,
+  [data-shell="megsy"][data-skin="claude"] [data-chat-main="true"],
+  [data-shell="megsy"][data-skin="claude"] {
     background: hsl(var(--background)) !important;
     background-color: hsl(var(--background)) !important;
   }
@@ -686,25 +686,25 @@ html[data-theme="dark"] [data-skin="claude"] [data-plus-trigger]:hover {
 }
 
 /* Chat surface color (desktop + mobile) matches the reference site. */
-[data-shell="manus"][data-skin="claude"],
-[data-shell="manus"][data-skin="claude"] .chat-surface-dark,
-[data-shell="manus"][data-skin="claude"] [data-chat-main="true"] {
+[data-shell="megsy"][data-skin="claude"],
+[data-shell="megsy"][data-skin="claude"] .chat-surface-dark,
+[data-shell="megsy"][data-skin="claude"] [data-chat-main="true"] {
   background: var(--chat-claude-bg, hsl(var(--background))) !important;
   background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
 
 /* Fallback: shell present without the claude skin attribute. */
-[data-shell="manus"] {
+[data-shell="megsy"] {
   background: var(--chat-claude-bg, hsl(var(--background))) !important;
   background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
 
 /* Inner chat layers that hardcode pure black. */
-[data-shell="manus"] .chat-surface-dark,
-[data-shell="manus"] [data-chat-main="true"],
-[data-shell="manus"] [role="log"].bg-black,
-[data-shell="manus"] .bg-black,
-[data-shell="manus"] .bg-background {
+[data-shell="megsy"] .chat-surface-dark,
+[data-shell="megsy"] [data-chat-main="true"],
+[data-shell="megsy"] [role="log"].bg-black,
+[data-shell="megsy"] .bg-black,
+[data-shell="megsy"] .bg-background {
   background: var(--chat-claude-bg, hsl(var(--background))) !important;
   background-color: var(--chat-claude-bg, hsl(var(--background))) !important;
 }
@@ -766,13 +766,13 @@ html[data-theme="dark"] [data-skin="claude"] [data-plus-trigger]:hover {
  * separate `--chat-claude-bg` / pure-black fallbacks.
  * ───────────────────────────────────────────────────────────── */
 @media (max-width: 767.98px) {
-  [data-shell="manus"],
-  [data-shell="manus"] .chat-surface-dark,
-  [data-shell="manus"] [data-chat-main="true"],
-  [data-shell="manus"] [role="log"],
-  [data-shell="manus"] [role="log"].bg-black,
-  [data-shell="manus"] .bg-black,
-  [data-shell="manus"] .bg-background {
+  [data-shell="megsy"],
+  [data-shell="megsy"] .chat-surface-dark,
+  [data-shell="megsy"] [data-chat-main="true"],
+  [data-shell="megsy"] [role="log"],
+  [data-shell="megsy"] [role="log"].bg-black,
+  [data-shell="megsy"] .bg-black,
+  [data-shell="megsy"] .bg-background {
     background: var(--chat-reference-bg, var(--chat-claude-bg, hsl(var(--background)))) !important;
     background-color: var(--chat-reference-bg, var(--chat-claude-bg, hsl(var(--background)))) !important;
     background-image: none !important;

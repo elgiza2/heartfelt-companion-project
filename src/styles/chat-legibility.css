@@ -19,7 +19,7 @@
 .chat-bubble-user,
 [data-role="user"] .message-bubble,
 [data-message-role="user"] .message-bubble,
-[data-shell="manus"] .user-bubble {
+[data-shell="megsy"] .user-bubble {
   background: var(--chat-user-bubble-bg) !important;
   color: var(--chat-user-bubble-fg) !important;
   border: 1px solid
