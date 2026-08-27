@@ -11,7 +11,7 @@ import {
 } from "react";
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "sonner";
-import { QrCode, X, Download, Share2, Check, Copy, Gift, ArrowLeft } from "lucide-react";
+import { QrCode, X, Download, Share2, Check, Copy, Gift } from "lucide-react";
 
 const QRCodeSVG = lazy(() => import("qrcode.react").then((m) => ({ default: m.QRCodeSVG })));
 
@@ -20,6 +20,25 @@ import AppSidebar from "@/components/layout/AppSidebar";
 import { useSidebarCollapsed } from "@/hooks/useSidebarCollapsed";
 import MobilePushShell from "@/components/layout/MobilePushShell";
 import { safeCopyText } from "@/lib/safeClipboard";
+
+/** Same sidebar toggle glyph used across the app's mobile headers. */
+const SidebarToggleIcon = () => (
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    className="h-[22px] w-[22px]"
+  >
+    <rect x="3.25" y="4.5" width="17.5" height="15" rx="3.5" stroke="currentColor" strokeWidth="1.6" />
+    <line x1="9.25" y1="4.5" x2="9.25" y2="19.5" stroke="currentColor" strokeWidth="1.6" />
+    <line x1="5.5" y1="9" x2="7" y2="9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <line x1="5.5" y1="12" x2="7" y2="12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <line x1="5.5" y1="15" x2="7" y2="15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+  </svg>
+);
 
 function useIsDesktop() {
   const [isDesktop, setIsDesktop] = useState<boolean>(
