@@ -131,7 +131,7 @@ export default function CustomApiKeys() {
             value={label}
             onChange={(e) => setLabel(e.target.value)}
             placeholder="Name (optional)"
-            className="mt-3 h-10 w-full rounded-[12px] bg-foreground/[0.05] px-3 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+            className="mt-3 h-10 w-full rounded-[12px] bg-foreground/[0.05] px-3 text-[14px] text-foreground outline-none placeholder:text-foreground/65"
             style={{ border: 0 }}
           />
           <input
@@ -140,7 +140,7 @@ export default function CustomApiKeys() {
             placeholder="API key"
             type="password"
             autoComplete="off"
-            className="mt-2 h-10 w-full rounded-[12px] bg-foreground/[0.05] px-3 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+            className="mt-2 h-10 w-full rounded-[12px] bg-foreground/[0.05] px-3 text-[14px] text-foreground outline-none placeholder:text-foreground/65"
             style={{ border: 0 }}
           />
           <div className="mt-3 flex gap-2">
@@ -177,9 +177,9 @@ export default function CustomApiKeys() {
 
       <div className="mt-3">
         {loading ? (
-          <p className="px-2 py-6 text-center text-[13px] text-foreground/40">Loading…</p>
+          <p className="px-2 py-6 text-center text-[13px] text-foreground/65">Loading…</p>
         ) : rows.length === 0 ? (
-          <p className="px-2 py-6 text-center text-[13px] text-foreground/40">
+          <p className="px-2 py-6 text-center text-[13px] text-foreground/65">
             No keys yet. Add one to use your own quota.
           </p>
         ) : (
@@ -189,7 +189,7 @@ export default function CustomApiKeys() {
                 <p className="truncate text-[14px] text-foreground">
                   {row.label || serviceLabel(row.provider)}
                 </p>
-                <p className="truncate text-[12px] text-foreground/40">
+                <p className="truncate text-[12px] text-foreground/65">
                   {serviceLabel(row.provider)} · {row.key_hint}
                 </p>
               </div>
@@ -197,7 +197,7 @@ export default function CustomApiKeys() {
                 type="button"
                 onClick={() => void toggle(row)}
                 className={`rounded-full px-3 py-1.5 text-[12px] ${
-                  row.is_enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/45"
+                  row.is_enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/65"
                 }`}
                 style={{ border: 0 }}
               >
@@ -207,7 +207,7 @@ export default function CustomApiKeys() {
                 type="button"
                 aria-label="Delete key"
                 onClick={() => void remove(row)}
-                className="text-foreground/40"
+                className="text-foreground/65"
                 style={{ border: 0, background: "transparent" }}
               >
                 <Trash2 className="h-4 w-4" />

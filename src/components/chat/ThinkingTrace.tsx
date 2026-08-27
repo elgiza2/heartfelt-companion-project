@@ -75,7 +75,7 @@ const ThinkingTrace = ({
           className={`truncate text-[13px] ${
             active
               ? "ai-shimmer font-medium motion-reduce:animate-none"
-              : "text-muted-foreground/80"
+              : "text-muted-foreground"
           }`}
           aria-live="polite"
         >
@@ -86,7 +86,7 @@ const ThinkingTrace = ({
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={label}
-          className="ms-auto grid h-6 w-6 shrink-0 place-items-center rounded-full text-muted-foreground/60 transition-colors hover:bg-muted/60 hover:text-foreground"
+          className="ms-auto grid h-6 w-6 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
         >
           <ChevronDown
             className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
@@ -101,13 +101,13 @@ const ThinkingTrace = ({
               lines.map((line, i) => (
                 <div
                   key={`${i}-${line.slice(0, 24)}`}
-                  className="text-[12.5px] leading-relaxed text-muted-foreground/75 whitespace-pre-wrap"
+                  className="text-[12.5px] leading-relaxed text-muted-foreground whitespace-pre-wrap"
                 >
                   {line}
                 </div>
               ))
             ) : (
-              <div className="text-[12.5px] text-muted-foreground/60">…</div>
+              <div className="text-[12.5px] text-muted-foreground">…</div>
             )}
           </div>
         </div>

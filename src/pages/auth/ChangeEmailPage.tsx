@@ -105,7 +105,7 @@ const ChangeEmailPage = () => {
     >
       <SubSection title="Current email" description="The address currently linked to your Megsy account.">
         <SubCard>
-          <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+          <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
             Signed in as
           </p>
           <p className="mt-1.5 text-[15px] font-medium text-foreground truncate">
@@ -116,7 +116,7 @@ const ChangeEmailPage = () => {
 
       <SubSection title="New email" description="Enter the new email address. You'll need to confirm from both inboxes to complete the change.">
         <SubCard>
-          <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+          <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
             New email address
           </label>
           <input

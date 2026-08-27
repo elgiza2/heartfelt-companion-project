@@ -19,7 +19,7 @@ import { notifyTurnContextChanged } from "@/lib/chat/turnContext";
 const CARD =
   "my-2 rounded-[20px] bg-foreground/[0.035] p-4 ring-1 ring-inset ring-foreground/[0.06]";
 const FIELD =
-  "h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35";
+  "h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/65";
 
 function findApp(appId: string): ApiApp | null {
   const key = appId.trim().toLowerCase();
@@ -99,7 +99,7 @@ export default function ConnectCard({ spec }: { spec: ConnectSpec }) {
           </span>
           <div className="min-w-0">
             <p className="truncate text-[14px] font-medium text-foreground">{title} connected</p>
-            <p className="text-[12px] text-foreground/45">Its tools are available in this chat.</p>
+            <p className="text-[12px] text-foreground/65">Its tools are available in this chat.</p>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function ConnectCard({ spec }: { spec: ConnectSpec }) {
         </span>
         <div className="min-w-0 flex-1">
           <p className="truncate text-[14px] font-medium text-foreground">Connect {title}</p>
-          <p className="truncate text-[12px] text-foreground/45">
+          <p className="truncate text-[12px] text-foreground/65">
             {spec.note || (spec.kind === "mcp" ? "Add the server URL" : "Add the required keys")}
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function ConnectCard({ spec }: { spec: ConnectSpec }) {
         ) : (
           fields.map((field) => (
             <div key={field.name}>
-              <p className="mb-1 px-1 text-[12px] text-foreground/45">{field.label}</p>
+              <p className="mb-1 px-1 text-[12px] text-foreground/65">{field.label}</p>
               <input
                 type={field.secret === false ? "text" : "password"}
                 value={values[field.name] ?? ""}
@@ -176,7 +176,7 @@ export default function ConnectCard({ spec }: { spec: ConnectSpec }) {
           href={app.keyUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-2 block text-center text-[12px] text-foreground/45 underline-offset-4 hover:underline"
+          className="mt-2 block text-center text-[12px] text-foreground/65 underline-offset-4 hover:underline"
         >
           Where do I find these keys?
         </a>

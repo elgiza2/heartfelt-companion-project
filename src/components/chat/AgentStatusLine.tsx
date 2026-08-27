@@ -246,7 +246,7 @@ const AgentStatusLine = ({ searchStatus, toolActivity, userText }: AgentStatusLi
             className="overflow-hidden"
           >
             <div className="ml-1 rounded-xl border border-foreground/10 bg-foreground/[0.03] px-3 py-2 text-[12.5px] leading-6 text-foreground/80">
-              <div className="mb-1 text-[11px] uppercase tracking-wide text-muted-foreground/80">
+              <div className="mb-1 text-[11px] uppercase tracking-wide text-muted-foreground">
                 {expandLabel}
               </div>
               {thoughtLog.length === 0 ? (

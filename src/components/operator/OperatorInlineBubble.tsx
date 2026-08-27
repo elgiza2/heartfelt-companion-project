@@ -84,7 +84,7 @@ export function OperatorInlineBubble({
             {isRunning ? (
               <button
                 onClick={() => stopOperatorRun(runId)}
-                className="ms-auto p-1.5 rounded-lg text-muted-foreground/50 hover:text-foreground liquid-glass-hover transition-all"
+                className="ms-auto p-1.5 rounded-lg text-muted-foreground hover:text-foreground liquid-glass-hover transition-all"
                 aria-label="Stop"
               >
                 <Square className="w-3.5 h-3.5" />

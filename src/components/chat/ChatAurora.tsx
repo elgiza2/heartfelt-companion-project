@@ -14,7 +14,7 @@ const ChatAurora = () => {
       const t = e.target as HTMLElement | null;
       if (!t || !(t instanceof HTMLTextAreaElement || t instanceof HTMLInputElement)) return;
       // Only react inside the chat surface.
-      if (!t.closest('[data-shell="manus"]')) return;
+      if (!t.closest('[data-shell="megsy"]')) return;
       const body = document.body;
       // Don't override stronger states.
       const cur = body.getAttribute("data-chat-state");

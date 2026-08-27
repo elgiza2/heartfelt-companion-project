@@ -72,7 +72,7 @@ function SelectRow({
       <span className="flex-1 min-w-0 truncate text-[13px] font-semibold text-foreground">
         {label}
       </span>
-      <ChevronLeft className="w-4 h-4 shrink-0 text-foreground/40 rtl:rotate-180" />
+      <ChevronLeft className="w-4 h-4 shrink-0 text-foreground/65 rtl:rotate-180" />
     </button>
   );
 }

@@ -116,7 +116,7 @@ const mobileFont = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI'
 const DesktopGroup = ({ title, children }: { title?: string; children: React.ReactNode }) => (
   <div className="flex flex-col">
     {title && (
-      <div className="px-2.5 pb-1 text-[10.5px] font-semibold uppercase tracking-wider text-foreground/40">
+      <div className="px-2.5 pb-1 text-[10.5px] font-semibold uppercase tracking-wider text-foreground/65">
         {title}
       </div>
     )}
@@ -746,7 +746,7 @@ const PlusMusic = (p: PlusContentProps) => (
 
       {p.userTracks.length > 0 && (
         <>
-          <div className="mt-2 px-3 text-[10px] uppercase tracking-wide text-muted-foreground/70">
+          <div className="mt-2 px-3 text-[10px] uppercase tracking-wide text-muted-foreground">
             My tracks
           </div>
           {p.userTracks.map((track) => {

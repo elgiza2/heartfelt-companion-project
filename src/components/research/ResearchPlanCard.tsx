@@ -110,7 +110,7 @@ const ResearchPlanCard = ({
                   >
                     {visibleItems.map((step, i) => (
                       <li key={i} className="flex gap-2.5">
-                        <span className="shrink-0 tabular-nums text-foreground/45 font-medium min-w-[1.25rem]">
+                        <span className="shrink-0 tabular-nums text-foreground/65 font-medium min-w-[1.25rem]">
                           {i + 1}.
                         </span>
                         <span className="flex-1">{step}</span>
@@ -180,8 +180,7 @@ const ResearchPlanCard = ({
                 type="button"
                 onClick={onSubmitEdit}
                 disabled={loading || !(feedback || "").trim()}
-                className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-60"
-              >
+                className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-60">
                 {loading ? <ToolLoader /> : "Regenerate plan"}
               </button>
               <button

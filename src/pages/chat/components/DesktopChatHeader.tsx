@@ -7,6 +7,7 @@ import { ChatModelSettingsPanel } from "./ChatModelSettingsPanel";
 import { supabase } from "@/integrations/supabase/client";
 import { t as uiT, useUserLang } from "@/lib/authI18n";
 import { UpgradePlanButton } from "@/components/billing/UpgradePlanButton";
+import { useCredits } from "@/hooks/useCredits";
 
 interface DesktopChatHeaderProps {
   chatMode: "normal" | "learning" | "shopping" | "images" | "video" | "slides" | "slides-images" | "deep-research" | "operator" | "code";
@@ -60,6 +61,7 @@ interface DesktopChatHeaderProps {
 export function DesktopChatHeader(props: DesktopChatHeaderProps) {
   const { chatMode, hasConversation, setSidebarOpen, conversationId, navigate, chatUserId } = props;
   const lang = useUserLang();
+  const { credits, loading: creditsLoading } = useCredits();
   const prefetchPricing = () => {
     void prefetchRoute("/pricing");
   };
@@ -127,6 +129,18 @@ export function DesktopChatHeader(props: DesktopChatHeaderProps) {
       <div className="flex-1" />
 
       <div className="flex items-center gap-2">
+        {chatUserId && !creditsLoading && credits !== null ? (
+          <button
+            type="button"
+            onClick={() => navigate("/settings/billing")}
+            aria-label={`${uiT("Credits", lang)}: ${credits}`}
+            title={uiT("Credits", lang)}
+            className="inline-flex items-center gap-1.5 h-9 px-3 rounded-2xl border border-border bg-muted/40 text-[12.5px] font-medium text-foreground/90 hover:bg-muted transition-colors tabular-nums"
+          >
+            <span aria-hidden="true">◆</span>
+            {credits.toLocaleString()}
+          </button>
+        ) : null}
         {chatUserId ? (
           <UpgradePlanButton variant="compact" />
         ) : (

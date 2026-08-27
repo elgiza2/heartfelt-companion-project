@@ -1,4 +1,5 @@
 /** @doc Notifications inbox — grouped feed with All / Updates / Messages tabs. */
+import EmptyState from "@/components/common/EmptyState";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, Loader2 } from "lucide-react";
@@ -184,8 +185,11 @@ const NotificationsInboxPage = () => {
           </div>
         ) : groups.length === 0 ? (
           <div className="nti-state nti-empty">
-            <p className="nti-empty-title">You're all caught up</p>
-            <p className="nti-empty-sub">New updates and messages will appear here.</p>
+            <EmptyState
+              compact
+              title="You're all caught up"
+              description="New updates and messages will appear here."
+            />
           </div>
         ) : (
           groups.map(([day, items], gi) => (

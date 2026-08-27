@@ -471,7 +471,7 @@ const ReferralsPage = () => {
   const content = (
     <div className="mx-auto w-full max-w-2xl px-5 pb-28 pt-8 md:px-6 md:pt-12">
       <header className="mb-8">
-        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-foreground/40">
+        <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-foreground/65">
           Referrals
         </p>
         <h1 className="mt-2 text-[30px] font-semibold leading-tight tracking-tight text-foreground md:text-[36px]">
@@ -487,7 +487,7 @@ const ReferralsPage = () => {
 
       {/* Invite link */}
       <section className="rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.025] p-4 md:p-5">
-        <div className="flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/35">
+        <div className="flex items-center gap-2 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
           <Link2 className="h-3.5 w-3.5" strokeWidth={2} />
           Your invite link
         </div>

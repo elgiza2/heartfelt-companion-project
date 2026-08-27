@@ -90,7 +90,7 @@ const InChatTimerCard = ({
     paused: {
       label: "Paused",
       ring: "text-muted-foreground",
-      bg: "text-muted-foreground/15",
+      bg: "text-muted-foreground",
       chip: "text-muted-foreground",
       border: "border-border/40",
       shadow: "shadow-[0_6px_20px_-10px_rgba(0,0,0,0.3)]",

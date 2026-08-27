@@ -130,7 +130,7 @@ export default function CapabilitiesPage() {
   };
 
   const SectionLabel = ({ children }: { children: React.ReactNode }) => (
-    <h2 className="mt-8 mb-2 px-4 text-[12px] font-medium uppercase tracking-[0.08em] text-foreground/40">
+    <h2 className="mt-8 mb-2 px-4 text-[12px] font-medium uppercase tracking-[0.08em] text-foreground/65">
       {children}
     </h2>
   );
@@ -209,7 +209,7 @@ export default function CapabilitiesPage() {
                 : "No memory captured yet"
             }
             trailing={
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/40">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-foreground/65">
                 <path d="M9 6l6 6-6 6" />
               </svg>
             }
@@ -217,7 +217,7 @@ export default function CapabilitiesPage() {
             last
           />
         </Card>
-        <p className="mt-2 px-4 text-[12px] leading-[1.5] text-foreground/40">
+        <p className="mt-2 px-4 text-[12px] leading-[1.5] text-foreground/65">
           Starts fresh and learns from your conversations.
         </p>
 

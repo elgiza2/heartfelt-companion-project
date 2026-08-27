@@ -2926,7 +2926,7 @@ const ChatPage = () => {
 
       {/* Megsy Operator now renders as a tiny inline pill above the input — see below. */}
       <div
-        data-shell="manus"
+        data-shell="megsy"
         data-skin="claude"
         data-chat-empty={showDesktopEmptyVideo ? "true" : "false"}
         className="theme-fixed flex bg-background overflow-hidden relative"

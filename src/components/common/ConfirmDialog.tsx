@@ -71,8 +71,7 @@ export function ConfirmDialog({
             type="button"
             className={`cfd-btn cfd-btn-primary ${danger ? "is-danger" : ""}`}
             onClick={onConfirm}
-            disabled={loading}
-          >
+            disabled={loading}>
             {loading && <Loader2 className="cfd-spin" size={14} />}
             {confirmLabel}
           </button>

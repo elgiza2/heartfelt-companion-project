@@ -177,13 +177,13 @@ const ResetPasswordPage = () => {
                     onKeyDown={(e) => e.key === "Enter" && handleReset()}
                     autoFocus
                     autoComplete="new-password"
-                    className="w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 pr-10 text-[15px] text-foreground placeholder:text-foreground/30 outline-none focus:border-foreground/70 transition-colors duration-200"
+                    className="w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 pr-10 text-[15px] text-foreground placeholder:text-foreground/65 outline-none focus:border-foreground/70 transition-colors duration-200"
                   />
                   <button
                     type="button"
                     aria-label={showPassword ? "Hide password" : "Show password"}
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -191,8 +191,7 @@ const ResetPasswordPage = () => {
                 <button
                   onClick={handleReset}
                   disabled={isSubmitting || password.length < 8}
-                  className="w-full py-3 rounded-full bg-foreground text-background text-[14px] font-medium hover:bg-foreground/90 active:scale-[0.99] transition-all duration-150 disabled:opacity-40 disabled:pointer-events-none"
-                >
+                  className="w-full py-3 rounded-full bg-foreground text-background text-[14px] font-medium hover:bg-foreground/90 active:scale-[0.99] transition-all duration-150 disabled:opacity-40 disabled:pointer-events-none">
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
                       <Spinner />

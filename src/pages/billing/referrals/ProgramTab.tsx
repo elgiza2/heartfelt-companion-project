@@ -94,7 +94,7 @@ export default function ProgramTab() {
               >
                 {COMMISSION_PCT}%
               </div>
-              <div className="text-[11px] text-foreground/45">Lifetime</div>
+              <div className="text-[11px] text-foreground/65">Lifetime</div>
             </div>
             <div
               className="rounded-2xl px-3 py-3"
@@ -115,7 +115,7 @@ export default function ProgramTab() {
               >
                 +{CREDITS_PER_SIGNUP}
               </div>
-              <div className="text-[11px] text-foreground/45">Per signup</div>
+              <div className="text-[11px] text-foreground/65">Per signup</div>
             </div>
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function ProgramTab() {
       {/* How it works */}
       <div>
         <div className="mb-3 flex items-center justify-between px-1">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
             How it works
           </p>
-          <span className="inline-flex items-center gap-1 text-[10.5px] font-medium uppercase tracking-[0.18em] text-foreground/40">
+          <span className="inline-flex items-center gap-1 text-[10.5px] font-medium uppercase tracking-[0.18em] text-foreground/65">
             <TrendingUp className="h-3 w-3" style={{ color: GOLD }} />
             Compounding
           </span>

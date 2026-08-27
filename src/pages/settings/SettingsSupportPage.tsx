@@ -81,7 +81,7 @@ export default function SettingsSupportPage() {
 
         {/* Footer */}
         <footer className="px-2 pt-4">
-          <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground/60">
+          <p className="text-center text-xs font-medium uppercase tracking-widest text-muted-foreground">
             App Version 4.12.0 • Build 992
           </p>
         </footer>

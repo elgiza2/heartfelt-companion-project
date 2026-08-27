@@ -68,7 +68,7 @@ function State({ server }: { server: McpServer }) {
         <AlertCircle className="h-3.5 w-3.5" /> Not reachable
       </span>
     );
-  return <span className="text-[11.5px] text-foreground/40">Checking…</span>;
+  return <span className="text-[11.5px] text-foreground/65">Checking…</span>;
 }
 
 export default function McpTab({
@@ -211,7 +211,7 @@ export default function McpTab({
             </span>
             <div className="min-w-0 flex-1">
               <p className="text-[14px] font-medium text-foreground">New MCP server</p>
-              <p className="text-[12px] text-foreground/45">Paste the server URL to connect it</p>
+              <p className="text-[12px] text-foreground/65">Paste the server URL to connect it</p>
             </div>
             <button
               type="button"
@@ -225,35 +225,35 @@ export default function McpTab({
 
           <div className="space-y-2.5">
             <div>
-              <p className="mb-1 px-1 text-[12px] text-foreground/45">Server URL</p>
+              <p className="mb-1 px-1 text-[12px] text-foreground/65">Server URL</p>
               <input
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://example.com/mcp"
                 autoComplete="off"
-                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/65"
                 style={{ border: 0 }}
               />
             </div>
             <div>
-              <p className="mb-1 px-1 text-[12px] text-foreground/45">Name (optional)</p>
+              <p className="mb-1 px-1 text-[12px] text-foreground/65">Name (optional)</p>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="My server"
                 autoComplete="off"
-                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+                className="h-11 w-full rounded-[13px] bg-background px-3.5 text-[14px] text-foreground outline-none placeholder:text-foreground/65"
                 style={{ border: 0 }}
               />
             </div>
             <div>
-              <p className="mb-1 px-1 text-[12px] text-foreground/45">Headers (optional)</p>
+              <p className="mb-1 px-1 text-[12px] text-foreground/65">Headers (optional)</p>
               <textarea
                 value={headersText}
                 onChange={(e) => setHeadersText(e.target.value)}
                 placeholder="Authorization: Bearer …"
                 rows={2}
-                className="w-full resize-none rounded-[13px] bg-background px-3.5 py-2.5 text-[13px] text-foreground outline-none placeholder:text-foreground/35"
+                className="w-full resize-none rounded-[13px] bg-background px-3.5 py-2.5 text-[13px] text-foreground outline-none placeholder:text-foreground/65"
                 style={{ border: 0 }}
               />
             </div>
@@ -297,14 +297,14 @@ export default function McpTab({
 
       <div className="mt-3 space-y-2">
         {loading ? (
-          <p className="px-2 py-8 text-center text-[13px] text-foreground/40">Loading…</p>
+          <p className="px-2 py-8 text-center text-[13px] text-foreground/65">Loading…</p>
         ) : list.length === 0 ? (
           <div className="px-6 py-10 text-center">
             <div className="mx-auto mb-3 grid h-11 w-11 place-items-center rounded-full bg-foreground/[0.05]">
-              <Server className="h-5 w-5 text-foreground/45" />
+              <Server className="h-5 w-5 text-foreground/65" />
             </div>
             <p className="text-[14px] text-foreground">No MCP servers yet</p>
-            <p className="mt-1 text-[12.5px] leading-relaxed text-foreground/40">
+            <p className="mt-1 text-[12.5px] leading-relaxed text-foreground/65">
               Connect a server to use its tools directly inside your chats.
             </p>
           </div>
@@ -314,13 +314,13 @@ export default function McpTab({
               <div className="flex items-start gap-3">
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[14px] font-medium text-foreground">{server.name}</p>
-                  <p className="truncate text-[12px] text-foreground/40">{hostOf(server.url)}</p>
+                  <p className="truncate text-[12px] text-foreground/65">{hostOf(server.url)}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => void onToggle(server)}
                   className={`shrink-0 rounded-full px-3 py-1.5 text-[12px] ${
-                    server.enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/45"
+                    server.enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/65"
                   }`}
                   style={{ border: 0 }}
                 >
@@ -330,7 +330,7 @@ export default function McpTab({
 
               <div className="mt-2.5 flex items-center gap-3">
                 <State server={server} />
-                <span className="text-[11.5px] text-foreground/35">
+                <span className="text-[11.5px] text-foreground/65">
                   {server.tool_names?.length ?? 0} tools
                 </span>
               </div>

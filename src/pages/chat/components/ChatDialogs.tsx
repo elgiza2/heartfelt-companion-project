@@ -145,7 +145,7 @@ export function ChatDialogs(p: ChatDialogsProps) {
               onKeyDown={(e) => e.key === "Enter" && p.handleRename()}
               placeholder={tx("Chat name")}
               autoFocus
-              className="flex-1 bg-transparent border-0 outline-none text-sm font-medium text-foreground placeholder:text-muted-foreground/60"
+              className="flex-1 bg-transparent border-0 outline-none text-sm font-medium text-foreground placeholder:text-muted-foreground"
             />
           </div>
         </div>
@@ -191,14 +191,13 @@ export function ChatDialogs(p: ChatDialogsProps) {
               value={p.inviteEmail}
               onChange={(e) => p.setInviteEmail(e.target.value)}
               placeholder="friend@example.com"
-              className="flex-1 h-11 rounded-xl border-border/30 bg-accent/30 text-sm text-foreground placeholder:text-muted-foreground/60"
+              className="flex-1 h-11 rounded-xl border-border/30 bg-accent/30 text-sm text-foreground placeholder:text-muted-foreground"
               onKeyDown={(e) => e.key === "Enter" && p.handleSendInviteEmail()}
             />
             <button
               onClick={p.handleSendInviteEmail}
               disabled={p.inviteLoading || !p.inviteEmail.trim()}
-              className="px-4 h-11 rounded-xl text-sm font-semibold bg-foreground text-background hover:opacity-90 transition-opacity disabled:opacity-40"
-            >
+              className="px-4 h-11 rounded-xl text-sm font-semibold bg-foreground text-background hover:opacity-90 transition-opacity disabled:opacity-40">
               {p.inviteLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : tx("Invite")}
             </button>
           </div>
@@ -206,7 +205,7 @@ export function ChatDialogs(p: ChatDialogsProps) {
 
         <div className="px-5 flex items-center gap-3">
           <div className="flex-1 h-px bg-border/40" />
-          <span className="text-[10px] font-semibold text-muted-foreground/70 uppercase tracking-wider">
+          <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
             {tx("or share link")}
           </span>
           <div className="flex-1 h-px bg-border/40" />
@@ -274,7 +273,7 @@ export function ChatDialogs(p: ChatDialogsProps) {
                     <span className="text-xs text-foreground flex-1 truncate">
                        {m.name || tx("Member")}
                     </span>
-                    <span className="text-[10px] text-muted-foreground/70 capitalize">
+                    <span className="text-[10px] text-muted-foreground capitalize">
                        {isOnline ? tx("online") : tx(m.role)}
                     </span>
                     {isOwner && (

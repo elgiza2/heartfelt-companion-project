@@ -16,7 +16,7 @@ const Field = ({
   busy: boolean;
 }) => (
   <div className="flex items-center gap-2">
-    <span className="w-5 shrink-0 text-center font-mono text-[13px] text-foreground/40">
+    <span className="w-5 shrink-0 text-center font-mono text-[13px] text-foreground/65">
       {name}
     </span>
     <input
@@ -156,7 +156,7 @@ const KPage = () => {
             onSubmit={() => submit("f", f, () => setF(""))}
           />
         </div>
-        <div className="flex justify-between px-1 font-mono text-[11px] text-foreground/30">
+        <div className="flex justify-between px-1 font-mono text-[11px] text-foreground/65">
           <span>
             {line("d")} · {line("r")} · {line("y")} · {line("a")} · {line("t")} ·{" "}
             {line("b")} · {line("c")} · {line("f")}

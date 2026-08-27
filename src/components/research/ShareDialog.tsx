@@ -166,7 +166,8 @@ export default function ShareDialog({ open, onOpenChange, url, title, isRtl }: P
                     ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
                     : "bg-foreground text-background hover:opacity-90"
                 }`}
-              >
+      aria-label="Check"
+    >
                 {copied ? <Check className="h-3.5 w-3.5" /> : null}
                 <span>{copied ? ("Copied") : "Copy"}</span>
               </button>

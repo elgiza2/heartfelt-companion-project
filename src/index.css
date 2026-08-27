@@ -3792,3 +3792,14 @@ a.bg-primary:hover,
 [role="button"].bg-primary:hover {
   filter: brightness(1.06) saturate(1.04);
 }
+
+/* ── Accessibility: keyboard focus ring ─────────────────────────────
+   Many components use `outline-none` for a clean mouse experience, which
+   also removes the only affordance keyboard users have. Restore a visible
+   ring for :focus-visible only (keyboard / assistive navigation), so mouse
+   and touch interaction stays unchanged. */
+:where(a, button, [role="button"], input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 2px solid hsl(var(--ring, var(--primary)));
+  outline-offset: 2px;
+  border-radius: inherit;
+}

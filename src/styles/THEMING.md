@@ -10,7 +10,7 @@ Single source of truth for colors. Change values here — never hardcode
 | `src/lib/theme.ts` | The only theme controller. `light \| dark \| system`, stored in `localStorage["megsy_theme"]`. Auth routes are always dark. |
 | `index.html` (pre-paint script) | Applies the stored theme before React renders (no flash). |
 | `src/index.css` → `@layer base` | The semantic token sets: `:root` = light, `.dark, [data-theme="dark"]` = dark. |
-| `src/styles/manus-tokens.css` | Settings (`--mn-*`) tokens; all derived from the semantic tokens. |
+| `src/styles/megsy-tokens.css` | Settings (`--mn-*`) tokens; all derived from the semantic tokens. |
 | `src/styles/light-theme.css` | Remaps for legacy dark-first CSS when `html[data-theme="light"]`. |
 | `src/hooks/useThemeMode.ts` | `useThemeMode()` / `useIsDark()` for React components that need the resolved theme. |
 

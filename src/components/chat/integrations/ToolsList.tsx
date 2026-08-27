@@ -31,18 +31,18 @@ export default function ToolsList({
   return (
     <div dir="ltr" className="mt-6">
       <div className="flex items-center justify-between px-2 pb-1">
-        <p className="text-[12.5px] text-foreground/40">{title}</p>
-        <span className="text-[12.5px] text-foreground/30">{tools.length}</span>
+        <p className="text-[12.5px] text-foreground/65">{title}</p>
+        <span className="text-[12.5px] text-foreground/65">{tools.length}</span>
       </div>
 
       {tools.length > 8 && (
         <div className="flex h-10 items-center gap-2 px-2">
-          <Search className="h-4 w-4 shrink-0 text-foreground/35" />
+          <Search className="h-4 w-4 shrink-0 text-foreground/65" />
           <input
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search tools"
-            className="h-full w-full text-[13.5px] text-foreground outline-none placeholder:text-foreground/35"
+            className="h-full w-full text-[13.5px] text-foreground outline-none placeholder:text-foreground/65"
             style={{
               border: 0,
               background: "transparent",
@@ -65,14 +65,14 @@ export default function ToolsList({
           >
             <span className="block truncate text-[13.5px] text-foreground/85">{tool.name}</span>
             {tool.description && (
-              <span className="mt-0.5 block truncate text-[11.5px] text-foreground/40">
+              <span className="mt-0.5 block truncate text-[11.5px] text-foreground/65">
                 {tool.description}
               </span>
             )}
           </button>
         ))}
         {visible.length === 0 && (
-          <p className="py-6 text-center text-[12.5px] text-foreground/40">No matching tools</p>
+          <p className="py-6 text-center text-[12.5px] text-foreground/65">No matching tools</p>
         )}
       </div>
     </div>

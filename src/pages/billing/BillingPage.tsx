@@ -307,7 +307,7 @@ const BillingPage = () => {
         <SubCard>
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+              <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
                 Message credits
               </p>
               <p className="mt-2 text-[32px] font-semibold text-foreground leading-none">

@@ -644,7 +644,7 @@ const PricingPage = () => {
       `}</style>
 
       {/* ============================ HERO ============================ */}
-      <section className="relative w-full overflow-hidden min-h-[68vh] md:min-h-[78vh] flex flex-col">
+      <section className="relative w-full overflow-hidden min-h-[68vh] md:min-h-[52vh] flex flex-col">
         {/* Warm gradient poster shown while the hero video streams in */}
         <div
           aria-hidden
@@ -1072,11 +1072,11 @@ const PricingPage = () => {
             <a href="mailto:support@megsyai.com" className="hover:text-foreground transition-colors">
               support@megsyai.com
             </a>
-            <span className="hidden sm:inline text-foreground/20">·</span>
+            <span className="hidden sm:inline text-foreground/65">·</span>
             <a href="tel:+201098821812" className="hover:text-foreground transition-colors">
               +20 109 882 1812
             </a>
-            <span className="hidden sm:inline text-foreground/20">·</span>
+            <span className="hidden sm:inline text-foreground/65">·</span>
             <button
               onClick={() => navigate("/refund")}
               className="hover:text-foreground transition-colors"

@@ -62,7 +62,7 @@ const CardImage = ({ src, alt }: { src: string; alt: string }) => {
   if (error) {
     return (
       <div className="w-full h-28 bg-foreground/5 flex items-center justify-center">
-        <ImageOff className="w-6 h-6 text-foreground/20" />
+        <ImageOff className="w-6 h-6 text-foreground/65" />
       </div>
     );
   }

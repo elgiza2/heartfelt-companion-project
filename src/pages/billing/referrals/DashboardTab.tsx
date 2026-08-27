@@ -25,11 +25,11 @@ const Panel = ({
 
 const Stat = ({ label, value, hint }: { label: string; value: string; hint?: string }) => (
   <div className="flex-1 px-4 py-4">
-    <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/35">
+    <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/65">
       {label}
     </p>
     <p className="mt-1.5 text-[22px] font-semibold tracking-tight text-foreground">{value}</p>
-    {hint ? <p className="mt-0.5 text-[11.5px] text-foreground/35">{hint}</p> : null}
+    {hint ? <p className="mt-0.5 text-[11.5px] text-foreground/65">{hint}</p> : null}
   </div>
 );
 
@@ -48,14 +48,14 @@ export default function DashboardTab() {
     <div className="space-y-4 pb-10">
       {/* Points balance */}
       <Panel className="overflow-hidden p-5">
-        <p className="text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/35">
+        <p className="text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
           Points balance
         </p>
         <div className="mt-2 flex items-end gap-2">
           <span className="text-[46px] font-semibold leading-none tracking-tight text-foreground">
             {points}
           </span>
-          <span className="pb-1.5 text-[13px] text-foreground/40">
+          <span className="pb-1.5 text-[13px] text-foreground/65">
             / {goal} for a free plan
           </span>
         </div>
@@ -68,7 +68,7 @@ export default function DashboardTab() {
         </div>
 
         <div className="mt-3 flex items-center justify-between gap-3">
-          <p className="text-[13px] text-foreground/45">
+          <p className="text-[13px] text-foreground/65">
             {remaining === 0
               ? "You can redeem a plan now."
               : `${remaining} points to go — ${Math.ceil(remaining / POINTS_PER_SIGNUP)} more friends.`}
@@ -95,7 +95,7 @@ export default function DashboardTab() {
 
       {/* Recent signups */}
       <section>
-        <h2 className="mb-2 px-1 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/35">
+        <h2 className="mb-2 px-1 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
           Recent signups
         </h2>
         <Panel className="divide-y divide-foreground/[0.07]">
@@ -106,7 +106,7 @@ export default function DashboardTab() {
               <div key={r.id} className="flex items-center justify-between px-4 py-3.5">
                 <div>
                   <p className="text-[14px] font-medium text-foreground">New signup</p>
-                  <p className="text-[12px] text-foreground/40">{fmtDate(r.created_at)}</p>
+                  <p className="text-[12px] text-foreground/65">{fmtDate(r.created_at)}</p>
                 </div>
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11.5px] font-medium ring-1 ${statusTone(r.status)}`}
@@ -121,7 +121,7 @@ export default function DashboardTab() {
 
       {wds.length > 0 && (
         <section>
-          <h2 className="mb-2 px-1 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/35">
+          <h2 className="mb-2 px-1 text-[11.5px] font-medium uppercase tracking-[0.12em] text-foreground/65">
             Withdrawals
           </h2>
           <Panel className="divide-y divide-foreground/[0.07]">
@@ -131,7 +131,7 @@ export default function DashboardTab() {
                   <p className="text-[14px] font-medium text-foreground">
                     ${Number(w.amount).toFixed(2)}
                   </p>
-                  <p className="text-[12px] text-foreground/40">{fmtDate(w.created_at)}</p>
+                  <p className="text-[12px] text-foreground/65">{fmtDate(w.created_at)}</p>
                 </div>
                 <span
                   className={`rounded-full px-2.5 py-1 text-[11.5px] font-medium ring-1 ${statusTone(w.status)}`}

@@ -20,7 +20,7 @@ import "./styles/pwa-safe-area.css";
 import "./styles/pwa-responsive.css";
 import "./styles/font-fallback.css";
 import "./styles/view-transitions.css";
-import "./styles/manus-tokens.css";
+import "./styles/megsy-tokens.css";
 // Load the complete dark-only theme before first paint. Deferred injection
 // caused a second full-page style pass and visible color flash.
 import "./styles/deferred.css";

@@ -253,7 +253,7 @@ export default function MobileAuthIntro({
                     onChange={(e) => setEmail?.(e.target.value)}
                     disabled={showPasswordField}
                     autoFocus
-                    className="w-full bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/40 disabled:opacity-70"
+                    className="w-full bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/65 disabled:opacity-70"
                     dir="ltr"
                   />
                 </motion.div>
@@ -288,7 +288,7 @@ export default function MobileAuthIntro({
                     value={password}
                     onChange={(e) => setPassword?.(e.target.value)}
                     autoFocus
-                    className="flex-1 bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/40"
+                    className="flex-1 bg-transparent outline-none text-[15px] text-foreground placeholder:text-foreground/65"
                     dir="ltr"
                   />
                   <button

@@ -71,9 +71,11 @@ const AuthPage = () => {
   const mobileIntroSteps: Step[] = ["intro1", "email", "password"];
   const isMobileIntroStep = (s: Step) => isMobile && mobileIntroSteps.includes(s);
 
+  // Auth errors are shown inline (next to the form) on every viewport — a
+  // toast alone disappears before the user can react to it.
   const notifyMobileIntroError = (msg: string) => {
-    if (isMobileIntroStep(step)) setMobileError(msg);
-    else toast.error(msg);
+    setMobileError(msg);
+    if (!isMobileIntroStep(step)) toast.error(msg);
   };
 
   const clearMobileError = () => setMobileError(null);
@@ -81,7 +83,8 @@ const AuthPage = () => {
   const setPasswordClear = (v: string) => { setPassword(v); clearMobileError(); };
 
   useEffect(() => {
-    if (!isMobileIntroStep(step)) clearMobileError();
+    clearMobileError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
   const [countdown, setCountdown] = useState(0);
   const [userExists, setUserExists] = useState(false);
@@ -718,7 +721,7 @@ const AuthPage = () => {
 
   // Borderless input — only a thin bottom rule, no fill
   const inputCls =
-    "auth-input-white w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 text-[15px] text-start !text-foreground placeholder:!text-foreground/40 outline-none focus:border-foreground/70 transition-colors duration-200";
+    "auth-input-white w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 text-[15px] text-start !text-foreground placeholder:!text-foreground/65 outline-none focus:border-foreground/70 transition-colors duration-200";
 
   // Primary CTA — white only after the related field has text.
   const btnCls = (hasValue: boolean) =>
@@ -879,6 +882,17 @@ const AuthPage = () => {
                   </motion.div>
                 </AnimatePresence>
 
+                {/* Inline error — persistent, screen-reader announced */}
+                {mobileError ? (
+                  <div
+                    role="alert"
+                    aria-live="assertive"
+                    className="mb-4 rounded-xl border border-destructive/40 bg-destructive/10 px-3.5 py-2.5 text-[13px] leading-relaxed text-destructive"
+                  >
+                    {mobileError}
+                  </div>
+                ) : null}
+
                 {/* Forms */}
                 <AnimatePresence mode="wait">
                   {step === "email" && (
@@ -894,7 +908,7 @@ const AuthPage = () => {
                           type="email"
                           placeholder={authT("emailPlaceholder")}
                           value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          onChange={(e) => setEmailClear(e.target.value)}
                           onPaste={(e) => handleTextPaste(e, setEmail)}
                           {...clipboardProps({ name: "email" })}
                           onKeyDown={(e) => e.key === "Enter" && handleCheckEmail()}
@@ -917,7 +931,7 @@ const AuthPage = () => {
                                   setReferralCode("");
                                   setShowReferralField(false);
                                 }}
-                                className="text-[11px] text-foreground/45 hover:text-foreground/80 transition-colors"
+                                className="text-[11px] text-foreground/65 hover:text-foreground/80 transition-colors"
                               >
                                 {authT("remove")}
                               </button>
@@ -934,7 +948,7 @@ const AuthPage = () => {
                               className={`${inputCls} font-mono tracking-wider`}
                             />
                             {referralCode && (
-                              <p className="text-[11px] text-foreground/45">
+                              <p className="text-[11px] text-foreground/65">
                                 {authT("invitedByPrefix")}
                                 <span className="text-foreground/75 font-mono">{referralCode}</span>
                                 {authT("invitedBySuffix")}
@@ -969,7 +983,7 @@ const AuthPage = () => {
 
                       <div className="flex items-center gap-3 my-5">
                         <div className="flex-1 h-px bg-foreground/10" />
-                        <span className="text-[10px] text-foreground/35 uppercase tracking-[0.25em]">
+                        <span className="text-[10px] text-foreground/65 uppercase tracking-[0.25em]">
                           {authT("or")}
                         </span>
                         <div className="flex-1 h-px bg-foreground/10" />
@@ -1040,7 +1054,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1120,7 +1134,7 @@ const AuthPage = () => {
                       )}
                       <div className="text-center">
                         {countdown > 0 ? (
-                          <p className="text-[12px] text-foreground/40">{authTf("resendInSecondsTemplate", { n: countdown })}</p>
+                          <p className="text-[12px] text-foreground/65">{authTf("resendInSecondsTemplate", { n: countdown })}</p>
                         ) : (
                           <button
                             onClick={() => sendOTP()}
@@ -1159,7 +1173,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowNewPassword(!showNewPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showNewPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1231,7 +1245,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowNewPassword(!showNewPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showNewPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1311,7 +1325,7 @@ const AuthPage = () => {
                 )}
 
                 {/* Footer terms */}
-                <p className="mt-4 lg:mt-12 text-[11px] text-foreground/40 leading-relaxed">
+                <p className="mt-4 lg:mt-12 text-[11px] text-foreground/65 leading-relaxed">
                   {authT("termsAgreePrefix")}
                   <a
                     href="https://terms.megsyai.com"

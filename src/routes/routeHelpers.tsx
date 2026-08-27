@@ -1,5 +1,6 @@
 import { useEffect, useState, useTransition, useDeferredValue } from "react";
 import { Routes, Navigate, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import PageTransition from "@/components/common/PageTransition";
 import { usePromoBanner } from "@/components/promo/usePromoBanner";
@@ -13,6 +14,21 @@ export const LegacyToolsRedirect = () => {
   const location = useLocation();
   const rest = location.pathname.replace(/^\/tools/, "");
   return <Navigate to={`/images/tools${rest}`} replace />;
+};
+
+/**
+ * Retired route redirect. Instead of silently swapping the URL, we tell the
+ * user the page has moved so the navigation never feels broken.
+ */
+export const RetiredRedirect = ({ to }: { to: string }) => {
+  const location = useLocation();
+  useEffect(() => {
+    toast.message("This page has moved", {
+      description: `${location.pathname} is no longer available — taking you to ${to}.`,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return <Navigate to={to} replace />;
 };
 
 export const LegacyAiRedirect = () => {
@@ -35,6 +51,7 @@ const SkeletonBar = ({ className = "" }: { className?: string }) => (
 export const LazyFallback = () => {
   const location = useLocation();
   const isChatRoute =
+    location.pathname === "/" ||
     location.pathname === "/chat" ||
     location.pathname === "/index" ||
     location.pathname === "/showcase";

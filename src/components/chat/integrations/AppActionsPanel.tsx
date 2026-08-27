@@ -39,7 +39,7 @@ export default function AppActionsPanel({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-6 text-foreground/40">
+      <div className="flex items-center justify-center py-6 text-foreground/65">
         <Loader2 className="h-4 w-4 animate-spin" />
       </div>
     );

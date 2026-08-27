@@ -31,16 +31,16 @@ export default function RewardsTab() {
     <div className="space-y-5 pb-10">
       <Card className="flex items-center justify-between p-4">
         <div>
-          <p className="text-[12px] font-medium uppercase tracking-wider text-foreground/45">
+          <p className="text-[12px] font-medium uppercase tracking-wider text-foreground/65">
             Your points
           </p>
           <p className="mt-1 text-[28px] font-semibold tracking-tight text-foreground">{points}</p>
-          <p className="text-[12px] text-foreground/45">
+          <p className="text-[12px] text-foreground/65">
             +{POINTS_PER_SIGNUP} points for every friend who signs up
           </p>
         </div>
         <div className="text-right">
-          <p className="text-[12px] text-foreground/45">Subscriptions left</p>
+          <p className="text-[12px] text-foreground/65">Subscriptions left</p>
           <p className="text-[20px] font-semibold text-foreground">{remainingTotal}</p>
         </div>
       </Card>
@@ -68,7 +68,7 @@ export default function RewardsTab() {
               <div className="mt-4 flex items-end justify-between">
                 <div>
                   <p className="text-[20px] font-semibold text-foreground">{r.points_cost}</p>
-                  <p className="text-[12px] text-foreground/45">points · {left} left</p>
+                  <p className="text-[12px] text-foreground/65">points · {left} left</p>
                 </div>
                 <PrimaryButton
                   onClick={() => redeem(r.slug)}

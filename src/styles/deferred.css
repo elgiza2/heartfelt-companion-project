@@ -3,7 +3,7 @@
 @import "./ios-glass.css";
 @import "./ios-feel.css";
 @import "./megsy-workspace.css";
-@import "./manus-theme.css";
+@import "./megsy-theme.css";
 @import "./portfolio-referrals.css";
 @import "./about-hero.css";
 @import "./settings-amber.css";
@@ -2035,7 +2035,7 @@ svg {
 }
 
 @media (max-width: 767.98px) {
-  [data-shell="manus"][data-skin="claude"] {
+  [data-shell="megsy"][data-skin="claude"] {
     --chat-claude-bg: hsl(var(--background));
     --chat-reference-bg: hsl(var(--background));
     background: hsl(var(--background)) !important;
@@ -2043,20 +2043,20 @@ svg {
     background-image: none !important;
   }
 
-  [data-shell="manus"][data-skin="claude"] .chat-surface-dark,
-  [data-shell="manus"][data-skin="claude"] [data-chat-main="true"],
-  [data-shell="manus"][data-skin="claude"] [role="log"],
-  [data-shell="manus"][data-skin="claude"] [role="log"] > .absolute,
-  [data-shell="manus"][data-skin="claude"] [role="log"] .md\:hidden {
+  [data-shell="megsy"][data-skin="claude"] .chat-surface-dark,
+  [data-shell="megsy"][data-skin="claude"] [data-chat-main="true"],
+  [data-shell="megsy"][data-skin="claude"] [role="log"],
+  [data-shell="megsy"][data-skin="claude"] [role="log"] > .absolute,
+  [data-shell="megsy"][data-skin="claude"] [role="log"] .md\:hidden {
     background: hsl(var(--background)) !important;
     background-color: hsl(var(--background)) !important;
     background-image: none !important;
   }
 
-  [data-shell="manus"][data-skin="claude"] .chat-aurora,
-  [data-shell="manus"][data-skin="claude"] .chat-mobile-blue-bg,
-  [data-shell="manus"][data-skin="claude"] .dark-veil-css,
-  [data-shell="manus"][data-skin="claude"] video[aria-hidden] {
+  [data-shell="megsy"][data-skin="claude"] .chat-aurora,
+  [data-shell="megsy"][data-skin="claude"] .chat-mobile-blue-bg,
+  [data-shell="megsy"][data-skin="claude"] .dark-veil-css,
+  [data-shell="megsy"][data-skin="claude"] video[aria-hidden] {
     display: none !important;
   }
 }
@@ -3582,13 +3582,13 @@ html[dir="rtl"] .keep-ltr {
   text-align: left;
 }
 
-/* Ruixen "Moon Chat" landing — keep sidebar visible, hide header/video for clean look. */
+/* Clean desktop landing: hide only the ambient video. The chat header stays
+   visible so model picker, credits and sign-in are always reachable. */
 @media (min-width: 768px) {
-  [data-shell="manus"][data-chat-empty="true"] [data-desktop-chat-header="true"],
-  [data-shell="manus"][data-chat-empty="true"] > video[aria-hidden] {
+  [data-shell="megsy"][data-chat-empty="true"] > video[aria-hidden] {
     display: none !important;
   }
-  [data-shell="manus"][data-chat-empty="true"] {
+  [data-shell="megsy"][data-chat-empty="true"] {
     background: hsl(var(--background)) !important;
   }
 }

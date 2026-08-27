@@ -126,12 +126,12 @@ export default function ApiAppDetail({
           <h3 className="truncate text-[18px] font-semibold leading-tight text-foreground">
             {app.name}
           </h3>
-          <p className="mt-1 text-[12.5px] leading-[1.5] text-foreground/45">{app.description}</p>
+          <p className="mt-1 text-[12.5px] leading-[1.5] text-foreground/65">{app.description}</p>
         </div>
       </div>
 
       {loading ? (
-        <div className="flex items-center justify-center py-10 text-foreground/40">
+        <div className="flex items-center justify-center py-10 text-foreground/65">
           <Loader2 className="h-4 w-4 animate-spin" />
         </div>
       ) : hint ? (
@@ -139,7 +139,7 @@ export default function ApiAppDetail({
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-[13px] font-medium text-foreground">Credentials saved</p>
-              <p className="mt-0.5 truncate text-[12px] text-foreground/40">{hint}</p>
+              <p className="mt-0.5 truncate text-[12px] text-foreground/65">{hint}</p>
             </div>
             <button
               type="button"
@@ -209,11 +209,11 @@ export default function ApiAppDetail({
                   placeholder={field.example || field.label}
                   autoComplete="off"
                   spellCheck={false}
-                  className="h-10 w-full rounded-[12px] bg-background/60 px-3 text-[13.5px] text-foreground outline-none ring-1 ring-inset ring-foreground/[0.08] transition-shadow placeholder:text-foreground/25 focus:ring-primary/50"
+                  className="h-10 w-full rounded-[12px] bg-background/60 px-3 text-[13.5px] text-foreground outline-none ring-1 ring-inset ring-foreground/[0.08] transition-shadow placeholder:text-foreground/65 focus:ring-primary/50"
                   style={{ border: 0, boxShadow: "none" }}
                 />
                 {field.description && (
-                  <span className="mt-1.5 block text-[11px] leading-[1.55] text-foreground/35">
+                  <span className="mt-1.5 block text-[11px] leading-[1.55] text-foreground/65">
                     {field.description}
                   </span>
                 )}
@@ -237,7 +237,7 @@ export default function ApiAppDetail({
         <div className={`mt-3 ${CARD} px-0 py-0`}>
           <div className="flex items-center justify-between px-4 pb-1 pt-3.5">
             <span className="text-[13px] font-medium text-foreground">What it can do</span>
-            <span className="text-[11.5px] text-foreground/35">{app.tools.length}</span>
+            <span className="text-[11.5px] text-foreground/65">{app.tools.length}</span>
           </div>
           <div className="pb-2">
             {app.tools.map((tool) => (
@@ -259,11 +259,11 @@ export default function ApiAppDetail({
                   <span className="block truncate text-[13px] font-medium text-foreground/85">
                     {tool.name}
                   </span>
-                  <span className="mt-0.5 block truncate text-[11.5px] text-foreground/40">
+                  <span className="mt-0.5 block truncate text-[11.5px] text-foreground/65">
                     {tool.description}
                   </span>
                 </span>
-                <ChevronRight className="h-4 w-4 shrink-0 text-foreground/25" />
+                <ChevronRight className="h-4 w-4 shrink-0 text-foreground/65" />
               </button>
             ))}
           </div>

@@ -65,9 +65,9 @@ export default function CustomMcpList({ onNavigate }: { onNavigate?: () => void 
 
       <div className="mt-3">
         {loading ? (
-          <p className="px-2 py-6 text-center text-[13px] text-foreground/40">Loading…</p>
+          <p className="px-2 py-6 text-center text-[13px] text-foreground/65">Loading…</p>
         ) : rows.length === 0 ? (
-          <p className="px-2 py-6 text-center text-[13px] text-foreground/40">
+          <p className="px-2 py-6 text-center text-[13px] text-foreground/65">
             No MCP servers yet. Add one to unlock its tools in chat.
           </p>
         ) : (
@@ -75,7 +75,7 @@ export default function CustomMcpList({ onNavigate }: { onNavigate?: () => void 
             <div key={row.id} className="flex items-center gap-3 px-2 py-3">
               <div className="min-w-0 flex-1">
                 <p className="truncate text-[14px] text-foreground">{row.name}</p>
-                <p className="truncate text-[12px] text-foreground/40">
+                <p className="truncate text-[12px] text-foreground/65">
                   {(row.tool_names?.length ?? 0)} tools · {row.state}
                 </p>
               </div>
@@ -83,7 +83,7 @@ export default function CustomMcpList({ onNavigate }: { onNavigate?: () => void 
                 type="button"
                 onClick={() => void toggle(row)}
                 className={`rounded-full px-3 py-1.5 text-[12px] ${
-                  row.enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/45"
+                  row.enabled ? "bg-foreground/[0.10] text-foreground" : "text-foreground/65"
                 }`}
                 style={{ border: 0 }}
               >

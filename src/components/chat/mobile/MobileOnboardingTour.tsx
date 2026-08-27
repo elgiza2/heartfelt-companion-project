@@ -347,7 +347,7 @@ export const MobileOnboardingTour = () => {
           />
 
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/45">
+            <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/65">
               Step {step + 1} of {STEPS.length}
             </span>
             <div className="flex items-center gap-1.5">

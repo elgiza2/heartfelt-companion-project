@@ -166,7 +166,7 @@ const WithdrawPage = () => {
   const remainingThisMonth = Math.max(WITHDRAWALS_PER_MONTH - usedThisMonth, 0);
 
   const inputCls =
-    "w-full px-3.5 py-2.5 rounded-xl bg-foreground/[0.04] border border-border/70 text-[13.5px] text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-foreground/40 transition";
+    "w-full px-3.5 py-2.5 rounded-xl bg-foreground/[0.04] border border-border/70 text-[13.5px] text-foreground placeholder:text-muted-foreground outline-none focus:border-foreground/40 transition";
   const labelCls =
     "block text-[11.5px] font-medium uppercase tracking-[0.12em] text-muted-foreground mb-1.5";
 
@@ -222,7 +222,7 @@ const WithdrawPage = () => {
                       {m.instructions}
                     </p>
                     {m.admin_note && (
-                      <p className="text-[11.5px] text-muted-foreground/70 mt-1">
+                      <p className="text-[11.5px] text-muted-foreground mt-1">
                         Admin: {m.admin_note}
                       </p>
                     )}
@@ -308,8 +308,7 @@ const WithdrawPage = () => {
             <button
               onClick={submitWithdrawal}
               disabled={submittingWd || approvedMethods.length === 0 || remainingThisMonth === 0}
-              className="w-full h-11 rounded-xl bg-foreground text-background text-[13.5px] font-medium disabled:opacity-40 hover:opacity-90 transition inline-flex items-center justify-center gap-2"
-            >
+              className="w-full h-11 rounded-xl bg-foreground text-background text-[13.5px] font-medium disabled:opacity-40 hover:opacity-90 transition inline-flex items-center justify-center gap-2">
               {submittingWd && <Loader2 className="w-4 h-4 animate-spin" />}
               {submittingWd
                 ? "Sending…"

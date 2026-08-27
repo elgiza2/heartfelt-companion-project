@@ -262,7 +262,8 @@ export function ChatOptionsDropdown(props: ChatOptionsDropdownProps) {
               <button
                 onClick={onCopyInviteLink}
                 className="w-full flex items-center justify-between gap-2 px-2.5 py-2 rounded-xl bg-surface-3 border-2 border-surface-4 transition-colors"
-              >
+      aria-label="Copy"
+    >
                 <span className="text-[11.5px] text-foreground truncate" dir="ltr">
                   {inviteLink}
                 </span>
@@ -322,7 +323,8 @@ export function ChatOptionsDropdown(props: ChatOptionsDropdownProps) {
                   <button
                     onClick={onCopyShareLink}
                     className="w-full flex items-center justify-between gap-2 px-2.5 py-2 rounded-lg bg-accent/40 hover:bg-accent/60 transition-colors"
-                  >
+      aria-label="Copy"
+    >
                     <span className="text-[11.5px] text-foreground truncate" dir="ltr">
                       {generatedShareUrl}
                     </span>
@@ -376,6 +378,7 @@ function BackButton({ onBack }: { onBack: () => void }) {
     <button
       onClick={onBack}
       className="flex items-center gap-1 text-[12px] text-muted-foreground hover:text-foreground mb-2"
+      aria-label="Chevron Left"
     >
       <ChevronLeft className="w-3.5 h-3.5" /> {backLabel}
     </button>

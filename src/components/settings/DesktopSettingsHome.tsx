@@ -180,7 +180,7 @@ export function DesktopSettingsHome() {
                     {row.trailing && (
                       <span className="text-[12.5px] text-foreground/55 shrink-0">{row.trailing}</span>
                     )}
-                    <ChevronRight className="w-4 h-4 text-foreground/40 shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-foreground/65 shrink-0" />
                   </button>
                 );
               })}
@@ -194,7 +194,8 @@ export function DesktopSettingsHome() {
             <button
               onClick={handleLogout}
               className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-muted/60 active:bg-muted transition-colors"
-            >
+      aria-label="Logout"
+    >
               <LogoutIcon className="w-[18px] h-[18px] text-destructive shrink-0" />
               <span className="flex-1 text-[14.5px] font-medium text-destructive">{tx("Sign out")}</span>
 

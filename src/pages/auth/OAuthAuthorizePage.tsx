@@ -227,11 +227,11 @@ export default function OAuthAuthorizePage() {
           transition={{ delay: 0.5 }}
           className="flex items-center justify-center gap-1.5 mt-3"
         >
-          <span className="text-[10px] text-muted-foreground/60 uppercase tracking-widest">
+          <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
             Powered by
           </span>
           <span
-            className="text-[10px] font-bold text-muted-foreground/80 uppercase tracking-widest"
+            className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Megsy

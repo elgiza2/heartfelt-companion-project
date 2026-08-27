@@ -1,5 +1,5 @@
 import { Route, Navigate } from "react-router-dom";
-import { LegacyToolsRedirect, LegacyAiRedirect, ProtectedRoute } from "./routeHelpers";
+import { LegacyToolsRedirect, LegacyAiRedirect, ProtectedRoute, RetiredRedirect } from "./routeHelpers";
 import { AnimatedShell } from "./AnimatedShell";
 import {
   // chat
@@ -65,8 +65,8 @@ import {
   PricingPage,
 } from "./lazyPages";
 
-const toChat = <Navigate to="/chat" replace />;
-const toPricing = <Navigate to="/pricing" replace />;
+const toChat = <RetiredRedirect to="/chat" />;
+const toPricing = <RetiredRedirect to="/pricing" />;
 
 /** All application routes. Rendered inside <DeferredRoutes> in App.tsx. */
 export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) => (

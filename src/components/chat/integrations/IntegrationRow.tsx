@@ -60,15 +60,16 @@ export default function IntegrationRow({ item, connected, busy, onOpen }: RowPro
       data-integration-row
       className="flex w-full items-center gap-3 rounded-[14px] px-2 py-2.5 text-left transition-colors active:bg-foreground/[0.05]"
       style={{ border: 0, background: "transparent", minHeight: 58 }}
+      aria-label="Integration Logo"
     >
       <IntegrationLogo item={item} />
       <span className="min-w-0 flex-1">
         <span className="block truncate text-[14.5px] font-medium text-foreground">{item.name}</span>
-        <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
+        <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/65">
           {item.description}
         </span>
       </span>
-      <span className="shrink-0 text-foreground/35">
+      <span className="shrink-0 text-foreground/65">
         {busy ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : connected ? (

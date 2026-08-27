@@ -63,7 +63,7 @@ export const CitationPill = ({ n, url }: PillProps) => {
             <div className="mt-0.5 truncate text-sm font-semibold text-foreground">
               {getHost(url)}
             </div>
-            <div className="mt-1 line-clamp-2 break-all text-[11px] text-muted-foreground/80">
+            <div className="mt-1 line-clamp-2 break-all text-[11px] text-muted-foreground">
               {url}
             </div>
           </div>

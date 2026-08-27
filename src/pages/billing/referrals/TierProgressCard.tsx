@@ -92,13 +92,13 @@ export default function TierProgressCard() {
           </p>
         </div>
         <div className="text-right shrink-0">
-          <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+          <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/65">
             Active refs
           </div>
           <div className="mt-1 text-[20px] font-light tabular-nums text-foreground">
             {loading ? "—" : activeRefs}
           </div>
-          <div className="mt-2 text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+          <div className="mt-2 text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/65">
             90-day MRR
           </div>
           <div
@@ -117,12 +117,12 @@ export default function TierProgressCard() {
               <TrendingUp className="h-3 w-3" style={{ color: GOLD }} strokeWidth={2} />
               Next · {nextName} · {nextPct}%
             </span>
-            <span className="tabular-nums text-foreground/45">{Math.round(progress)}%</span>
+            <span className="tabular-nums text-foreground/65">{Math.round(progress)}%</span>
           </div>
           <div className="mt-2 ref-rail">
             <div className="ref-rail__fill" style={{ width: `${progress}%` }} />
           </div>
-          <p className="mt-2 text-[11px] text-foreground/45 tabular-nums">
+          <p className="mt-2 text-[11px] text-foreground/65 tabular-nums">
             {Math.max(0, nextRefs - activeRefs)} more active refs · or · $
             {Math.max(0, nextMrrDollars - netMrr).toFixed(0)} more 90-day MRR
           </p>

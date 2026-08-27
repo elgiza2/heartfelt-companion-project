@@ -114,7 +114,7 @@ export function CostEstimateDialog({
             <span
               className={cn(
                 "text-sm font-semibold tabular-nums",
-                loading ? "text-foreground/40" : enough ? "text-foreground/90" : "text-red-400",
+                loading ? "text-foreground/65" : enough ? "text-foreground/90" : "text-red-400",
               )}
             >
               {isPaid

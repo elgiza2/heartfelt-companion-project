@@ -280,7 +280,7 @@ export default function SlidesOutlineCard({
                     type="button"
                     aria-label="remove slide"
                     onClick={() => removeSlide(index)}
-                    className="text-muted-foreground/60 hover:text-destructive"
+                    className="text-muted-foreground hover:text-destructive"
                   >
                     <span aria-hidden className="text-[13px] leading-none">×</span>
                   </button>
@@ -300,7 +300,7 @@ export default function SlidesOutlineCard({
                         type="button"
                         aria-label="remove point"
                         onClick={() => removeItem(index, itemIndex)}
-                        className="text-muted-foreground/50 hover:text-destructive"
+                        className="text-muted-foreground hover:text-destructive"
                       >
                         <span aria-hidden className="text-[13px] leading-none">×</span>
                       </button>
@@ -339,8 +339,7 @@ export default function SlidesOutlineCard({
             type="button"
             disabled={!!busy || research?.status === "succeeded"}
             onClick={runResearch}
-            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border/50 px-3 text-[12px] text-foreground/80 hover:text-foreground disabled:opacity-50"
-          >
+            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border/50 px-3 text-[12px] text-foreground/80 hover:text-foreground disabled:opacity-50">
             {busy === "research" ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
             ) : null}
@@ -350,8 +349,7 @@ export default function SlidesOutlineCard({
             type="button"
             disabled={!!busy || !steps.length}
             onClick={runReview}
-            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border/50 px-3 text-[12px] text-foreground/80 hover:text-foreground disabled:opacity-50"
-          >
+            className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border/50 px-3 text-[12px] text-foreground/80 hover:text-foreground disabled:opacity-50">
             {busy === "review" ? (
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
             ) : null}
@@ -361,8 +359,7 @@ export default function SlidesOutlineCard({
             type="button"
             disabled={!!busy || !steps.length}
             onClick={startGeneration}
-            className="inline-flex h-8 items-center gap-1.5 rounded-full bg-primary px-4 text-[12px] font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-50"
-          >
+            className="inline-flex h-8 items-center gap-1.5 rounded-full bg-primary px-4 text-[12px] font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-50">
             {busy === "start" ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : null}
             {t.generate}
           </button>

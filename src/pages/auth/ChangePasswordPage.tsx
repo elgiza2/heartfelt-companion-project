@@ -61,7 +61,7 @@ const ChangePasswordPage = () => {
     <div>
       <label className={mobile
         ? "text-[12px] font-medium text-foreground/60 px-0.5"
-        : "text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium"}>
+        : "text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium"}>
         {label}
       </label>
       <div className={mobile ? "relative mt-1.5" : "relative mt-2"}>

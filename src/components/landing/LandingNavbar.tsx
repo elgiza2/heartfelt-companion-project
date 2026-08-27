@@ -550,7 +550,7 @@ const LandingNavbar = () => {
                       <div className="space-y-4 pb-3 pl-2">
                         {item.columns.map((col) => (
                           <div key={col.title}>
-                            <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-foreground/30">
+                            <h4 className="mb-2 text-xs font-bold uppercase tracking-wider text-foreground/65">
                               {tx(col.title)}
                             </h4>
                             {col.items.map((sub) => (
@@ -561,7 +561,7 @@ const LandingNavbar = () => {
                               >
                                 <div>
                                   <span className="text-sm text-foreground/80">{tx(sub.label)}</span>
-                                  <span className="block text-xs text-foreground/30">
+                                  <span className="block text-xs text-foreground/65">
                                     {tx(sub.desc)}
                                   </span>
                                 </div>

@@ -157,7 +157,7 @@ const DeleteAccountPage = () => {
             </p>
           </div>
 
-          <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+          <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
             Password
           </label>
           <input
@@ -168,7 +168,7 @@ const DeleteAccountPage = () => {
             className="mt-2 w-full px-3.5 py-2.5 rounded-lg bg-background/60 border border-border/70 text-[14px] text-foreground outline-none focus:border-foreground/40 transition-colors"
           />
 
-          <label className="mt-4 block text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+          <label className="mt-4 block text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
             Type <span className="text-rose-400 font-semibold">DELETE</span> to confirm
           </label>
           <input

@@ -78,7 +78,7 @@ export default function MoonshotHero() {
             border: "1px solid hsl(0 0% 100% / 0.09)",
           }}
         >
-          <span className="text-foreground/45">Your code</span>
+          <span className="text-foreground/65">Your code</span>
           <span className="font-mono tracking-[0.12em] text-foreground">{code}</span>
           {justCopied ? (
             <Check className="h-3.5 w-3.5 text-emerald-400" strokeWidth={2.2} />
@@ -116,7 +116,7 @@ export default function MoonshotHero() {
               ? "You can withdraw now"
               : `$${Math.max(0, MIN_PAYOUT - (available ?? 0)).toFixed(2)} more to unlock withdrawal`}
           </p>
-          <span className="text-[12px] text-foreground/45">min ${MIN_PAYOUT}</span>
+          <span className="text-[12px] text-foreground/65">min ${MIN_PAYOUT}</span>
         </div>
         <div
           className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full"

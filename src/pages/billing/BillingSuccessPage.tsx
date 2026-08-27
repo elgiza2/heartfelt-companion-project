@@ -254,7 +254,7 @@ const BillingSuccessPage = () => {
           )}
         </div>
 
-        <p className="mt-5 text-[11.5px] text-foreground/40">
+        <p className="mt-5 text-[11.5px] text-foreground/65">
           Need help?{" "}
           <a href="mailto:support@megsyai.com" className="underline hover:text-foreground/70">
             support@megsyai.com
