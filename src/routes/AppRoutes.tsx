@@ -28,10 +28,8 @@ import {
   BillingSuccessPage,
   ReferralsPage,
   ReferralsDashboardTab,
-  ReferralsProgramTab,
   ReferralsRewardsTab,
   KPage,
-  ReferralsWithdrawalsTab,
   ReferralResourcesPage,
   WithdrawPage,
   // integrations hub
