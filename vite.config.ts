@@ -7,6 +7,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { compression, defineAlgorithm } from "vite-plugin-compression2";
 import { constants as zlibConstants } from "zlib";
 import { VitePWA } from "vite-plugin-pwa";
+import { devServerBridgePlugin } from "@lovable.dev/vite-tanstack-config/dev-server-bridge";
 
 function createIntegrationAppToken() {
   const workspaceKey = process.env.INTEGRATION_APP_WORKSPACE_KEY ?? process.env.MEMBRANE_WORKSPACE_KEY;
@@ -614,6 +615,7 @@ function transcribeDevPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [
+    devServerBridgePlugin(),
     react({
       babel: {
         plugins: [
