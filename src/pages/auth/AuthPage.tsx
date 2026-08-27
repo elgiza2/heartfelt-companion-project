@@ -721,7 +721,7 @@ const AuthPage = () => {
 
   // Borderless input — only a thin bottom rule, no fill
   const inputCls =
-    "auth-input-white w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 text-[15px] text-start !text-foreground placeholder:!text-foreground/40 outline-none focus:border-foreground/70 transition-colors duration-200";
+    "auth-input-white w-full bg-transparent border-0 border-b border-foreground/15 rounded-none px-0 py-3 text-[15px] text-start !text-foreground placeholder:!text-foreground/65 outline-none focus:border-foreground/70 transition-colors duration-200";
 
   // Primary CTA — white only after the related field has text.
   const btnCls = (hasValue: boolean) =>
@@ -931,7 +931,7 @@ const AuthPage = () => {
                                   setReferralCode("");
                                   setShowReferralField(false);
                                 }}
-                                className="text-[11px] text-foreground/45 hover:text-foreground/80 transition-colors"
+                                className="text-[11px] text-foreground/65 hover:text-foreground/80 transition-colors"
                               >
                                 {authT("remove")}
                               </button>
@@ -948,7 +948,7 @@ const AuthPage = () => {
                               className={`${inputCls} font-mono tracking-wider`}
                             />
                             {referralCode && (
-                              <p className="text-[11px] text-foreground/45">
+                              <p className="text-[11px] text-foreground/65">
                                 {authT("invitedByPrefix")}
                                 <span className="text-foreground/75 font-mono">{referralCode}</span>
                                 {authT("invitedBySuffix")}
@@ -983,7 +983,7 @@ const AuthPage = () => {
 
                       <div className="flex items-center gap-3 my-5">
                         <div className="flex-1 h-px bg-foreground/10" />
-                        <span className="text-[10px] text-foreground/35 uppercase tracking-[0.25em]">
+                        <span className="text-[10px] text-foreground/65 uppercase tracking-[0.25em]">
                           {authT("or")}
                         </span>
                         <div className="flex-1 h-px bg-foreground/10" />
@@ -1054,7 +1054,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1134,7 +1134,7 @@ const AuthPage = () => {
                       )}
                       <div className="text-center">
                         {countdown > 0 ? (
-                          <p className="text-[12px] text-foreground/40">{authTf("resendInSecondsTemplate", { n: countdown })}</p>
+                          <p className="text-[12px] text-foreground/65">{authTf("resendInSecondsTemplate", { n: countdown })}</p>
                         ) : (
                           <button
                             onClick={() => sendOTP()}
@@ -1173,7 +1173,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowNewPassword(!showNewPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showNewPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1245,7 +1245,7 @@ const AuthPage = () => {
                         <button
                           type="button"
                           onClick={() => setShowNewPassword(!showNewPassword)}
-                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/45 hover:text-foreground/80 transition-colors"
+                          className="absolute end-0 top-1/2 -translate-y-1/2 text-foreground/65 hover:text-foreground/80 transition-colors"
                         >
                           {showNewPassword ? (
                             <EyeOff className="w-4 h-4" />
@@ -1325,7 +1325,7 @@ const AuthPage = () => {
                 )}
 
                 {/* Footer terms */}
-                <p className="mt-4 lg:mt-12 text-[11px] text-foreground/40 leading-relaxed">
+                <p className="mt-4 lg:mt-12 text-[11px] text-foreground/65 leading-relaxed">
                   {authT("termsAgreePrefix")}
                   <a
                     href="https://terms.megsyai.com"

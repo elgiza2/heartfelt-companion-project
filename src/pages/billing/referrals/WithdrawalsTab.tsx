@@ -29,7 +29,7 @@ export default function WithdrawalsTab() {
 
         <div className="relative z-10 flex items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+            <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
               Ready to withdraw
             </p>
             <div
@@ -59,8 +59,8 @@ export default function WithdrawalsTab() {
             <div className="ref-rail__fill" style={{ width: `${pct}%` }} />
           </div>
           <div className="mt-2 flex items-center justify-between text-[11px]">
-            <span className="text-foreground/45 tabular-nums">${available.toFixed(2)}</span>
-            <span className="text-foreground/45 tabular-nums">${MIN_PAYOUT}</span>
+            <span className="text-foreground/65 tabular-nums">${available.toFixed(2)}</span>
+            <span className="text-foreground/65 tabular-nums">${MIN_PAYOUT}</span>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export default function WithdrawalsTab() {
 
       {/* Payout history */}
       <div>
-        <p className="mb-3 px-1 text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+        <p className="mb-3 px-1 text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
           Payout history
         </p>
 
@@ -120,7 +120,7 @@ export default function WithdrawalsTab() {
                     >
                       ${Number(w.amount).toFixed(2)}
                     </p>
-                    <p className="mt-0.5 text-[11px] text-foreground/45">
+                    <p className="mt-0.5 text-[11px] text-foreground/65">
                       {w.method} · {fmtDate(w.created_at)}
                     </p>
                   </div>

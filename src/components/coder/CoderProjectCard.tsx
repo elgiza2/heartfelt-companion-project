@@ -149,12 +149,12 @@ export default function CoderProjectCard({ files: initialFiles, summary, project
               key={p}
               className="inline-flex items-center gap-1 rounded-md bg-foreground/5 px-2 py-1 text-[11px] font-mono text-foreground/70 border border-foreground/5"
             >
-              <FileCode className="h-3 w-3 text-foreground/40" />
+              <FileCode className="h-3 w-3 text-foreground/65" />
               {p}
             </span>
           ))}
           {remaining > 0 && (
-            <span className="text-[11px] text-foreground/40 self-center">+{remaining} more</span>
+            <span className="text-[11px] text-foreground/65 self-center">+{remaining} more</span>
           )}
         </div>
       )}

@@ -246,7 +246,7 @@ const SharedChatPage = () => {
           </div>
 
           {/* End divider */}
-          <div className="mt-10 flex items-center gap-3 text-[11px] text-muted-foreground/70 uppercase tracking-[0.18em]">
+          <div className="mt-10 flex items-center gap-3 text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
             <div className="flex-1 h-px bg-border/50" />
             {tx("End of conversation")}
             <div className="flex-1 h-px bg-border/50" />

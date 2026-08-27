@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 const iosSpring = { type: "spring" as const, damping: 22, stiffness: 350 };
 
 export const SectionLabel = ({ children }: { children: ReactNode }) => (
-  <div className="px-3 -mb-1 text-[11px] font-semibold tracking-wider uppercase text-foreground/45">
+  <div className="px-3 -mb-1 text-[11px] font-semibold tracking-wider uppercase text-foreground/65">
     {children}
   </div>
 );
@@ -99,7 +99,7 @@ export const SheetRow = ({
     </div>
     {trailing}
     {chevron && !trailing && (
-      <ChevronRight className="w-4 h-4 text-foreground/45 shrink-0" strokeWidth={2.2} />
+      <ChevronRight className="w-4 h-4 text-foreground/65 shrink-0" strokeWidth={2.2} />
     )}
   </motion.button>
 );

@@ -155,16 +155,16 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           <span
             className={`h-[6px] w-[6px] rounded-full ${connected ? "bg-primary" : "bg-foreground/25"}`}
           />
-          <span className="text-[12px] font-medium tracking-wide text-foreground/45">
+          <span className="text-[12px] font-medium tracking-wide text-foreground/65">
             {connected ? "Connected" : "Not connected"}
           </span>
-          <span className="text-foreground/20">·</span>
-          <span className="text-[12px] font-medium tracking-wide text-foreground/45">
+          <span className="text-foreground/65">·</span>
+          <span className="text-[12px] font-medium tracking-wide text-foreground/65">
             {typeLabel(item.type)}
           </span>
         </div>
 
-        <p className="mt-3.5 max-w-[32ch] text-[13.5px] leading-[1.65] text-foreground/45">
+        <p className="mt-3.5 max-w-[32ch] text-[13.5px] leading-[1.65] text-foreground/65">
           {`Connect your ${item.name} account to run tasks from chat, securely.`}
         </p>
       </div>
@@ -192,7 +192,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
         </button>
 
         {connected && site && (
-          <p dir="ltr" className="mt-2.5 text-center text-[11.5px] text-foreground/35">
+          <p dir="ltr" className="mt-2.5 text-center text-[11.5px] text-foreground/65">
             Linked to {site.replace(/^https:\/\//, "")}
           </p>
         )}
@@ -236,7 +236,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
           className="mt-5 overflow-hidden rounded-[20px] bg-card/60 ring-1 ring-foreground/[0.05]"
         >
           <div className="flex items-center justify-between px-4 pb-2 pt-3.5">
-            <span className="text-[12px] font-medium uppercase tracking-wider text-foreground/40">
+            <span className="text-[12px] font-medium uppercase tracking-wider text-foreground/65">
               Settings
             </span>
             <button
@@ -325,9 +325,9 @@ function ResourceRow({
         ...(last ? {} : { boxShadow: "inset 0 -1px 0 hsl(var(--foreground) / 0.05)" }),
       }}
     >
-      <Icon className="h-[17px] w-[17px] shrink-0 text-foreground/40" />
+      <Icon className="h-[17px] w-[17px] shrink-0 text-foreground/65" />
       <span className="flex-1 text-[14px] text-foreground/85">{label}</span>
-      <ArrowUpRight className="h-[16px] w-[16px] shrink-0 text-foreground/30" />
+      <ArrowUpRight className="h-[16px] w-[16px] shrink-0 text-foreground/65" />
     </button>
   );
 }
@@ -352,7 +352,7 @@ function SettingRow({
     >
       <div className="min-w-0 flex-1">
         <p className="text-[14px] text-foreground">{label}</p>
-        <p className="mt-0.5 text-[12px] leading-[1.5] text-foreground/40">{hint}</p>
+        <p className="mt-0.5 text-[12px] leading-[1.5] text-foreground/65">{hint}</p>
       </div>
       <button
         type="button"

@@ -89,7 +89,7 @@ export function ServiceProgress({
                 "mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full border shrink-0",
                 step.state === "done" && ACCENT[accent],
                 step.state === "active" && ACCENT[accent],
-                step.state === "pending" && "border-foreground/15 bg-white/[0.03] text-foreground/40",
+                step.state === "pending" && "border-foreground/15 bg-white/[0.03] text-foreground/65",
                 step.state === "error" && "border-red-500/40 bg-red-500/15 text-red-400",
               )}
             >
@@ -104,7 +104,7 @@ export function ServiceProgress({
               <div
                 className={cn(
                   "text-xs font-medium leading-5",
-                  step.state === "pending" && "text-foreground/40",
+                  step.state === "pending" && "text-foreground/65",
                   step.state !== "pending" && "text-foreground/85",
                   step.state === "error" && "text-red-300",
                 )}

@@ -79,7 +79,7 @@ export function CleanField({
 /* ---------- Inputs ---------- */
 
 const inputCls =
-  "w-full h-10 px-3.5 rounded-lg border border-foreground/12 bg-white/[0.06] text-[13.5px] text-foreground placeholder:text-foreground/40 outline-none transition-colors focus:border-foreground/40 focus:bg-white/[0.09]";
+  "w-full h-10 px-3.5 rounded-lg border border-foreground/12 bg-white/[0.06] text-[13.5px] text-foreground placeholder:text-foreground/65 outline-none transition-colors focus:border-foreground/40 focus:bg-white/[0.09]";
 
 export function CleanInput(props: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={cn(inputCls, props.className)} />;

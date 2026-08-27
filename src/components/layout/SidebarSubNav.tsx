@@ -35,7 +35,7 @@ const SidebarSubNav = ({ mode, onNavigate, size = "sm" }: Props) => {
     <div className="space-y-3">
       {groups.map((g) => (
         <div key={g.label}>
-          <div className="px-3 pt-2 pb-1 font-display text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground/60">
+          <div className="px-3 pt-2 pb-1 font-display text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground">
             {g.label}
           </div>
           <ul className="space-y-0.5">

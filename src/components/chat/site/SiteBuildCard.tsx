@@ -295,7 +295,7 @@ function CodeViewer({
             <code>
               {lines.map((ln, i) => (
                 <div key={i} className="flex">
-                  <span className="select-none text-muted-foreground/50 pr-3 ps-3 text-right w-12 shrink-0 border-r border-border/30">
+                  <span className="select-none text-muted-foreground pr-3 ps-3 text-right w-12 shrink-0 border-r border-border/30">
                     {i + 1}
                   </span>
                   <span className="px-3 whitespace-pre-wrap break-all">{ln || " "}</span>

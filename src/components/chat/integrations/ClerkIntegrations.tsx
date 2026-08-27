@@ -74,11 +74,11 @@ function Inner() {
   return (
     <div className="pb-4">
       <div className="flex items-center justify-between px-2 pb-1 pt-2">
-        <p className="text-[12px] text-foreground/40">Linked app accounts</p>
+        <p className="text-[12px] text-foreground/65">Linked app accounts</p>
         <button
           type="button"
           onClick={() => void refresh()}
-          className="flex items-center gap-1 text-[12px] text-foreground/45"
+          className="flex items-center gap-1 text-[12px] text-foreground/65"
           style={{ border: 0, background: "transparent" }}
         >
           {loading ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
@@ -95,7 +95,7 @@ function Inner() {
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-[14px] text-foreground">{item.label}</p>
-              <p className="truncate text-[11.5px] text-foreground/45">{item.description}</p>
+              <p className="truncate text-[11.5px] text-foreground/65">{item.description}</p>
             </div>
             {isOn ? (
               <span className="flex items-center gap-1 text-[12px] text-foreground/55">
@@ -122,7 +122,7 @@ function Inner() {
 export default function ClerkIntegrations() {
   if (!clerkEnabled) {
     return (
-      <p className="px-2 py-6 text-center text-[13px] text-foreground/45">
+      <p className="px-2 py-6 text-center text-[13px] text-foreground/65">
         App accounts are not enabled yet.
       </p>
     );

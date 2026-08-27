@@ -280,7 +280,7 @@ export default function SlidesOutlineCard({
                     type="button"
                     aria-label="remove slide"
                     onClick={() => removeSlide(index)}
-                    className="text-muted-foreground/60 hover:text-destructive"
+                    className="text-muted-foreground hover:text-destructive"
                   >
                     <span aria-hidden className="text-[13px] leading-none">×</span>
                   </button>
@@ -300,7 +300,7 @@ export default function SlidesOutlineCard({
                         type="button"
                         aria-label="remove point"
                         onClick={() => removeItem(index, itemIndex)}
-                        className="text-muted-foreground/50 hover:text-destructive"
+                        className="text-muted-foreground hover:text-destructive"
                       >
                         <span aria-hidden className="text-[13px] leading-none">×</span>
                       </button>

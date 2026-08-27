@@ -830,7 +830,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                         >
                           {t.done && <Check className="h-3 w-3" />}
                         </span>
-                        <span className={cn("text-sm text-foreground", t.done && "text-foreground/40 line-through")}>
+                        <span className={cn("text-sm text-foreground", t.done && "text-foreground/65 line-through")}>
                           {t.title}
                         </span>
                       </li>
@@ -921,7 +921,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
                           <div className="p-2">
                             <div className="truncate text-[11px] text-foreground/80" title={a.prompt}>{a.prompt}</div>
                             <div className="mt-1 flex items-center justify-between">
-                              <span className="text-[10px] text-foreground/45">
+                              <span className="text-[10px] text-foreground/65">
                                 {a.kind === "video" ? "Video" : "Image"} · {a.credits} credits
                               </span>
                               <button
@@ -945,7 +945,7 @@ export default function InlineCoderRun({ runId, prompt, onClose, onFinish, previ
 
             {tab === "logs" && (
               <div className="h-full max-h-[420px] overflow-y-auto bg-background p-3 font-mono text-xs text-emerald-300">
-                {bash.length === 0 && <div className="text-foreground/40">No commands yet…</div>}
+                {bash.length === 0 && <div className="text-foreground/65">No commands yet…</div>}
                 {bash.map((b, i) => (
                   <div key={i} className="mb-2">
                     <div className={cn("font-semibold", b.ok ? "text-cyan-300" : "text-red-400")}>

@@ -535,7 +535,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                     </button>
                   ))}
                   {!fs.files.length && (
-                    <div className="px-3 py-4 text-[12px] text-foreground/40">No files</div>
+                    <div className="px-3 py-4 text-[12px] text-foreground/65">No files</div>
                   )}
                 </div>
               </aside>
@@ -587,7 +587,7 @@ const CoderStudioModal = ({ open, onClose, initialFiles, filesOnly, onFilesChang
                     className={
                       h.kind === "in" ? "text-emerald-400" :
                       h.kind === "err" ? "text-red-400" :
-                      h.kind === "sys" ? "text-foreground/40" : "text-foreground/85"
+                      h.kind === "sys" ? "text-foreground/65" : "text-foreground/85"
                     }
                     style={{ whiteSpace: "pre-wrap" }}
                   >

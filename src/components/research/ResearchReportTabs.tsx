@@ -58,7 +58,7 @@ const ResearchReportTabs = ({ reportSources, isRtl }: Props) => {
                   className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-muted/60"
                 >
                   <span className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted ring-1 ring-border/60">
-                    <Link2 className="h-3.5 w-3.5 text-muted-foreground/60" />
+                    <Link2 className="h-3.5 w-3.5 text-muted-foreground" />
                     <img
                       src={favicon(s.url)}
                       alt=""
@@ -81,7 +81,7 @@ const ResearchReportTabs = ({ reportSources, isRtl }: Props) => {
                       {hostname(s.url)}
                     </span>
                   </span>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground/40 transition group-hover:text-foreground" />
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition group-hover:text-foreground" />
                 </a>
               </li>
             ))}

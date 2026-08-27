@@ -116,7 +116,7 @@ const ConnectorsDialog = ({
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search"
-                className="w-full pl-9 pr-3 py-2 rounded-lg border border-border bg-secondary/30 text-sm text-foreground outline-none focus:ring-1 focus:ring-primary placeholder:text-muted-foreground/50"
+                className="w-full pl-9 pr-3 py-2 rounded-lg border border-border bg-secondary/30 text-sm text-foreground outline-none focus:ring-1 focus:ring-primary placeholder:text-muted-foreground"
               />
             </div>
             <button
@@ -154,7 +154,7 @@ const ConnectorsDialog = ({
                 ) : connectedMap[connector.id] ? (
                   <Check className="w-4 h-4 text-emerald-500 shrink-0" />
                 ) : (
-                  <span className="text-[11px] text-muted-foreground/70 shrink-0">Connect</span>
+                  <span className="text-[11px] text-muted-foreground shrink-0">Connect</span>
                 )}
               </button>
             ))}

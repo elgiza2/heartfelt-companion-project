@@ -180,7 +180,7 @@ export function DesktopSettingsHome() {
                     {row.trailing && (
                       <span className="text-[12.5px] text-foreground/55 shrink-0">{row.trailing}</span>
                     )}
-                    <ChevronRight className="w-4 h-4 text-foreground/40 shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-foreground/65 shrink-0" />
                   </button>
                 );
               })}

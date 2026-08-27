@@ -72,7 +72,7 @@ export default function AgentTools({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-6 text-foreground/40">
+      <div className="flex items-center justify-center py-6 text-foreground/65">
         <Loader2 className="h-4 w-4 animate-spin" />
       </div>
     );
@@ -99,7 +99,7 @@ export default function AgentTools({
                 </span>
                 <span
                   dir="auto"
-                  className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40"
+                  className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/65"
                 >
                   {app.account_name || (app.healthy ? "Connected" : "Needs reconnect")}
                 </span>

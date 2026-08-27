@@ -167,7 +167,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
       style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
     >
       {/* Eyebrow — sets a private, invitation-only tone */}
-      <div className="mb-4 flex items-center gap-2 text-foreground/45">
+      <div className="mb-4 flex items-center gap-2 text-foreground/65">
         <span className="ref-scarcity-dot" />
         <span className="text-[10.5px] font-medium uppercase tracking-[0.24em]">
           Partner · Private
@@ -201,7 +201,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
             >
               {availableDisplay}
             </div>
-            <p className="mt-2 text-[12px] text-foreground/45">
+            <p className="mt-2 text-[12px] text-foreground/65">
               Lifetime earned <span className="text-foreground/70 tabular-nums">{earnedDisplay}</span>
             </p>
           </div>
@@ -249,7 +249,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
             className="px-3 py-3.5"
             style={{ borderLeft: i === 0 ? undefined : "1px solid var(--overlay-white-06)" }}
           >
-            <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/45">
+            <div className="text-[9.5px] font-medium uppercase tracking-[0.2em] text-foreground/65">
               {s.label}
             </div>
             <div className="mt-1.5 text-[18px] font-light tracking-tight tabular-nums text-foreground">
@@ -261,7 +261,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- Your link -------- */}
       <div className="mt-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-4">
-        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
           Your link
         </p>
         <div className="mt-2.5 flex items-center gap-3">
@@ -299,7 +299,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
             Tier window resets in {daysUntilReset}d
           </span>
         </div>
-        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-foreground/40">
+        <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-foreground/65">
           {COMMISSION_PCT}% baseline
         </span>
       </div>
@@ -307,7 +307,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
       {/* -------- Ways to share (marquee) -------- */}
       <div className="mt-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] py-4">
         <div className="px-4 mb-3 flex items-center justify-between">
-          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+          <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
             Ways to share
           </p>
           <button
@@ -325,7 +325,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
 
       {/* -------- How it works -------- */}
       <div className="mt-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] p-5">
-        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/45">
+        <p className="text-[10.5px] font-medium uppercase tracking-[0.22em] text-foreground/65">
           How it works
         </p>
         <p className="mt-3 text-[13.5px] leading-relaxed text-foreground/85">
@@ -387,7 +387,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
               >
                 {k.v}
               </div>
-              <div className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.18em] text-foreground/45">
+              <div className="mt-1 text-[9.5px] font-medium uppercase tracking-[0.18em] text-foreground/65">
                 {k.l}
               </div>
             </div>
@@ -418,7 +418,7 @@ function MobileHero({ onShareClick }: { onShareClick?: () => void }) {
       </div>
 
       {/* Fine print */}
-      <p className="mt-6 text-center text-[10.5px] leading-relaxed text-foreground/30">
+      <p className="mt-6 text-center text-[10.5px] leading-relaxed text-foreground/65">
         Rewards are lifetime and paid in USD. Details in the affiliate terms.
       </p>
     </section>

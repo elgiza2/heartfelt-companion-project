@@ -130,8 +130,8 @@ export default function ResearchDepthDropdown({
               <span
                 className={
                   variant === "sheet"
-                    ? "text-[11.5px] font-normal text-foreground/45 mt-0.5"
-                    : "text-[10.5px] font-normal text-foreground/40 mt-0.5"
+                    ? "text-[11.5px] font-normal text-foreground/65 mt-0.5"
+                    : "text-[10.5px] font-normal text-foreground/65 mt-0.5"
                 }
               >
                 {d.time}
@@ -176,7 +176,7 @@ export default function ResearchDepthDropdown({
             dragEnabled={false}
           >
             <div className="px-2 pt-1 pb-3 h-full flex flex-col min-h-0">
-              <p className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/45 shrink-0">
+              <p className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground/65 shrink-0">
                 Report depth
               </p>
               <div

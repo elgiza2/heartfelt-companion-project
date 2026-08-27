@@ -179,7 +179,7 @@ export function MediaSettingsPanel({
           <div className="text-[11.5px] font-semibold uppercase tracking-[0.14em] text-foreground/55">
             {tx("Prompt mode")}
           </div>
-          <div className="text-[10.5px] text-foreground/45 font-medium mt-1 leading-snug">
+          <div className="text-[10.5px] text-foreground/65 font-medium mt-1 leading-snug">
             {settings.autoPrompt !== false
               ? isVideo
                 ? tx("AI turns your idea into a cinematic prompt.")
@@ -327,7 +327,7 @@ function Row({
   return (
     <div className="min-w-0">
       <div className="flex items-baseline justify-between gap-2 mb-1.5">
-        <span className="truncate text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/45">
+        <span className="truncate text-[10px] font-bold uppercase tracking-[0.14em] text-foreground/65">
           {label}
         </span>
         {value && (

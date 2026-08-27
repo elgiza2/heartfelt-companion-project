@@ -354,7 +354,7 @@ const ProfileEditPage = () => {
         <SubCard>
           <div className="space-y-4">
             <div>
-              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
                 Full name
               </label>
               <input
@@ -365,7 +365,7 @@ const ProfileEditPage = () => {
               />
             </div>
             <div>
-              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
                 Nickname
               </label>
               <input

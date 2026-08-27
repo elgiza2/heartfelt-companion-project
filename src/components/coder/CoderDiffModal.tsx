@@ -90,7 +90,7 @@ export default function CoderDiffModal({ open, onClose, baseline, current }: Pro
         <div className="flex-1 min-h-0 flex">
           <aside className="w-64 shrink-0 border-l border-foreground/10 bg-background/30 overflow-y-auto py-1 text-[12.5px]">
             {changes.length === 0 && (
-              <div className="px-3 py-4 text-[12px] text-foreground/40">No files</div>
+              <div className="px-3 py-4 text-[12px] text-foreground/65">No files</div>
             )}
             {changes.map((c) => (
               <button

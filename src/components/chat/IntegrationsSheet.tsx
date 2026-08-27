@@ -203,12 +203,12 @@ export default function IntegrationsSheet({ open, onOpenChange }: Props) {
                       </h2>
 
                       <div data-connectors-search className="flex h-11 items-center gap-2 rounded-[16px] px-3.5">
-                        <Search className="h-4 w-4 shrink-0 text-foreground/40" />
+                        <Search className="h-4 w-4 shrink-0 text-foreground/65" />
                         <input
                           value={query}
                           onChange={(e) => setQuery(e.target.value)}
                           placeholder="Search for an app"
-                          className="h-full w-full text-[14px] text-foreground outline-none placeholder:text-foreground/35"
+                          className="h-full w-full text-[14px] text-foreground outline-none placeholder:text-foreground/65"
                           style={{
                             border: 0,
                             outline: "none",

@@ -11,8 +11,8 @@ export default function EmptyConnectors({
 }) {
   return (
     <div className="flex flex-col items-center justify-center gap-3 py-20">
-      <Plug className="h-8 w-8 text-foreground/25" />
-      <p className="text-[13.5px] text-foreground/45">{label}</p>
+      <Plug className="h-8 w-8 text-foreground/65" />
+      <p className="text-[13.5px] text-foreground/65">{label}</p>
       {actionLabel && (
         <button
           type="button"

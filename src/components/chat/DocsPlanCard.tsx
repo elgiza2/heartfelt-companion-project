@@ -274,7 +274,7 @@ export default function DocsPlanCard({
                     type="button"
                     aria-label="remove section"
                     onClick={() => removeSection(index)}
-                    className="text-muted-foreground/60 hover:text-destructive"
+                    className="text-muted-foreground hover:text-destructive"
                   >
                     <span aria-hidden className="text-[13px] leading-none">×</span>
                   </button>
@@ -294,7 +294,7 @@ export default function DocsPlanCard({
                         type="button"
                         aria-label="remove point"
                         onClick={() => removePoint(index, pIndex)}
-                        className="text-muted-foreground/50 hover:text-destructive"
+                        className="text-muted-foreground hover:text-destructive"
                       >
                         <span aria-hidden className="text-[13px] leading-none">×</span>
                       </button>

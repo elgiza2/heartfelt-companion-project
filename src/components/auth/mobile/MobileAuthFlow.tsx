@@ -135,7 +135,7 @@ export default function MobileAuthFlow(p: Props) {
                     value={p.email}
                     onChange={(e) => p.setEmail(e.target.value)}
                     disabled={p.showPasswordField}
-                    className="auth-input-white w-full bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/40 disabled:opacity-70"
+                    className="auth-input-white w-full bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/65 disabled:opacity-70"
                   />
                 </div>
 
@@ -163,7 +163,7 @@ export default function MobileAuthFlow(p: Props) {
                           value={p.password}
                           onChange={(e) => p.setPassword(e.target.value)}
                           autoFocus
-                          className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/40"
+                          className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/65"
                         />
                         <button
                           type="button"

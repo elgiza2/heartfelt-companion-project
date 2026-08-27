@@ -55,7 +55,7 @@ export function MobileResearchDepthPanel({ researchDepth, setResearchDepth, user
                 <span className="mt-0.5 block text-[12px] text-foreground/50">{description}</span>
               </span>
               {locked ? (
-                <Lock className="h-4 w-4 shrink-0 text-foreground/45" />
+                <Lock className="h-4 w-4 shrink-0 text-foreground/65" />
               ) : active ? (
                 <Check className="h-5 w-5 shrink-0" strokeWidth={2.75} style={{ color: "var(--megsy-blue)" }} />
               ) : (

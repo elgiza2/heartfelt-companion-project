@@ -108,7 +108,7 @@ export function ComputerPreview({
       {active && !events.length && (plan?.length ?? 0) > 0 && (
         <div className="flex flex-col gap-1.5 border-s border-border/40 ps-3">
           {plan!.map((step, i) => (
-            <div key={i} className="text-[12.5px] leading-relaxed text-muted-foreground/75">
+            <div key={i} className="text-[12.5px] leading-relaxed text-muted-foreground">
               {step}
             </div>
           ))}
@@ -126,7 +126,7 @@ export function ComputerPreview({
         >
           <div className="flex items-center gap-2 px-3 py-2 text-[12px]">
             <span className="font-medium">حاسوب ميغسي</span>
-            <span className="text-muted-foreground/70">{formatElapsed(run?.created_at)}</span>
+            <span className="text-muted-foreground">{formatElapsed(run?.created_at)}</span>
             <button
               type="button"
               onClick={() => setControl((v) => !v)}
@@ -142,7 +142,7 @@ export function ComputerPreview({
               type="button"
               onClick={() => setFull((v) => !v)}
               aria-label={full ? "تصغير" : "ملء الشاشة"}
-              className="grid h-6 w-6 place-items-center rounded-full text-muted-foreground/70 transition-colors hover:text-foreground"
+              className="grid h-6 w-6 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground"
             >
               {full ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
             </button>
@@ -175,7 +175,7 @@ export function ComputerPreview({
           </div>
           {/* current step, right under the screen */}
           {active && (
-            <div className="flex items-center gap-2 px-3 py-2 text-[12px] text-muted-foreground/80">
+            <div className="flex items-center gap-2 px-3 py-2 text-[12px] text-muted-foreground">
               <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-[var(--megsy-blue,#3b82f6)]" />
               <span className="truncate">{headline}</span>
               {events.length > 0 && (
@@ -202,7 +202,7 @@ export function ComputerPreview({
             className={`truncate text-[13px] ${
               active
                 ? "ai-shimmer font-medium motion-reduce:animate-none"
-                : "text-muted-foreground/80"
+                : "text-muted-foreground"
             }`}
             aria-live="polite"
           >
@@ -214,7 +214,7 @@ export function ComputerPreview({
               onClick={() => setOpenSteps((v) => !v)}
               aria-expanded={openSteps}
               aria-label="خطوات التنفيذ"
-              className="ms-auto grid h-6 w-6 shrink-0 place-items-center rounded-full text-muted-foreground/60 transition-colors hover:bg-muted/60 hover:text-foreground"
+              className="ms-auto grid h-6 w-6 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
             >
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform ${openSteps ? "rotate-180" : ""}`}
@@ -229,7 +229,7 @@ export function ComputerPreview({
               {traceLines.map((line, i) => (
                 <div
                   key={`${i}-${line.slice(0, 24)}`}
-                  className="text-[12.5px] leading-relaxed text-muted-foreground/75"
+                  className="text-[12.5px] leading-relaxed text-muted-foreground"
                 >
                   {line}
                 </div>

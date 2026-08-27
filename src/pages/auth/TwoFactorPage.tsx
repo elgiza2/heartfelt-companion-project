@@ -324,7 +324,7 @@ const TwoFactorPage = () => {
                     <img loading="lazy" decoding="async" src={qr} alt="2FA QR" width={192} height={192} />
                   </div>
                 )}
-                <p className="mt-4 text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+                <p className="mt-4 text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
                   Or enter this key manually
                 </p>
                 <button onClick={copySecret}
@@ -338,7 +338,7 @@ const TwoFactorPage = () => {
 
           <SubSection title="Verify code" description="Enter the 6-digit code shown in your authenticator app to finish setup.">
             <SubCard>
-              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground/80 font-medium">
+              <label className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground font-medium">
                 Authentication code
               </label>
               <input

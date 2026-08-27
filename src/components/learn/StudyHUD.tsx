@@ -224,7 +224,7 @@ function HudStat({
           {label}
         </span>
         {hint ? (
-          <span className="hidden lg:inline text-[10px] text-muted-foreground/70">
+          <span className="hidden lg:inline text-[10px] text-muted-foreground">
             · {hint}
           </span>
         ) : null}

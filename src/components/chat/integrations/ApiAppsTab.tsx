@@ -118,7 +118,7 @@ export default function ApiAppsTab({
               <span className="block truncate text-[14.5px] font-medium text-foreground">
                 {row.name}
               </span>
-              <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/40">
+              <span className="mt-0.5 block truncate text-[11.5px] leading-[1.5] text-foreground/65">
                 {hasKey ? "API key saved" : row.description}
               </span>
 
@@ -127,7 +127,7 @@ export default function ApiAppsTab({
             {hasKey ? (
               <Check className="h-[18px] w-[18px] shrink-0 text-primary" />
             ) : (
-              <ChevronRight className="h-[18px] w-[18px] shrink-0 text-foreground/35" />
+              <ChevronRight className="h-[18px] w-[18px] shrink-0 text-foreground/65" />
             )}
 
           </button>
@@ -147,7 +147,7 @@ export default function ApiAppsTab({
       )}
 
       {list.length === 0 && (
-        <p className="py-8 text-center text-[13px] text-foreground/40">No results</p>
+        <p className="py-8 text-center text-[13px] text-foreground/65">No results</p>
       )}
     </div>
   );

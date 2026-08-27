@@ -241,7 +241,7 @@ export default function MobileAuthExtras(p: Props) {
                     value={p.newPassword}
                     onChange={(e) => p.setNewPassword(e.target.value)}
                     autoFocus
-                      className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/40"
+                      className="auth-input-white flex-1 bg-transparent outline-none text-[15px] !text-foreground placeholder:!text-foreground/65"
                   />
                   <button
                     type="button"

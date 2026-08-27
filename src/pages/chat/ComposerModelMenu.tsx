@@ -322,7 +322,7 @@ export default function ComposerModelMenu({
                   }}
                   className="tier-menu-card z-[9999] flex flex-col overflow-y-auto overscroll-contain rounded-[26px] p-1.5"
                 >
-                  <div className="px-3 pb-1.5 pt-2 text-[11px] font-medium tracking-wide text-foreground/35">
+                  <div className="px-3 pb-1.5 pt-2 text-[11px] font-medium tracking-wide text-foreground/65">
                     Choose a model
                   </div>
 
@@ -371,13 +371,13 @@ export default function ComposerModelMenu({
                               </span>
                             )}
                           </span>
-                          <span className="mt-[3px] block truncate text-[11px] leading-snug text-foreground/35">
+                          <span className="mt-[3px] block truncate text-[11px] leading-snug text-foreground/65">
                             {item.desc}
                           </span>
                         </span>
                         <span className="flex h-5 w-5 shrink-0 items-center justify-center">
                           {locked ? (
-                            <Lock className="h-3.5 w-3.5 text-foreground/30" />
+                            <Lock className="h-3.5 w-3.5 text-foreground/65" />
                           ) : active ? (
                             <Check className="h-[17px] w-[17px] text-primary" strokeWidth={2.8} />
                           ) : null}
@@ -545,7 +545,7 @@ export default function ComposerModelMenu({
                               </span>
                               <span className="shrink-0 w-5 flex items-center justify-end">
                                 {locked ? (
-                                  <Lock className="h-4 w-4 text-foreground/45" />
+                                  <Lock className="h-4 w-4 text-foreground/65" />
                                 ) : active ? (
                                   <Check className="h-5 w-5" strokeWidth={2.75} style={{ color: "hsl(var(--primary))" }} />
                                 ) : null}
@@ -600,7 +600,7 @@ export default function ComposerModelMenu({
                                 </span>
                                 <span className="shrink-0 w-5 flex items-center justify-end">
                                   {locked ? (
-                                    <Lock className="h-4 w-4 text-foreground/45" />
+                                    <Lock className="h-4 w-4 text-foreground/65" />
                                   ) : active ? (
                                     <Check className="h-5 w-5" strokeWidth={2.75} style={{ color: "hsl(var(--primary))" }} />
                                   ) : null}
@@ -656,7 +656,7 @@ export default function ComposerModelMenu({
                                 </span>
                                 <span className="shrink-0 w-5 flex items-center justify-end">
                                   {locked ? (
-                                    <Lock className="h-4 w-4 text-foreground/45" />
+                                    <Lock className="h-4 w-4 text-foreground/65" />
                                   ) : active ? (
                                     <Check className="h-5 w-5" strokeWidth={2.75} style={{ color: "hsl(var(--primary))" }} />
                                   ) : null}
@@ -684,13 +684,13 @@ export default function ComposerModelMenu({
                                 {getEffortPresetsForModel(selectedModel?.id ?? "lite").find((p) => p.id === effortValue)?.label ?? ""}
                               </span>
                             ) : null}
-                            <ChevronRight className="h-4 w-4 text-foreground/40" />
+                            <ChevronRight className="h-4 w-4 text-foreground/65" />
                           </button>
                         ) : null}
                         {(mode === "images" ? orderedImageOptions.length : mode === "video" ? orderedVideoOptions.length : orderedChatOptions.length) > 4 ? (
                           <button type="button" onClick={() => setView("more")} className="flex w-full items-center gap-3 px-4 py-3.5 text-start hover:bg-white/[0.02] transition-colors">
                             <span className="flex-1 text-[14.5px] font-semibold">More models</span>
-                            <ChevronRight className="h-4 w-4 text-foreground/40" />
+                            <ChevronRight className="h-4 w-4 text-foreground/65" />
                           </button>
                         ) : null}
                       </div>
@@ -805,7 +805,7 @@ export default function ComposerModelMenu({
                         >
                           {groupedMediaOptions.map((group) => (
                             <div key={group.provider}>
-                              <div className="px-2.5 pb-1 text-[10px] font-black uppercase tracking-wider text-foreground/45">
+                              <div className="px-2.5 pb-1 text-[10px] font-black uppercase tracking-wider text-foreground/65">
                                 {group.label}
                               </div>
                               <div className="flex flex-col gap-1">
