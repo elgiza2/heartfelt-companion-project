@@ -11,7 +11,7 @@ import {
 } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { QrCode, X, Download, Share2, Check, Copy, Link2 } from "lucide-react";
+import { QrCode, X, Download, Share2, Check, Copy, Gift } from "lucide-react";
 
 const QRCodeSVG = lazy(() => import("qrcode.react").then((m) => ({ default: m.QRCodeSVG })));
 
@@ -567,7 +567,10 @@ const ReferralsPage = () => {
               onNewChat={() => navigate("/")}
             />
           </aside>
-          <main className="min-w-0 flex-1 overflow-y-auto">{content}</main>
+          <main className="relative min-w-0 flex-1 overflow-y-auto">
+            {content}
+            {actionBar}
+          </main>
         </div>
       ) : (
         <MobilePushShell
@@ -576,7 +579,10 @@ const ReferralsPage = () => {
           onNewChat={() => navigate("/")}
           currentMode="chat"
         >
-          <div className="min-h-[100dvh] bg-background text-foreground">{content}</div>
+          <div className="min-h-[100dvh] bg-background text-foreground">
+            {content}
+            {actionBar}
+          </div>
         </MobilePushShell>
       )}
 
