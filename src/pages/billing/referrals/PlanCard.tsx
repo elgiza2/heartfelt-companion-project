@@ -20,7 +20,7 @@ export default function PlanCard({
   const art = ART[plan] ?? ART.starter;
   return (
     <div
-      className={`relative flex flex-col justify-between overflow-hidden rounded-[18px] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/20 ${className}`}
+      className={`theme-fixed relative flex flex-col justify-between overflow-hidden rounded-[18px] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] ring-1 ring-white/20 ${className}`}
     >
       <img
         src={art}
