@@ -3582,9 +3582,9 @@ html[dir="rtl"] .keep-ltr {
   text-align: left;
 }
 
-/* Ruixen "Moon Chat" landing — keep sidebar visible, hide header/video for clean look. */
+/* Clean desktop landing: hide only the ambient video. The chat header stays
+   visible so model picker, credits and sign-in are always reachable. */
 @media (min-width: 768px) {
-  [data-shell="megsy"][data-chat-empty="true"] [data-desktop-chat-header="true"],
   [data-shell="megsy"][data-chat-empty="true"] > video[aria-hidden] {
     display: none !important;
   }
