@@ -30,7 +30,7 @@ export default function PlanCard({
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/25" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
       <div className="relative flex h-full flex-col justify-between p-3">
         <img
           src={logoMark}
@@ -38,17 +38,24 @@ export default function PlanCard({
           width={28}
           height={28}
           loading="lazy"
-          className="h-6 w-6 rounded-md object-contain brightness-0 invert drop-shadow"
+          className="h-6 w-6 rounded-md object-contain brightness-0 invert drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]"
         />
         <div>
-          <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/80">
+          <p
+            className="text-[9px] font-bold uppercase tracking-[0.24em] text-white"
+            style={{ textShadow: "0 1px 6px rgba(0,0,0,0.95)" }}
+          >
             Megsy
           </p>
-          <p className="text-[15px] font-semibold capitalize leading-tight text-white drop-shadow">
+          <p
+            className="text-[16px] font-bold capitalize leading-tight text-white"
+            style={{ textShadow: "0 2px 8px rgba(0,0,0,0.95)" }}
+          >
             {plan}
           </p>
         </div>
       </div>
+
     </div>
   );
 }
