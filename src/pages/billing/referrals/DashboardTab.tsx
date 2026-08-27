@@ -31,17 +31,18 @@ export default function DashboardTab() {
         <div className="relative flex h-[150px] items-center justify-center overflow-hidden rounded-[28px] border border-foreground/[0.08] bg-foreground/[0.03] sm:h-[185px]">
           <PlanCard
             plan="starter"
-            className="absolute h-[104px] w-[152px] -translate-x-16 -rotate-[14deg] opacity-90 sm:h-[118px] sm:w-[172px]"
+            className="absolute h-[96px] w-[140px] -translate-x-[86px] -rotate-[10deg] sm:h-[112px] sm:w-[164px] sm:-translate-x-[110px]"
           />
           <PlanCard
             plan="elite"
-            className="absolute h-[104px] w-[152px] translate-x-16 rotate-[14deg] opacity-90 sm:h-[118px] sm:w-[172px]"
+            className="absolute h-[96px] w-[140px] translate-x-[86px] rotate-[10deg] sm:h-[112px] sm:w-[164px] sm:translate-x-[110px]"
           />
           <PlanCard
             plan="pro"
-            className="relative h-[112px] w-[164px] sm:h-[128px] sm:w-[188px]"
+            className="relative z-10 h-[108px] w-[156px] sm:h-[124px] sm:w-[180px]"
           />
         </div>
+
         <h1 className="mt-4 text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[30px]">
           Invite friends, earn points.
         </h1>
