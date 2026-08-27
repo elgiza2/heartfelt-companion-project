@@ -314,9 +314,7 @@ export default function MobileChatHeader({
                         type="button"
                         onClick={onClick}
                         data-testid={`mobile-menu-${label.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="mobile-more-glass-item w-full flex items-center gap-3 px-4 py-3 transition-colors active:bg-foreground/[0.08] text-foreground"
-      aria-label=""
-    >
+                        className="mobile-more-glass-item w-full flex items-center gap-3 px-4 py-3 transition-colors active:bg-foreground/[0.08] text-foreground">
                         <Icon
                           className="w-[19px] h-[19px] text-foreground shrink-0"
                           strokeWidth={1.8}
@@ -419,9 +417,7 @@ export default function MobileChatHeader({
                         type="button"
                         onClick={inlineInvite.onSend}
                         disabled={inlineInvite.loading || !inlineInvite.email.trim()}
-                        className="w-full h-10 rounded-xl text-[13px] font-semibold bg-white text-background shadow-sm active:opacity-90 disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap theme-fixed"
-      aria-label="Loader2"
-    >
+                        className="w-full h-10 rounded-xl text-[13px] font-semibold bg-white text-background shadow-sm active:opacity-90 disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap theme-fixed">
                         {inlineInvite.loading ? (
                           <>
                             <Loader2 className="w-4 h-4 animate-spin" />

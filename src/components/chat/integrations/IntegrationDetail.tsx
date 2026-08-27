@@ -180,9 +180,7 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
               ? "bg-foreground/[0.07] text-foreground"
               : "bg-primary text-primary-foreground"
           }`}
-          style={{ border: 0 }}
-      aria-label="Loader2"
-    >
+          style={{ border: 0 }}>
           {busy ? (
             <Loader2 className="h-[18px] w-[18px] animate-spin" />
           ) : connected ? (

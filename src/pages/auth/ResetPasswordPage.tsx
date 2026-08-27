@@ -191,9 +191,7 @@ const ResetPasswordPage = () => {
                 <button
                   onClick={handleReset}
                   disabled={isSubmitting || password.length < 8}
-                  className="w-full py-3 rounded-full bg-foreground text-background text-[14px] font-medium hover:bg-foreground/90 active:scale-[0.99] transition-all duration-150 disabled:opacity-40 disabled:pointer-events-none"
-      aria-label="Spinner"
-    >
+                  className="w-full py-3 rounded-full bg-foreground text-background text-[14px] font-medium hover:bg-foreground/90 active:scale-[0.99] transition-all duration-150 disabled:opacity-40 disabled:pointer-events-none">
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
                       <Spinner />
