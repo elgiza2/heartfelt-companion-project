@@ -1,7 +1,4 @@
-import { AssistantRuntimeProvider } from "@assistant-ui/react";
 import type { ReactNode } from "react";
-import { useChatAuiRuntime } from "../externalStoreAdapter";
-import { AttachmentsSync } from "./AttachmentsSync";
 import type { Message } from "../../chatConstants";
 import type { AttachedFile } from "../../hooks/useAttachments";
 
@@ -23,36 +20,10 @@ interface AuiProviderProps {
  * الـ pipeline الحالي.
  */
 export function AuiProvider({
-  messages,
-  isRunning,
-  onNew,
-  onEdit,
-  onReload,
-  onCancel,
-  onFeedback,
-  attachedFiles,
   children,
 }: AuiProviderProps) {
-  const runtime = useChatAuiRuntime({
-    messages,
-    isRunning,
-    onNew,
-    onEdit,
-    onReload,
-    onCancel,
-    onFeedback,
-  });
-
-  return (
-    <AssistantRuntimeProvider runtime={runtime}>
-      {/* PERF: mount the composer bridge only while attachments actually exist.
-          Subscribing to the composer runtime on every chat render triggered an
-          assistant-ui resource loop ("Maximum update depth exceeded"). */}
-      {attachedFiles !== undefined && attachedFiles.length > 0 && (
-        <AttachmentsSync attachedFiles={attachedFiles} />
-      )}
-      {children}
-    </AssistantRuntimeProvider>
-  );
+  // The app's React state is the authoritative chat runtime. Keeping a second
+  // external-store runtime mounted caused React 19 snapshot loops on startup.
+  return <>{children}</>;
 }
 
