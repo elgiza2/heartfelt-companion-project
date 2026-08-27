@@ -141,14 +141,6 @@ export function ChatComposerSection(props: ChatComposerSectionProps) {
               <div className="hidden md:flex justify-center mb-8">{desktopGreeting}</div>
             ) : null}
 
-            {/* Keep the mobile greeting inside the translated chat surface so
-                opening the push sidebar cannot leave text over the sidebar. */}
-            {isEmpty && desktopGreeting ? (
-              <div className="md:hidden fixed inset-0 z-0 flex items-center justify-center px-8 pb-[30vh] pointer-events-none">
-                <div className="max-w-full text-center">{desktopGreeting}</div>
-              </div>
-            ) : null}
-
             {/* Mode chips row removed by design: modes live in the + menu. */}
 
             {starterChipsVisible ? (
