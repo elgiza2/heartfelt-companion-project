@@ -467,16 +467,15 @@ const ReferralsPage = () => {
 
   const content = (
     <div className={`mx-auto flex min-h-full w-full max-w-[640px] flex-col px-5 ${onRewards ? "pb-10" : "pb-[190px]"} pt-4 md:pt-6`}>
-      {onRewards ? null : (
-      <button
-        type="button"
-        onClick={() => navigate("/chat")}
-        aria-label="Back to chat"
-        className="mb-3 inline-flex h-10 w-fit items-center gap-1.5 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 text-[13px] font-medium text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Back
-      </button>
+      {onRewards || isDesktop ? null : (
+        <button
+          type="button"
+          onClick={() => setSidebarOpen(true)}
+          aria-label="Open menu"
+          className="mb-2 flex h-11 w-11 items-center justify-center rounded-full border-0 bg-transparent text-foreground transition active:scale-95"
+        >
+          <SidebarToggleIcon />
+        </button>
       )}
       <div className="flex-1">
         <Outlet />
