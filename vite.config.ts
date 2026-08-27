@@ -7,7 +7,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { compression, defineAlgorithm } from "vite-plugin-compression2";
 import { constants as zlibConstants } from "zlib";
 import { VitePWA } from "vite-plugin-pwa";
-import { devServerBridgePlugin } from "@lovable.dev/vite-tanstack-config/dev-server-bridge";
+import { devServerBridgePlugin } from "@lovable.dev/vite-plugin-dev-server-bridge";
 
 function createIntegrationAppToken() {
   const workspaceKey = process.env.INTEGRATION_APP_WORKSPACE_KEY ?? process.env.MEMBRANE_WORKSPACE_KEY;
@@ -785,14 +785,6 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // Side-effect-only Node stream imports coming from @tanstack/react-start
-      // must never reach the browser as bare `node:` specifiers.
-      "node:stream/web": path.resolve(__dirname, "./src/lib/node-stream-browser-stub.ts"),
-      "node:stream": path.resolve(__dirname, "./src/lib/node-stream-browser-stub.ts"),
-      "#tanstack-router-entry": path.resolve(__dirname, "./src/lib/tanstack-router-entry-stub.ts"),
-      "#tanstack-start-entry": path.resolve(__dirname, "./src/lib/tanstack-router-entry-stub.ts"),
-      "tanstack-start-manifest:v": path.resolve(__dirname, "./src/lib/tanstack-start-manifest-stub.ts"),
-
     },
   },
   optimizeDeps: {
@@ -826,7 +818,7 @@ export default defineConfig({
     ],
 
 
-    exclude: ["msw", "@mswjs/interceptors", "@tanstack/react-start", "@tanstack/start-server-core"],
+    exclude: ["msw", "@mswjs/interceptors"],
   },
 
   server: {
@@ -887,26 +879,6 @@ export default defineConfig({
           ) {
             return "react-vendor";
           }
-
-          // MUST come before the react-vendor rule below: the substring
-          // "react-router" also matches `@tanstack/react-router`, which is a
-          // transitive dependency of `@tanstack/react-start` and ships SSR
-          // helpers that `import "node:stream"`. Grouping it into the entry
-          // chunk left bare `node:stream` imports in the browser bundle, so
-          // the production app died with a CORS/scheme error and rendered a
-          // blank page. Keep the whole Start/Router SSR family in one chunk
-          // that only the PDF path ever loads.
-          if (
-            id.includes("@tanstack/react-start") ||
-            id.includes("@tanstack/start-") ||
-            id.includes("@tanstack/react-router") ||
-            id.includes("@tanstack/router-core") ||
-            id.includes("@tanstack/devtools")
-          ) {
-            return "tanstack-start";
-          }
-
-
 
           // Truly universal — only the React runtime + router live in the
           // entry chunk. Everything else must travel with the route/component
@@ -1001,16 +973,6 @@ export default defineConfig({
           ) {
             return "syntax";
           }
-          // Keep @tanstack/react-start + start-server-core out of the entry
-          // chunk. They pull in `node:async_hooks` (Node-only) and are only
-          // reachable through dynamic imports (renderPdf.functions,
-          // fxRate.functions). Grouping them with react-query put node:
-          // imports in the entry bundle and blocked the app from booting
-          // in the browser.
-          if (id.includes("@tanstack/react-start") || id.includes("@tanstack/start-")) {
-            return "tanstack-start";
-          }
-          if (id.includes("@tanstack")) return "tanstack";
           if (id.includes("date-fns") || id.includes("dayjs")) return "date";
           if (id.includes("recharts") || id.includes("d3-")) return "charts";
           if (id.includes("hls.js")) return "hls";
