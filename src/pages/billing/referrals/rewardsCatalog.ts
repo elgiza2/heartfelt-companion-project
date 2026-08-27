@@ -1,7 +1,4 @@
 /** @doc Reward catalogue presentation data — monthly subscription plans only. */
-import starterImg from "@/assets/referral/reward-starter.jpg";
-import proImg from "@/assets/referral/reward-pro.jpg";
-import eliteImg from "@/assets/referral/reward-elite.jpg";
 
 export interface CatalogRow {
   slug: string;
@@ -53,16 +50,9 @@ export const FALLBACK_REWARDS: CatalogRow[] = [
   },
 ];
 
-/** A real illustration per redeemable reward — no icons. */
-export const PLAN_IMAGE: Record<string, string> = {
-  starter: starterImg,
-  pro: proImg,
-  elite: eliteImg,
-};
 
 export const planKey = (row: CatalogRow) =>
   (row.plan ?? row.slug.split("-")[0] ?? "starter").toLowerCase();
 
-export const planImage = (row: CatalogRow) => PLAN_IMAGE[planKey(row)] ?? starterImg;
 
 export const periodLabel = (p: string) => (p === "monthly" ? "1 month" : "One-off");
