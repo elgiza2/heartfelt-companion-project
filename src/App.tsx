@@ -1,5 +1,4 @@
 import { useEffect, useState, Suspense } from "react";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,10 +11,8 @@ import { ZoneProvider } from "@/contexts/ZoneContext";
 import { ConfirmProvider } from "@/components/common/ConfirmDialog";
 import { supabase } from "@/integrations/supabase/client";
 import { subscribeAuthEvents } from "@/lib/authStore";
-import { clearQueryPersistence } from "@/lib/queryPersist";
 import { clearAllSnapshots } from "@/lib/pageSnapshot";
 
-import { queryClient } from "@/lib/queryClient";
 import {
   CommandPalette,
   ShortcutsHelp,
@@ -79,7 +76,6 @@ const clearUserCaches = () => {
     if (key && key.startsWith("megsy_cache_")) keysToRemove.push(key);
   }
   keysToRemove.forEach((k) => localStorage.removeItem(k));
-  queryClient.clear();
 };
 
 /** Claim a pending referral bonus once the user is authenticated. */
@@ -120,7 +116,6 @@ const useAuthSession = () => {
       if (event === "SIGNED_OUT") {
         localStorage.removeItem("megsy_last_user_id");
         clearAllSnapshots();
-        void clearQueryPersistence();
         clearUserCaches();
       }
 
@@ -145,8 +140,7 @@ const App = () => {
 
   return (
     <TranslationWrapper>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
+      <TooltipProvider>
           <ErrorBoundary>
             <BrowserRouter>
               <ZoneProvider>
@@ -192,8 +186,7 @@ const App = () => {
               </>
             ) : null}
           </ErrorBoundary>
-        </TooltipProvider>
-      </QueryClientProvider>
+      </TooltipProvider>
     </TranslationWrapper>
   );
 };

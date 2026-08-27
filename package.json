@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "megsy-ai",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -117,8 +117,5 @@
     "vitest": "^4.1.8",
     "workbox-window": "^7.4.1",
     "yaml": "^2.9.0"
-  },
-  "overrides": {
-    "@tanstack/query-core": "5.101.4"
   }
 }

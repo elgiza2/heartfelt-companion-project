@@ -17,7 +17,6 @@ const CDN = {
   reactHookForm: "https://esm.sh/react-hook-form@7.53.0?deps=react@18.3.1",
   zod: "https://esm.sh/zod@3.23.8",
   hookformResolvers: "https://esm.sh/@hookform/resolvers@3.9.0?deps=react@18.3.1,zod@3.23.8",
-  reactQuery: "https://esm.sh/@tanstack/react-query@5.56.2?deps=react@18.3.1",
   sonner: "https://esm.sh/sonner@1.5.0?deps=react@18.3.1,react-dom@18.3.1",
   radixSlot: "https://esm.sh/@radix-ui/react-slot@1.1.0?deps=react@18.3.1,react-dom@18.3.1",
   supabaseJs: "https://esm.sh/@supabase/supabase-js@2.45.4",
@@ -31,7 +30,7 @@ const REACT_PIN = "react@18.3.1,react-dom@18.3.1";
 /** Build an esm.sh URL for a bare npm package, adding ?deps= for peer-dep-sensitive ones. */
 function esmUrl(pkg: string, version?: string): string {
   const spec = version ? `${pkg}@${version}` : pkg;
-  const needsDeps = /^(@radix-ui\/|@tanstack\/|framer-motion|lucide-react|sonner|react-router|react-hook-form|@hookform\/|recharts|react-day-picker|cmdk|vaul|embla-carousel|@floating-ui\/react)/.test(pkg);
+  const needsDeps = /^(@radix-ui\/|framer-motion|lucide-react|sonner|react-router|react-hook-form|@hookform\/|recharts|react-day-picker|cmdk|vaul|embla-carousel|@floating-ui\/react)/.test(pkg);
   return `https://esm.sh/${spec}${needsDeps ? `?deps=${REACT_PIN}` : ""}`;
 }
 
@@ -52,7 +51,6 @@ const IMPORT_MAP: Record<string, string> = {
   "react-hook-form": CDN.reactHookForm,
   zod: CDN.zod,
   "@hookform/resolvers/zod": `${CDN.hookformResolvers}/zod`,
-  "@tanstack/react-query": CDN.reactQuery,
   sonner: CDN.sonner,
   "@radix-ui/react-slot": CDN.radixSlot,
   "@supabase/supabase-js": CDN.supabaseJs,

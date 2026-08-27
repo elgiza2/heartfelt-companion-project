@@ -1,6 +1,5 @@
 
 import { useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
 import ComposerAttachments from "./ComposerAttachments";
 import { RemoteAiBusyBanner } from "./RemoteAiBusyBanner";
 import { MentionDropdown } from "./MentionDropdown";
@@ -142,17 +141,13 @@ export function ChatComposerSection(props: ChatComposerSectionProps) {
               <div className="hidden md:flex justify-center mb-8">{desktopGreeting}</div>
             ) : null}
 
-            {/* Mobile: same greeting, centered in the middle of the screen.
-                Portaled to <body> because this dock has a transform, which
-                would otherwise trap position:fixed inside the composer. */}
-            {isEmpty && desktopGreeting && typeof document !== "undefined"
-              ? createPortal(
-                  <div className="md:hidden fixed inset-0 z-0 flex items-center justify-center px-8 pb-[30vh] pointer-events-none">
-                    <div className="text-center">{desktopGreeting}</div>
-                  </div>,
-                  document.body,
-                )
-              : null}
+            {/* Keep the mobile greeting inside the translated chat surface so
+                opening the push sidebar cannot leave text over the sidebar. */}
+            {isEmpty && desktopGreeting ? (
+              <div className="md:hidden fixed inset-0 z-0 flex items-center justify-center px-8 pb-[30vh] pointer-events-none">
+                <div className="max-w-full text-center">{desktopGreeting}</div>
+              </div>
+            ) : null}
 
             {/* Mode chips row removed by design: modes live in the + menu. */}
 
