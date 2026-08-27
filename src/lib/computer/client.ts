@@ -39,7 +39,7 @@ async function call<T>(body: Record<string, unknown>): Promise<T> {
 
   const resp = await fetch("/api/computer-agent", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
     body: JSON.stringify({ ...body, token }),
   });
   const data = (await resp.json().catch(() => ({}))) as Record<string, unknown>;

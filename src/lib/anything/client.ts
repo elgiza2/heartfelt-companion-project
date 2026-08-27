@@ -1,4 +1,5 @@
 /** @doc Typed client for the Anything.com API, proxied through the `/api/anything` server route. */
+import { authenticatedFetch } from "@/lib/authenticatedFetch";
 
 export interface AnythingRequest {
   path: string;
@@ -19,7 +20,7 @@ export class AnythingApiError extends Error {
 }
 
 export async function anythingRequest<T = unknown>(req: AnythingRequest): Promise<T> {
-  const response = await fetch("/api/anything", {
+  const response = await authenticatedFetch("/api/anything", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(req),

@@ -62,7 +62,7 @@ export async function mcpGateway(
 
   const res = await fetch("/api/mcp", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
     body: JSON.stringify({
       action,
       token,

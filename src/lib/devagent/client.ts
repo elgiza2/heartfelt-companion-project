@@ -36,10 +36,12 @@ const ENDPOINT = "/api/dev-agent";
 async function call<T = Record<string, any>>(body: Record<string, unknown>): Promise<T> {
   const { supabase } = await import("@/integrations/supabase/client");
   const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  if (!token) throw new Error("Please sign in to use the developer agent");
   const resp = await fetch(ENDPOINT, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...body, token: data.session?.access_token }),
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ ...body, token }),
   });
   const json = (await resp.json().catch(() => ({}))) as Record<string, any>;
   if (!resp.ok) throw new Error((json.error as string) || `HTTP ${resp.status}`);
