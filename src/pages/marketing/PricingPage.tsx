@@ -770,18 +770,18 @@ const PricingPage = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-10"
         >
-          <div className="relative mx-auto mb-8 flex h-[150px] w-full max-w-[520px] items-center justify-center sm:h-[190px]">
+          <div className="relative mx-auto mb-8 h-[168px] w-full max-w-[520px] sm:h-[205px]">
             <PlanCard
               plan="starter"
-              className="absolute h-[100px] w-[146px] -translate-x-[92px] -rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:-translate-x-[124px]"
+              className="absolute left-1/2 top-1/2 h-[104px] w-[152px] -translate-x-[calc(50%+86px)] -translate-y-[calc(50%+4px)] -rotate-[13deg] sm:h-[124px] sm:w-[182px] sm:-translate-x-[calc(50%+110px)]"
             />
             <PlanCard
               plan="elite"
-              className="absolute h-[100px] w-[146px] translate-x-[92px] rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:translate-x-[124px]"
+              className="absolute left-1/2 top-1/2 h-[104px] w-[152px] translate-x-[calc(-50%+86px)] -translate-y-[calc(50%+4px)] rotate-[13deg] sm:h-[124px] sm:w-[182px] sm:translate-x-[calc(-50%+110px)]"
             />
             <PlanCard
               plan="pro"
-              className="relative z-10 h-[112px] w-[162px] sm:h-[138px] sm:w-[200px]"
+              className="absolute left-1/2 top-1/2 z-10 h-[118px] w-[172px] -translate-x-1/2 -translate-y-[calc(50%-10px)] sm:h-[140px] sm:w-[204px]"
             />
           </div>
 
