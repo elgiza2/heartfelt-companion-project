@@ -1,28 +1,26 @@
-/** @doc Redemption page — spend referral points on credits, packs and plans. */
+/** @doc Redemption page — spend referral points on subscription plans. */
 import { useMemo, useState } from "react";
 import { Check, Lock } from "lucide-react";
 import { POINTS_PER_SIGNUP, useReferrals } from "../ReferralsPage";
-import { FALLBACK_REWARDS, type CatalogRow, periodLabel, rewardImage } from "./rewardsCatalog";
-
-const FILTERS = [
-  { key: "all", label: "All" },
-  { key: "credits", label: "Credits" },
-  { key: "pack", label: "Packs" },
-  { key: "plan", label: "Plans" },
-] as const;
+import {
+  FALLBACK_REWARDS,
+  type CatalogRow,
+  periodLabel,
+  planArt,
+  planKey,
+} from "./rewardsCatalog";
 
 export default function RewardsTab() {
   const { points, rewards, redeemReward } = useReferrals();
   const [busy, setBusy] = useState<string | null>(null);
-  const [filter, setFilter] = useState<(typeof FILTERS)[number]["key"]>("all");
 
-  const list = (rewards.length > 0 ? (rewards as unknown as CatalogRow[]) : FALLBACK_REWARDS);
+  const list = rewards.length > 0 ? (rewards as unknown as CatalogRow[]) : FALLBACK_REWARDS;
   const shown = useMemo(
     () =>
       [...list]
-        .filter((r) => filter === "all" || (r.category ?? "plan") === filter)
+        .filter((r) => (r.category ?? "plan") === "plan")
         .sort((a, b) => a.points_cost - b.points_cost),
-    [list, filter],
+    [list],
   );
 
   const redeem = async (slug: string) => {
@@ -59,30 +57,12 @@ export default function RewardsTab() {
             </p>
           </div>
           <div className="text-right">
-            <p className="text-[12px] text-foreground/65">Rewards left</p>
+            <p className="text-[12px] text-foreground/65">Plans left</p>
             <p className="text-[20px] font-semibold text-foreground">
-              {list.reduce((s, r) => s + Math.max(0, r.stock_total - r.stock_claimed), 0)}
+              {shown.reduce((s, r) => s + Math.max(0, r.stock_total - r.stock_claimed), 0)}
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Filters */}
-      <div className="scrollbar-none flex gap-2 overflow-x-auto">
-        {FILTERS.map((f) => (
-          <button
-            key={f.key}
-            type="button"
-            onClick={() => setFilter(f.key)}
-            className={`whitespace-nowrap rounded-full border px-3.5 py-1.5 text-[13px] font-medium transition-colors ${
-              filter === f.key
-                ? "border-transparent bg-foreground text-background"
-                : "border-foreground/10 bg-foreground/[0.04] text-foreground/70"
-            }`}
-          >
-            {f.label}
-          </button>
-        ))}
       </div>
 
       {/* Catalogue */}
@@ -91,27 +71,43 @@ export default function RewardsTab() {
           const left = Math.max(0, r.stock_total - r.stock_claimed);
           const affordable = points >= r.points_cost && left > 0;
           const progress = Math.min(100, Math.round((points / r.points_cost) * 100));
+          const art = planArt(r);
           return (
             <article
               key={r.slug}
               className="ng-lift flex flex-col overflow-hidden rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.025]"
             >
-              <div className="relative grid h-[132px] place-items-center bg-foreground/[0.04]">
-                <img
-                  src={rewardImage(r)}
-                  alt={r.title}
-                  loading="lazy"
-                  width={1024}
-                  height={1024}
-                  className="h-[104px] w-auto object-contain drop-shadow-[0_12px_20px_rgba(0,0,0,0.25)]"
-                />
-                <span className="absolute right-3 top-3 rounded-full border border-foreground/10 bg-background/70 px-2.5 py-1 text-[11px] font-medium text-foreground/75 backdrop-blur">
-                  {periodLabel(r.billing_period)}
-                </span>
+              {/* Plan card artwork — clean gradient + pills */}
+              <div className="p-3">
+                <div
+                  className="relative flex h-[136px] flex-col justify-between overflow-hidden rounded-[18px] border border-foreground/[0.08] p-4"
+                  style={{ background: art.gradient }}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-[19px] font-semibold capitalize tracking-tight text-foreground">
+                      {planKey(r)}
+                    </span>
+                    <span className="rounded-full border border-foreground/12 bg-background/60 px-2.5 py-1 text-[11px] font-medium text-foreground/75 backdrop-blur">
+                      {periodLabel(r.billing_period)}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {art.pills.map((p) => (
+                      <span
+                        key={p}
+                        className="rounded-full border border-foreground/10 bg-background/55 px-2.5 py-1 text-[11px] font-medium text-foreground/80 backdrop-blur"
+                      >
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="flex flex-1 flex-col p-4">
-                <p className="text-[15px] font-semibold text-foreground">{r.title}</p>
+              <div className="flex flex-1 flex-col px-4 pb-4">
+                <p className="text-[15px] font-semibold text-foreground">
+                  {r.title} — {periodLabel(r.billing_period)}
+                </p>
                 {r.description ? (
                   <p className="mt-1 text-[13px] leading-relaxed text-foreground/65">
                     {r.description}
