@@ -58,9 +58,9 @@ export default function RewardsTab() {
           return (
             <li
               key={r.slug}
-              className="flex items-center gap-4 rounded-[24px] border border-foreground/[0.09] bg-foreground/[0.02] p-3.5"
+              className="flex items-center gap-4 rounded-[26px] border border-foreground/[0.09] bg-foreground/[0.02] p-4"
             >
-              <PlanCard plan={plan} className="h-[86px] w-[124px] shrink-0" />
+              <PlanCard plan={plan} className="h-[118px] w-[172px] shrink-0 sm:h-[130px] sm:w-[190px]" />
               <div className="min-w-0 flex-1">
                 <p className="text-[15.5px] font-semibold capitalize leading-tight text-foreground">
                   {plan}

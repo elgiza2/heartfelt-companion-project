@@ -770,18 +770,20 @@ const PricingPage = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-10"
         >
-          <div className="relative mx-auto mb-8 flex h-[150px] w-full max-w-[520px] items-center justify-center sm:h-[190px]">
+          <div className="mx-auto mb-8 flex h-[170px] w-full max-w-[520px] items-center justify-center sm:h-[200px]">
             <PlanCard
               plan="starter"
-              className="absolute h-[100px] w-[146px] -translate-x-[92px] -rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:-translate-x-[124px]"
-            />
-            <PlanCard
-              plan="elite"
-              className="absolute h-[100px] w-[146px] translate-x-[92px] rotate-[10deg] sm:h-[124px] sm:w-[182px] sm:translate-x-[124px]"
+              className="-mr-6 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
+              style={{ transform: "rotate(-12deg) translateY(4px)" }}
             />
             <PlanCard
               plan="pro"
-              className="relative z-10 h-[112px] w-[162px] sm:h-[138px] sm:w-[200px]"
+              className="z-10 h-[120px] w-[176px] shrink-0 sm:h-[142px] sm:w-[208px]"
+            />
+            <PlanCard
+              plan="elite"
+              className="-ml-6 h-[104px] w-[152px] shrink-0 sm:h-[124px] sm:w-[182px]"
+              style={{ transform: "rotate(12deg) translateY(4px)" }}
             />
           </div>
 

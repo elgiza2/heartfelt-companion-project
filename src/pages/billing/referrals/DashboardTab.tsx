@@ -28,18 +28,28 @@ export default function DashboardTab() {
     <div className="flex h-full flex-col justify-center gap-4" data-stagger>
       {/* Hero */}
       <section>
-        <div className="relative flex h-[150px] items-center justify-center overflow-hidden rounded-[28px] border border-foreground/[0.08] bg-foreground/[0.03] sm:h-[185px]">
-          <PlanCard
-            plan="starter"
-            className="absolute h-[96px] w-[140px] -translate-x-[86px] -rotate-[10deg] sm:h-[112px] sm:w-[164px] sm:-translate-x-[110px]"
+        <div className="relative flex h-[168px] items-center justify-center overflow-hidden rounded-[28px] border border-foreground/[0.08] bg-gradient-to-b from-foreground/[0.06] to-foreground/[0.01] sm:h-[200px]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(120% 90% at 50% 115%, hsl(var(--primary)/0.22), transparent 62%)",
+            }}
           />
           <PlanCard
-            plan="elite"
-            className="absolute h-[96px] w-[140px] translate-x-[86px] rotate-[10deg] sm:h-[112px] sm:w-[164px] sm:translate-x-[110px]"
+            plan="starter"
+            className="-mr-5 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            style={{ transform: "rotate(-12deg) translateY(4px)" }}
           />
           <PlanCard
             plan="pro"
-            className="relative z-10 h-[108px] w-[156px] sm:h-[124px] sm:w-[180px]"
+            className="z-10 h-[114px] w-[166px] shrink-0 sm:h-[132px] sm:w-[192px]"
+          />
+          <PlanCard
+            plan="elite"
+            className="-ml-5 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            style={{ transform: "rotate(12deg) translateY(4px)" }}
           />
         </div>
 

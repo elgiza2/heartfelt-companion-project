@@ -7,6 +7,7 @@ import { Check } from "lucide-react";
 import { MobileSidebarButton } from "@/components/shared/MobileSidebarButton";
 import { useUserLang } from "@/lib/authI18n";
 import { type PlanTier } from "@/data/pricingData";
+import PlanCard from "@/pages/billing/referrals/PlanCard";
 
 function useIsLightTheme() {
   const [light, setLight] = useState(
@@ -126,7 +127,25 @@ export default function MobilePricingScreen({
         />
       </header>
 
-      <div className="flex flex-1 flex-col justify-center gap-7 px-5 pb-2 pt-6">
+      <div className="flex flex-1 flex-col justify-center gap-6 px-5 pb-2 pt-2">
+        {/* Plan card fan */}
+        <div className="mps-rise mx-auto flex h-[124px] w-full max-w-[360px] items-center justify-center" style={{ animationDelay: "20ms" }}>
+          <PlanCard
+            plan="starter"
+            className="h-[88px] w-[128px] shrink-0 -mr-9"
+            style={{ transform: "rotate(-12deg) translateY(4px)" }}
+          />
+          <PlanCard
+            plan="pro"
+            className="z-10 h-[102px] w-[148px] shrink-0"
+          />
+          <PlanCard
+            plan="elite"
+            className="h-[88px] w-[128px] shrink-0 -ml-9"
+            style={{ transform: "rotate(12deg) translateY(4px)" }}
+          />
+        </div>
+
         {/* Title + plan switch */}
         <div className="mps-rise" style={{ animationDelay: "40ms" }}>
           <h1
