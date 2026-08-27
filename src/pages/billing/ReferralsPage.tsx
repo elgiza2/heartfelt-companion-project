@@ -552,7 +552,7 @@ const ReferralsPage = () => {
     </div>
   );
 
-  );
+
 
 
   return (
