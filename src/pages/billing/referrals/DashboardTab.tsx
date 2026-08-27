@@ -39,15 +39,17 @@ export default function DashboardTab() {
           />
           <PlanCard
             plan="starter"
-            className="absolute h-[100px] w-[146px] -translate-x-[78px] -translate-y-[6px] -rotate-[13deg] sm:h-[118px] sm:w-[172px] sm:-translate-x-[104px]"
-          />
-          <PlanCard
-            plan="elite"
-            className="absolute h-[100px] w-[146px] translate-x-[78px] -translate-y-[6px] rotate-[13deg] sm:h-[118px] sm:w-[172px] sm:translate-x-[104px]"
+            className="-mr-10 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            style={{ transform: "rotate(-12deg) translateY(4px)" }}
           />
           <PlanCard
             plan="pro"
-            className="relative z-10 h-[116px] w-[168px] translate-y-[10px] sm:h-[134px] sm:w-[196px]"
+            className="z-10 h-[114px] w-[166px] shrink-0 sm:h-[132px] sm:w-[192px]"
+          />
+          <PlanCard
+            plan="elite"
+            className="-ml-10 h-[98px] w-[142px] shrink-0 sm:h-[114px] sm:w-[166px]"
+            style={{ transform: "rotate(12deg) translateY(4px)" }}
           />
         </div>
 
