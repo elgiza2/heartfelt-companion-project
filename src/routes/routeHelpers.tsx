@@ -39,7 +39,7 @@ export const LegacyAiRedirect = () => {
 
 
 const SkeletonBar = ({ className = "" }: { className?: string }) => (
-  <div className={`rounded-md bg-foreground/15 animate-pulse ${className}`} aria-hidden="true" />
+  <div className={`ng-shimmer rounded-md bg-foreground/10 ${className}`} aria-hidden="true" />
 );
 
 /**
