@@ -31,7 +31,6 @@ import {
   ReferralsRewardsTab,
   KPage,
   ReferralResourcesPage,
-  WithdrawPage,
   // integrations hub
   // settings
   SettingsPage,
@@ -126,10 +125,6 @@ export const AppRoutes = ({ currentUserId }: { currentUserId: string | null }) =
       <Route
         path="/settings/referrals/resources"
         element={<ProtectedRoute><ReferralResourcesPage /></ProtectedRoute>}
-      />
-      <Route
-        path="/settings/withdraw"
-        element={<ProtectedRoute><WithdrawPage /></ProtectedRoute>}
       />
     </Route>
 
