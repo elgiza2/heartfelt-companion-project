@@ -106,7 +106,7 @@ export default function RewardsTab() {
 
               <div className="flex flex-1 flex-col px-4 pb-4">
                 <p className="text-[15px] font-semibold text-foreground">
-                  {r.title} — {periodLabel(r.billing_period)}
+                  {r.title.includes("—") ? r.title : `${r.title} — ${periodLabel(r.billing_period)}`}
                 </p>
                 {r.description ? (
                   <p className="mt-1 text-[13px] leading-relaxed text-foreground/65">
