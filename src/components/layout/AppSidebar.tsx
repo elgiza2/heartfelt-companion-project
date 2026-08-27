@@ -1,3 +1,4 @@
+import EmptyState from "@/components/common/EmptyState";
 import { memo, startTransition, useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate, useLocation, type NavigateOptions } from "react-router-dom";
 import { Plus, PanelLeft, LogIn, Cloud, Sparkles, Settings, ChevronDown } from "lucide-react";
@@ -796,9 +797,11 @@ const AppSidebar = ({
           >
             {showRecent ? (
               conversations.length === 0 ? (
-                <div className="px-3 py-10 text-center">
-                  <p className="text-[13px] text-muted-foreground/70">No conversations yet</p>
-                </div>
+                <EmptyState
+                  compact
+                  title="No conversations yet"
+                  description="Start a new chat and it will show up here."
+                />
               ) : (
                 <ul className="space-y-1">
                 {flatConversations.map((conv) => {
@@ -1099,9 +1102,11 @@ const AppSidebar = ({
 
         {showRecent ? (
           conversations.length === 0 ? (
-            <div className="px-3 py-10 text-center">
-              <p className="text-[13px] text-muted-foreground/70">No conversations yet</p>
-            </div>
+            <EmptyState
+              compact
+              title="No conversations yet"
+              description="Start a new chat and it will show up here."
+            />
           ) : (
             <ul className="space-y-1">
               {flatConversations.map((conv) => {
