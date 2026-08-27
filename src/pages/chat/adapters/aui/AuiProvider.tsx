@@ -1,10 +1,7 @@
 import { AssistantRuntimeProvider } from "@assistant-ui/react";
 import type { ReactNode } from "react";
 import { useChatAuiRuntime } from "../externalStoreAdapter";
-import { SelectionToolbar } from "../../components/aui/SelectionToolbar";
 import { AttachmentsSync } from "./AttachmentsSync";
-import { RegisteredToolUIs } from "../../aui/toolRegistry";
-import { RegisteredGenerativeUIs } from "../../aui/GenerativeCards";
 import type { Message } from "../../chatConstants";
 import type { AttachedFile } from "../../hooks/useAttachments";
 
@@ -54,10 +51,7 @@ export function AuiProvider({
       {attachedFiles !== undefined && attachedFiles.length > 0 && (
         <AttachmentsSync attachedFiles={attachedFiles} />
       )}
-      <RegisteredToolUIs />
-      <RegisteredGenerativeUIs />
       {children}
-      <SelectionToolbar />
     </AssistantRuntimeProvider>
   );
 }
