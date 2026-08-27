@@ -1,7 +1,7 @@
 /** @doc Referrals overview — one screen: hero, points balance, quick stats. */
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import heroImg from "@/assets/referral/hero-sky.jpg";
+import PlanCard from "./PlanCard";
 import { POINTS_PER_SIGNUP, useReferrals } from "../ReferralsPage";
 import { FALLBACK_REWARDS } from "./rewardsCatalog";
 
@@ -28,13 +28,18 @@ export default function DashboardTab() {
     <div className="flex h-full flex-col justify-center gap-4" data-stagger>
       {/* Hero */}
       <section>
-        <div className="overflow-hidden rounded-[28px] border border-foreground/[0.08]">
-          <img
-            src={heroImg}
-            alt="Golden ticket floating on a dark backdrop"
-            width={1104}
-            height={608}
-            className="h-[150px] w-full object-cover sm:h-[185px]"
+        <div className="relative flex h-[150px] items-center justify-center overflow-hidden rounded-[28px] border border-foreground/[0.08] bg-foreground/[0.03] sm:h-[185px]">
+          <PlanCard
+            plan="starter"
+            className="absolute h-[104px] w-[152px] -translate-x-16 -rotate-[14deg] opacity-90 sm:h-[118px] sm:w-[172px]"
+          />
+          <PlanCard
+            plan="elite"
+            className="absolute h-[104px] w-[152px] translate-x-16 rotate-[14deg] opacity-90 sm:h-[118px] sm:w-[172px]"
+          />
+          <PlanCard
+            plan="pro"
+            className="relative h-[112px] w-[164px] sm:h-[128px] sm:w-[188px]"
           />
         </div>
         <h1 className="mt-4 text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[30px]">
