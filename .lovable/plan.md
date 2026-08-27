@@ -1,55 +1,42 @@
-# خطة إضافة ثيم أبيض (Light Theme) للتطبيق
+# Megsy A+ Production Audit and Remediation
 
-## الوضع الحالي
-التطبيق مقفول على الوضع الداكن بالكامل:
-- `src/App.tsx` يفرض `dark` على `<html>` عند الإقلاع.
-- `src/lib/appTheme.ts` مجرد stubs بترجّع `"dark"` دايمًا.
-- `src/index.css` فيه توكنز `:root` (فاتحة) و`.dark` (داكنة)، بس فيه كمان قواعد "قسرية" بتقلب `bg-white / bg-black / text-white / text-black` حسب الكلاس.
-- ملفات ستايل إضافية (`deferred.css`, `manus-theme.css`, `chat-legibility.css`, `mobile-sunset-buttons.css`, `settings-amber.css`, `claude-chat.css`, ...) فيها ألوان داكنة مثبتة بدون شرط.
-- حوالي 23 ملف tsx فيه ألوان hardcoded (`bg-black`, `text-white`, `bg-[#...]`).
+## Goal
+Stabilize Megsy as a production React application, remove TanStack completely, fix the requested chat/mobile UI issues, and remediate high-confidence security, privacy, performance, accessibility, and SEO issues without changing product behavior unnecessarily.
 
-## المبدأ الأساسي
-الثيم الفاتح ما يتعملش بألوان جديدة متناثرة، بل بـ **توكنز**:
-كل الألوان تيجي من متغيرات CSS في `:root` (فاتح) و`.dark` (داكن)، والمكوّنات تستخدم `bg-background`, `text-foreground`, `bg-card`, `border-border`, `text-muted-foreground` بدل الألوان الصريحة.
+## Workstreams
 
-## المراحل
+### 1. Restore reliable startup and remove TanStack
+- Remove all direct TanStack query/start packages, providers, persistence helpers, stubs, aliases, build chunk rules, documentation references, package metadata, and lockfile entries.
+- Replace the app-wide query cache usage with a small native cache reset path because no feature currently consumes React Query hooks.
+- Preserve the Lovable preview bridge through a non-TanStack package if available; otherwise use a local Vite-compatible bridge implementation so preview startup remains reliable.
+- Reinstall dependencies and verify a repository-wide search returns zero `tanstack` / `@tanstack` matches.
 
-### 1) تشغيل مفتاح الثيم (البنية التحتية)
-- إرجاع `appTheme.ts` لتنفيذ حقيقي: `light | dark | system`، تخزين في `localStorage` (`megsy_theme`)، ومزامنة `<html class>` + `data-theme` + `colorScheme` + `<meta name="theme-color">`.
-- سكربت صغير inline في `index.html` يطبّق الثيم قبل أول رسم (منع الوميض).
-- إزالة الفرض في `App.tsx` واستبداله بـ `initTheme()`.
-- إضافة اختيار الثيم في `Settings → Customization` (فاتح / داكن / تلقائي).
+### 2. Chat UI and responsive fixes
+- Make chat service chips more rectangular by reducing pill radius consistently on mobile and desktop.
+- Fix center greeting/content collision when the mobile sidebar is open by constraining/hiding or translating empty-state content with the chat surface and respecting safe viewport bounds.
+- Test authenticated chat at phone, tablet, and desktop sizes, including sidebar open/close, light/dark themes, composer, scrolling, loading, and long output rendering.
 
-### 2) ضبط لوحة التوكنز الفاتحة
-- مراجعة `:root` في `index.css`: background, foreground, card, popover, muted, border, input, ring, sidebar، وقيم الـ shadows والـ glass.
-- التأكد من تباين AA للنصوص الثانوية والأيقونات.
-- تعديل `.ambient-bg`, gradients, glow, overlays عشان يبقى ليها نسخة فاتحة هادية بدل السوداء.
+### 3. Security and privacy hardening
+- Review backend policies/functions for ownership checks on conversations, messages, files, workspaces, credits, subscriptions, quotas, roles, and premium access.
+- Verify sensitive values are server-authoritative and cannot be changed through local storage, URLs, or request bodies.
+- Harden upload validation with server-side allowlists, size limits, safe filenames, and signature/content checks where supported.
+- Verify Markdown/AI output sanitization, safe links, prompt/tool permission boundaries, error redaction, and absence of client-exposed secrets.
+- Apply only safe schema/policy changes and avoid reading or modifying other users’ data.
 
-### 3) تحييد قواعد الألوان القسرية
-مراجعة الكتلة اللي بتتحكم في `bg-white/bg-black/text-white/text-black` في `index.css` وإعادة كتابتها كـ mapping متماثل للجهتين، بدل استثناءات `theme-fixed` المتراكمة.
+### 4. Production quality audit
+- Remove confirmed dead/debug code and unused dependencies without broad rewrites.
+- Fix high-confidence performance issues such as unnecessary polling, duplicate requests, eager heavy imports, and avoidable rerenders.
+- Audit public metadata, canonical/robots/sitemap behavior, private route indexing, headings, alt text, keyboard focus, labels, contrast, and error/loading states.
+- Preserve the existing design system while standardizing inconsistent interactive states discovered during testing.
 
-### 4) ملفات الستايل المساعدة
-لكل ملف من: `deferred.css`, `manus-theme.css`, `manus-tokens.css`, `chat-legibility.css`, `claude-chat.css`, `mobile-sunset-buttons.css`, `settings-amber.css`, `megsy-workspace.css`, `ios-glass.css`, `page-transitions.css`:
-- تحويل الألوان الثابتة لتوكنز، أو تغليف القيم الداكنة بـ `html.dark { ... }` مع مقابل فاتح.
+### 5. Verification
+- Run focused tests and the production build.
+- Test sign-in and critical authenticated flows using only the provided QA account.
+- Re-test desktop/mobile, light/dark, sidebar, chat send/response/loading/error behavior, and public routes.
+- Check browser console/network/runtime errors and final build diagnostics.
+- Run final repository-wide TanStack and secret-pattern scans and report verified results plus any backend limitation that cannot be proven from this workspace.
 
-### 5) الشات (الأهم — تغطية كاملة)
-تغطية كل عناصر الشات الداخلية:
-- Composer: الحقل، زر Plus، الشيبس، قوائم الموديل/الخدمات، المرفقات، التسجيل الصوتي.
-- الرسائل: فقاعات المستخدم/المساعد، Markdown، الكود بلوكات (Syntax highlight فاتح)، الجداول، الاقتباسات، الروابط.
-- أدوات الوكيل: قوائم المهام، خطوات التنفيذ، Terminal/logs، معاينة الملفات، بطاقات النشر والسكرين شوت.
-- Canvas / Artifacts / Preview panes، الـ sidebar، قوائم المحادثات، البحث، المودالات والـ sheets، الـ toasts، الـ skeletons والـ loaders، الـ scrollbars.
-
-### 6) باقي التطبيق
-كل الصفحات: الرئيسية، الإعدادات بكل صفحاتها، الملف الشخصي، الفواتير، الإحالات، الصور/الفيديو/العروض/المستندات، Integrations، MCP، Skills، صفحات الحالة والخصوصية، الأخطاء و404.
-
-### 7) الاستثناء الوحيد
-صفحات **تسجيل الدخول والتسجيل** (Auth/Sign in/Sign up + الشاشات المرتبطة بيها) تفضل زي ما هي بالضبط بدون أي تغيير — هيتم تثبيتها بكلاس `theme-fixed`/سكوب خاص عشان الثيم ما يأثرش عليها.
-
-### 8) التحقق
-- فحص بصري بـ Playwright لكل مسار رئيسي في الوضعين (موبايل + ديسكتوب).
-- التأكد من عدم وجود وميض عند الإقلاع، وثبات الاختيار بعد إعادة التحميل.
-- بحث نهائي عن أي `bg-black/text-white/#hex` متبقي خارج صفحات الدخول.
-
-## ملاحظات تقنية
-- ما فيش تغيير في المنطق أو الباك اند — شغل واجهة وستايل فقط.
-- التنفيذ تدريجي: المرحلة 1 و2 أولًا (مفتاح شغال + لوحة ألوان)، وبعدها المرور على الشات ثم باقي الصفحات.
+## Technical notes
+- Existing React Router architecture remains unchanged.
+- No frontend state will be treated as authoritative for billing, credits, permissions, ownership, or quotas.
+- Large AI calls will be minimized during QA; representative presentation checks will favor existing/test-safe content.
