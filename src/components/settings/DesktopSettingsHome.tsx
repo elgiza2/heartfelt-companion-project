@@ -194,7 +194,8 @@ export function DesktopSettingsHome() {
             <button
               onClick={handleLogout}
               className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-muted/60 active:bg-muted transition-colors"
-            >
+      aria-label="Logout"
+    >
               <LogoutIcon className="w-[18px] h-[18px] text-destructive shrink-0" />
               <span className="flex-1 text-[14.5px] font-medium text-destructive">{tx("Sign out")}</span>
 

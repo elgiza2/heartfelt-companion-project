@@ -309,7 +309,8 @@ const WithdrawPage = () => {
               onClick={submitWithdrawal}
               disabled={submittingWd || approvedMethods.length === 0 || remainingThisMonth === 0}
               className="w-full h-11 rounded-xl bg-foreground text-background text-[13.5px] font-medium disabled:opacity-40 hover:opacity-90 transition inline-flex items-center justify-center gap-2"
-            >
+      aria-label="Loader2"
+    >
               {submittingWd && <Loader2 className="w-4 h-4 animate-spin" />}
               {submittingWd
                 ? "Sending…"

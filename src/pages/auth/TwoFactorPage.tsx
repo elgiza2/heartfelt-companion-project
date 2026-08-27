@@ -210,7 +210,8 @@ const TwoFactorPage = () => {
                       boxShadow: "inset 0 0 0 1px var(--overlay-white-12)",
                       cursor: "pointer", maxWidth: "100%",
                     }}
-                  >
+      aria-label="Check"
+    >
                     <span style={{ wordBreak: "break-all", textAlign: "left" }}>{secret}</span>
                     {copied
                       ? <Check className="w-3.5 h-3.5" style={{ color: "#6ee7b7", flexShrink: 0 }} />
@@ -328,7 +329,9 @@ const TwoFactorPage = () => {
                   Or enter this key manually
                 </p>
                 <button onClick={copySecret}
-                  className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-mono bg-background/60 border border-border/70 text-foreground hover:border-foreground/40 transition-colors">
+                  className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-mono bg-background/60 border border-border/70 text-foreground hover:border-foreground/40 transition-colors"
+      aria-label="Check"
+    >
                   <span className="break-all">{secret}</span>
                   {copied ? <Check className="w-3.5 h-3.5 shrink-0 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 shrink-0 text-muted-foreground" />}
                 </button>

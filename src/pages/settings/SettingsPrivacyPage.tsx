@@ -80,7 +80,8 @@ export default function SettingsPrivacyPage() {
           onClick={handleExportData}
           disabled={isExporting}
           className="mt-3 inline-flex items-center gap-2 rounded-full bg-white/[0.08] border border-white/[0.1] px-4 py-2 text-[13px] font-medium text-foreground disabled:opacity-50"
-        >
+      aria-label="Download"
+    >
           <Download className="w-[14px] h-[14px]" />
           {isExporting ? "Exporting…" : "Export my data"}
         </button>

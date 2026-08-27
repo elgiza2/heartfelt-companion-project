@@ -198,7 +198,8 @@ export function ChatDialogs(p: ChatDialogsProps) {
               onClick={p.handleSendInviteEmail}
               disabled={p.inviteLoading || !p.inviteEmail.trim()}
               className="px-4 h-11 rounded-xl text-sm font-semibold bg-foreground text-background hover:opacity-90 transition-opacity disabled:opacity-40"
-            >
+      aria-label="Loader2"
+    >
               {p.inviteLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : tx("Invite")}
             </button>
           </div>

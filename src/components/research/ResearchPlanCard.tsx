@@ -181,7 +181,8 @@ const ResearchPlanCard = ({
                 onClick={onSubmitEdit}
                 disabled={loading || !(feedback || "").trim()}
                 className="inline-flex h-10 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-60"
-              >
+      aria-label="Tool Loader"
+    >
                 {loading ? <ToolLoader /> : "Regenerate plan"}
               </button>
               <button

@@ -181,7 +181,8 @@ export default function IntegrationDetail({ item, connected, busy, onBack, onTog
               : "bg-primary text-primary-foreground"
           }`}
           style={{ border: 0 }}
-        >
+      aria-label="Loader2"
+    >
           {busy ? (
             <Loader2 className="h-[18px] w-[18px] animate-spin" />
           ) : connected ? (

@@ -219,7 +219,8 @@ const SharedChatPage = () => {
               <button
                 onClick={copyLink}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-foreground/5 hover:bg-foreground/10 border border-border/50 text-[12px] font-medium text-foreground transition"
-              >
+      aria-label="Check"
+    >
                 {copied ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Copy className="h-3.5 w-3.5" />}
                 {copied ? tx("Copied") : tx("Copy link")}
               </button>

@@ -272,6 +272,7 @@ export function CleanButton({
         sizes[size],
         className,
       )}
+      aria-label="Loader2"
     >
       {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
       {children}
