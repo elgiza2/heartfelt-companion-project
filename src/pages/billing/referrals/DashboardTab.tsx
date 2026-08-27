@@ -1,16 +1,16 @@
-/** @doc Referrals overview — single-screen: sky hero, points balance, quick stats. */
+/** @doc Referrals overview — one screen: hero, points balance, quick stats. */
 import { useNavigate } from "react-router-dom";
-import { ArrowUpRight, Gift } from "lucide-react";
-import heroSky from "@/assets/referral/hero-sky.jpg";
+import { ArrowUpRight } from "lucide-react";
+import heroImg from "@/assets/referral/hero-sky.jpg";
 import { POINTS_PER_SIGNUP, useReferrals } from "../ReferralsPage";
 import { FALLBACK_REWARDS } from "./rewardsCatalog";
 
 const Stat = ({ label, value }: { label: string; value: string }) => (
-  <div className="rounded-[18px] border border-foreground/[0.08] bg-foreground/[0.025] px-3 py-2.5 text-center">
-    <p className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-foreground/60">
+  <div className="rounded-2xl border border-foreground/[0.08] bg-foreground/[0.02] px-4 py-3">
+    <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/50">
       {label}
     </p>
-    <p className="mt-0.5 text-[18px] font-semibold tracking-tight text-foreground">{value}</p>
+    <p className="mt-1 text-[20px] font-semibold tracking-tight text-foreground">{value}</p>
   </div>
 );
 
@@ -26,78 +26,77 @@ export default function DashboardTab() {
 
   return (
     <div className="flex h-full flex-col justify-center gap-4" data-stagger>
-      {/* Hero */}
-      <section className="text-center">
-        <div className="mx-auto overflow-hidden rounded-[24px] border border-foreground/[0.08]">
-          <img
-            src={heroSky}
-            alt="Floating gift and golden ticket in a blue sky"
-            width={1408}
-            height={768}
-            className="h-[132px] w-full object-cover sm:h-[168px]"
-          />
-        </div>
-        <h1 className="mx-auto mt-3 max-w-[480px] font-serif text-[26px] leading-[1.1] tracking-tight text-foreground sm:text-[32px]">
-          Invite friends, earn points.
-        </h1>
-        <p className="mx-auto mt-2 max-w-[400px] text-[13px] leading-relaxed text-foreground/65">
-          Every friend who joins gives you {POINTS_PER_SIGNUP} points. Spend points on a free
-          subscription.
-        </p>
-      </section>
-
-      {/* Points balance */}
-      <section className="relative overflow-hidden rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.025] p-4">
+      {/* Hero — image band with the headline set over it */}
+      <section className="relative overflow-hidden rounded-[28px] border border-foreground/[0.08]">
+        <img
+          src={heroImg}
+          alt="Golden ticket floating on a dark backdrop"
+          width={1104}
+          height={608}
+          className="h-[190px] w-full object-cover sm:h-[230px]"
+        />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(90% 120% at 100% 0%, hsl(var(--primary) / 0.14), transparent 60%)",
+              "linear-gradient(to top, hsl(var(--background) / 0.94) 8%, hsl(var(--background) / 0.55) 45%, transparent 78%)",
           }}
         />
-        <div className="relative">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-              <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/65">
-                Points balance
-              </p>
-              <div className="mt-0.5 flex items-end gap-2">
-                <span className="text-[34px] font-semibold leading-none tracking-tight text-foreground">
-                  {points}
-                </span>
-                <span className="pb-0.5 text-[12.5px] text-foreground/65">/ {goal} pts</span>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => navigate("/settings/referrals/rewards")}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-foreground/10 bg-foreground/[0.05] px-3 py-2 text-[13px] font-medium text-foreground"
-            >
-              <Gift className="h-3.5 w-3.5" />
-              Redeem
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </button>
-          </div>
-
-          <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-foreground/[0.09]">
-            <div
-              className="h-full rounded-full bg-primary transition-[width] duration-700"
-              style={{ width: `${pct}%` }}
-            />
-          </div>
-          <p className="mt-2 text-[12.5px] text-foreground/70">
-            {remaining === 0
-              ? "You can redeem a free plan now."
-              : `${remaining} points to your first plan — ${Math.ceil(remaining / POINTS_PER_SIGNUP)} more friends.`}
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <h1 className="text-[26px] font-semibold leading-[1.12] tracking-tight text-foreground sm:text-[30px]">
+            Invite friends,
+            <br />
+            earn points.
+          </h1>
+          <p className="mt-1.5 max-w-[330px] text-[13px] leading-relaxed text-foreground/65">
+            Each friend who joins gives you {POINTS_PER_SIGNUP} points — trade them for a free
+            subscription.
           </p>
         </div>
       </section>
 
+      {/* Points balance */}
+      <section className="rounded-[24px] border border-foreground/[0.08] bg-foreground/[0.02] p-5">
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-foreground/50">
+              Points balance
+            </p>
+            <div className="mt-1 flex items-end gap-2">
+              <span className="text-[38px] font-semibold leading-none tracking-tight text-foreground">
+                {points}
+              </span>
+              <span className="pb-1 text-[13px] text-foreground/50">/ {goal}</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => navigate("/settings/referrals/rewards")}
+            className="inline-flex h-10 items-center gap-1.5 rounded-full border border-foreground/12 bg-foreground/[0.04] px-4 text-[13.5px] font-medium text-foreground transition hover:bg-foreground/[0.08] active:scale-[0.98]"
+          >
+            Redeem
+            <ArrowUpRight className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-foreground/[0.08]">
+          <div
+            className="h-full rounded-full bg-foreground transition-[width] duration-700"
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+        <p className="mt-2.5 text-[12.5px] text-foreground/55">
+          {remaining === 0
+            ? "You can redeem a free plan now."
+            : `${remaining} points to go — about ${Math.ceil(remaining / POINTS_PER_SIGNUP)} more friends.`}
+        </p>
+      </section>
+
       {/* Stats */}
-      <div className="grid grid-cols-2 gap-2.5">
-        <Stat label="Friends" value={String(signups)} />
-        <Stat label="Points" value={String(points)} />
+      <div className="grid grid-cols-2 gap-3">
+        <Stat label="Friends joined" value={String(signups)} />
+        <Stat label="Points earned" value={String(points)} />
       </div>
     </div>
   );

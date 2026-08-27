@@ -36,7 +36,7 @@ export default function RewardsTab() {
   };
 
   return (
-    <div className="space-y-5 pb-4">
+    <div className="space-y-6 pb-6">
       <div className="flex items-center gap-3">
         <button
           type="button"
@@ -46,50 +46,47 @@ export default function RewardsTab() {
         >
           <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
         </button>
-        <div className="ml-auto rounded-full border border-foreground/10 bg-foreground/[0.04] px-3 py-1.5 text-[13px] font-semibold text-foreground">
+        <div className="ml-auto rounded-full border border-foreground/10 bg-foreground/[0.04] px-3.5 py-1.5 text-[13px] font-semibold text-foreground">
           {points.toLocaleString()} pts
         </div>
       </div>
 
       <header>
-        <h1 className="text-[24px] font-semibold tracking-tight text-foreground">Redeem</h1>
-        <p className="mt-1 text-[13px] text-foreground/60">
-          Spend your points on a free monthly subscription.
+        <h1 className="text-[26px] font-semibold tracking-tight text-foreground">Redeem</h1>
+        <p className="mt-1 text-[13px] text-foreground/55">
+          Spend your points on a free month of any plan.
         </p>
       </header>
 
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <ul className="space-y-3">
         {shown.map((r) => {
           const left = Math.max(0, r.stock_total - r.stock_claimed);
           const affordable = points >= r.points_cost && left > 0;
           return (
             <li
               key={r.slug}
-              className="overflow-hidden rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.02]"
+              className="flex items-center gap-4 rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.02] p-3"
             >
               <img
                 src={planImage(r)}
-                alt={`${planKey(r)} subscription reward`}
+                alt={`${planKey(r)} plan`}
                 width={1024}
                 height={640}
                 loading="lazy"
-                className="h-[132px] w-full object-cover"
+                className="h-[74px] w-[104px] shrink-0 rounded-2xl object-cover"
               />
-              <div className="p-4">
-                <p className="text-[16px] font-semibold capitalize text-foreground">
-                  {planKey(r)}{" "}
-                  <span className="text-[12.5px] font-medium text-foreground/55">
-                    · {periodLabel(r.billing_period)}
-                  </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[15.5px] font-semibold capitalize leading-tight text-foreground">
+                  {planKey(r)}
                 </p>
-                <p className="mt-1 text-[13px] text-foreground/60">
-                  {r.points_cost.toLocaleString()} pts
+                <p className="mt-0.5 text-[12.5px] text-foreground/55">
+                  {periodLabel(r.billing_period)} · {r.points_cost.toLocaleString()} pts
                 </p>
                 <button
                   type="button"
                   onClick={() => redeem(r.slug)}
                   disabled={!affordable || busy === r.slug}
-                  className="mt-3 inline-flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-[13.5px] font-semibold text-primary-foreground transition disabled:cursor-not-allowed disabled:bg-foreground/[0.07] disabled:text-foreground/55"
+                  className="mt-2 inline-flex h-9 items-center justify-center rounded-full bg-foreground px-4 text-[13px] font-semibold text-background transition active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-foreground/[0.07] disabled:text-foreground/50"
                 >
                   {left === 0
                     ? "Sold out"
