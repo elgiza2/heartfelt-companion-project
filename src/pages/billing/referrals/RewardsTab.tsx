@@ -1,10 +1,16 @@
 /** @doc Redemption page — a clean, uncluttered list of subscription rewards. */
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Check, Lock } from "lucide-react";
-import redeemSky from "@/assets/referral/redeem-sky.jpg";
+import { ArrowLeft } from "lucide-react";
+import { goBackOr } from "@/lib/navigation";
 import { useReferrals } from "../ReferralsPage";
-import { FALLBACK_REWARDS, type CatalogRow, periodLabel, planKey } from "./rewardsCatalog";
+import {
+  FALLBACK_REWARDS,
+  type CatalogRow,
+  periodLabel,
+  planImage,
+  planKey,
+} from "./rewardsCatalog";
 
 export default function RewardsTab() {
   const navigate = useNavigate();
@@ -15,7 +21,7 @@ export default function RewardsTab() {
   const shown = useMemo(
     () =>
       [...list]
-        .filter((r) => (r.category ?? "plan") === "plan")
+        .filter((r) => (r.category ?? "plan") === "plan" && r.billing_period !== "yearly")
         .sort((a, b) => a.points_cost - b.points_cost),
     [list],
   );
@@ -30,76 +36,70 @@ export default function RewardsTab() {
   };
 
   return (
-    <div className="space-y-4 pb-4">
-      <button
-        type="button"
-        onClick={() => navigate("/settings/referrals")}
-        className="inline-flex h-10 items-center gap-1.5 rounded-xl border border-foreground/10 bg-foreground/[0.04] px-3 text-[13px] font-medium text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Back
-      </button>
-
-      {/* Balance */}
-      <section className="overflow-hidden rounded-[22px] border border-foreground/[0.08]">
-        <img
-          src={redeemSky}
-          alt="Floating crown and points in a blue sky"
-          width={1408}
-          height={768}
-          loading="lazy"
-          className="h-[120px] w-full object-cover"
-        />
-        <div className="px-4 py-3.5">
-          <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-foreground/60">
-            Your points
-          </p>
-          <p className="mt-0.5 text-[32px] font-semibold leading-none tracking-tight text-foreground">
-            {points}
-          </p>
+    <div className="space-y-5 pb-4">
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={() => goBackOr(navigate, "/settings/referrals")}
+          aria-label="Back"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:bg-accent active:scale-95"
+        >
+          <ArrowLeft className="h-[17px] w-[17px]" strokeWidth={2.2} />
+        </button>
+        <div className="ml-auto rounded-full border border-foreground/10 bg-foreground/[0.04] px-3 py-1.5 text-[13px] font-semibold text-foreground">
+          {points.toLocaleString()} pts
         </div>
-      </section>
+      </div>
 
-      {/* Catalogue — one clean row per plan */}
-      <ul className="divide-y divide-foreground/[0.07] overflow-hidden rounded-[22px] border border-foreground/[0.08]">
+      <header>
+        <h1 className="text-[24px] font-semibold tracking-tight text-foreground">Redeem</h1>
+        <p className="mt-1 text-[13px] text-foreground/60">
+          Spend your points on a free monthly subscription.
+        </p>
+      </header>
+
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {shown.map((r) => {
           const left = Math.max(0, r.stock_total - r.stock_claimed);
           const affordable = points >= r.points_cost && left > 0;
           return (
-            <li key={r.slug} className="flex items-center gap-3 px-4 py-3.5">
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-[15px] font-semibold capitalize text-foreground">
+            <li
+              key={r.slug}
+              className="overflow-hidden rounded-[22px] border border-foreground/[0.08] bg-foreground/[0.02]"
+            >
+              <img
+                src={planImage(r)}
+                alt={`${planKey(r)} subscription reward`}
+                width={1024}
+                height={640}
+                loading="lazy"
+                className="h-[132px] w-full object-cover"
+              />
+              <div className="p-4">
+                <p className="text-[16px] font-semibold capitalize text-foreground">
                   {planKey(r)}{" "}
                   <span className="text-[12.5px] font-medium text-foreground/55">
                     · {periodLabel(r.billing_period)}
                   </span>
                 </p>
-                <p className="mt-0.5 text-[12.5px] text-foreground/60">
+                <p className="mt-1 text-[13px] text-foreground/60">
                   {r.points_cost.toLocaleString()} pts
                 </p>
+                <button
+                  type="button"
+                  onClick={() => redeem(r.slug)}
+                  disabled={!affordable || busy === r.slug}
+                  className="mt-3 inline-flex h-10 w-full items-center justify-center rounded-xl bg-primary px-4 text-[13.5px] font-semibold text-primary-foreground transition disabled:cursor-not-allowed disabled:bg-foreground/[0.07] disabled:text-foreground/55"
+                >
+                  {left === 0
+                    ? "Sold out"
+                    : busy === r.slug
+                      ? "Redeeming…"
+                      : affordable
+                        ? "Redeem"
+                        : `${(r.points_cost - points).toLocaleString()} pts to go`}
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => redeem(r.slug)}
-                disabled={!affordable || busy === r.slug}
-                className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl bg-primary px-3.5 text-[13px] font-semibold text-primary-foreground transition disabled:cursor-not-allowed disabled:bg-foreground/[0.07] disabled:text-foreground/55"
-              >
-                {left === 0 ? (
-                  "Sold out"
-                ) : busy === r.slug ? (
-                  "Redeeming…"
-                ) : affordable ? (
-                  <>
-                    <Check className="h-4 w-4" />
-                    Redeem
-                  </>
-                ) : (
-                  <>
-                    <Lock className="h-3.5 w-3.5" />
-                    {(r.points_cost - points).toLocaleString()} pts to go
-                  </>
-                )}
-              </button>
             </li>
           );
         })}
