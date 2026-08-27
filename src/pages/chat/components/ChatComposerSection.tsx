@@ -100,7 +100,7 @@ export function ChatComposerSection(props: ChatComposerSectionProps) {
   // service. They come back when the service X button clears the mode.
   const composerInputText = String((composerAnimatedInputProps as any)?.input ?? "");
   const starterChipsVisible =
-    isEmpty && !hasActiveService && !inputFocused && composerInputText.trim().length === 0;
+    isEmpty && !hasActiveService && composerInputText.trim().length === 0;
 
 
 

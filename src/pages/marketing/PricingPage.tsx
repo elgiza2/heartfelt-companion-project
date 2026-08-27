@@ -644,7 +644,7 @@ const PricingPage = () => {
       `}</style>
 
       {/* ============================ HERO ============================ */}
-      <section className="relative w-full overflow-hidden min-h-[68vh] md:min-h-[78vh] flex flex-col">
+      <section className="relative w-full overflow-hidden min-h-[68vh] md:min-h-[52vh] flex flex-col">
         {/* Warm gradient poster shown while the hero video streams in */}
         <div
           aria-hidden

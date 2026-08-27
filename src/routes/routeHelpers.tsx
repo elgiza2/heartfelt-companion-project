@@ -35,6 +35,7 @@ const SkeletonBar = ({ className = "" }: { className?: string }) => (
 export const LazyFallback = () => {
   const location = useLocation();
   const isChatRoute =
+    location.pathname === "/" ||
     location.pathname === "/chat" ||
     location.pathname === "/index" ||
     location.pathname === "/showcase";
